@@ -38,7 +38,7 @@ let jawImage = new Image(14000,600);
 jawImage.src = "../img/teeth.png";
 
 let fallImage = new Image(14000,600);
-fallImage.src = "../img/fall.png";
+fallImage.src = "../img/new_fall.png";
 
 let ticklingImage = new Image(14000,600);
 ticklingImage.src = "../img/tickling.png";
@@ -90,7 +90,7 @@ const leftHandRenderObject = new RenderObject (leftHand, 3);
 const rightHandRenderObject = new RenderObject (rightHand, 3);
 const bellyRenderObject = new RenderObject (bellyImage, 2);
 const jawRenderObject = new RenderObject (jawImage, 2);
-const fallRenderObject = new RenderObject (fallImage, 5);
+const fallRenderObject = new RenderObject (fallImage, 6);
 const ticklingRenderObject = new RenderObject (ticklingImage, 3);
 
 setInterval (() => {
