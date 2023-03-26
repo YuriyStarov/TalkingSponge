@@ -1,0 +1,52 @@
+html, body {
+    width: 1000px;
+    height: 700px;
+    margin: 0;
+    font-size: 0;
+    overflow: hidden;
+}
+
+
+#gameMenu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 1000px;
+    height: 700px;
+    background-image: url(../img/gameMenuPaper.jpg);
+}
+
+.buttonsGame {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 250px;
+    color: orange;
+    background-color: transparent;
+    border: orange solid 2px;
+    border-radius: 10%;
+}
+
+#krubsBurgerGame {
+    left: 200px;
+}
+
+#snakeGame {
+    left: 460px;
+}
+
+#puzzlesGame {
+    left: 720px;
+}
+
+#backToPlayroom {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 30px;
+    left: 930px;
+    color: orange;
+    background-color: transparent;
+    border: orange solid 2px;
+    border-radius: 10%;
+}

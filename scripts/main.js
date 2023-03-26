@@ -131,7 +131,7 @@ if (renderObject.countFrame > renderObject.lastFrame) {
 
 function fallCounter () {
   counters.countFall += 1;
-  if (counters.countFall >= 5) {
+  if (counters.countFall === 5) {
     setTimeout (() => {allGame(fallRenderObject);}, 500);
     counters.countFall = 0;
     bobAudio6.play();
