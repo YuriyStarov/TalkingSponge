@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script type="module" src="./public/createBob.js"></script>
+    <script type="module" src="./public/createBurgers.js"></script>
+    <script type="module" src="./public/createPatrick.js"></script>
+    <script type="module" src="./public/control.js"></script>
+    <script type="module" src="./public/eatPatrick.js"></script>
+    <script type="module" src="./public/rendering.js"></script>
+    <title>Mini-Play!</title>
+</head>
+<body>
+    <audio src="./audio/funny.mp3" id="funny_music" loop></audio>
+    <audio src="./audio/end.mp3" id="the_end"></audio>
+    <audio src="./audio/bulka.mp3" id="bun"></audio>
+    <audio src="./audio/bowww.mp3" id="bed_eat"></audio>
+    <audio src="./audio/life.mp3" id="life_minus"></audio>
+    <audio src="./audio/nyam.mp3" id="good_eat"></audio>
+    <main>
+        <div id="left">← PUSH</div>
+        <div id="right">PUSH →</div>
+        <div id="eatBurgers">Om-Nom-nom</div>
+        <div id="countBurgers">0</div>
+        <div id="life">❤❤❤</div>
+        <canvas height="700" id="canvas" width="1000"></canvas>
+        <div id="bonus"></div>
+        <img src="./img/crystal.png" alt="no" id="crystalBonus">
+        <button id="startGame">START</button>
+        <button id="restartGame">RESTART</button>
+    </main>
+</body>
+</html>

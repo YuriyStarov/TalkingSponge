@@ -1,0 +1,85 @@
+html, body {
+    width: 1000px;
+    height: 700px;
+    margin: 0;
+    font-size: 0;
+  /*  overflow: hidden;*/
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url(../img/krustyKrab.jpg);
+    background-size: 100% 100%;
+}
+
+canvas {
+    position: absolute;
+}
+
+div {
+    position: absolute;
+    top: 100px;
+    width: 200px;
+    height: 60px;
+    font-size: 46px;
+    color: beige;
+}
+
+#left {
+    left: 0;
+}
+
+#right {
+    left: 800px;
+}
+
+#eatBurgers {
+    left: 200px;
+    color: blue;
+    text-align: end;
+    width: 300px;
+}
+
+#countBurgers {
+    left: 500px;
+    color: blue;
+    text-align: center;
+    width: 100px;
+}
+
+#life {
+    left: 600px;
+    color: red;
+}
+
+#bonus {
+    left: 425px;
+    top: 300px;
+    width: 100px;
+    text-align: center;
+}
+
+img {
+    position: absolute;
+    width: 50px;
+    height: 71px;
+    top: 290px;
+    left: 530px;
+    display: none;
+}
+
+button {
+    position: absolute;
+    top: 380px;
+    left: 425px;
+    color: beige;
+    width: 200px;
+    height: 60px;
+    font-size: 40px;
+    border: 2px solid beige;
+    border-radius: 10px;
+    background-color: transparent;
+    display: none;
+}
