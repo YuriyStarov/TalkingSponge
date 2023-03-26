@@ -68,30 +68,30 @@ const counters = {
 
 };
 
-function RenderObject (image, frequencyFrame, repeatSprite) {
+function RenderObject (image, frequencyFrame) {
 
   this.image = image;
   this.countFrame = 0;
   this.countEnd = 1;
   this.frequencyFrame = frequencyFrame;
   this.lastFrame = 13500;
-  this.repeatSprite = repeatSprite;
+  this.repeatSprite = frequencyFrame*20 + 1;
   this.frameWidth = 700;
   
 };
 
-const blinkingRenderObject = new RenderObject (blinking, 1, 21);
-const yawningRenderObject = new RenderObject (yawning, 4, 81);
-const leftLegRenderObject = new RenderObject (leftLeg, 3, 61);
-const rightLegRenderObject = new RenderObject (rightLeg, 3, 61);
-const leftEyeRenderObject = new RenderObject (leftEyes, 2, 41);
-const rightEyeRenderObject = new RenderObject (rightEyes, 2, 41);
-const leftHandRenderObject = new RenderObject (leftHand, 3, 61);
-const rightHandRenderObject = new RenderObject (rightHand, 6, 61);
-const bellyRenderObject = new RenderObject (bellyImage, 2, 41);
-const jawRenderObject = new RenderObject (jawImage, 2, 41);
-const fallRenderObject = new RenderObject (fallImage, 5, 101);
-const ticklingRenderObject = new RenderObject (ticklingImage, 3, 61);
+const blinkingRenderObject = new RenderObject (blinking, 1);
+const yawningRenderObject = new RenderObject (yawning, 4);
+const leftLegRenderObject = new RenderObject (leftLeg, 3);
+const rightLegRenderObject = new RenderObject (rightLeg, 3);
+const leftEyeRenderObject = new RenderObject (leftEyes, 2);
+const rightEyeRenderObject = new RenderObject (rightEyes, 2);
+const leftHandRenderObject = new RenderObject (leftHand, 3);
+const rightHandRenderObject = new RenderObject (rightHand, 3);
+const bellyRenderObject = new RenderObject (bellyImage, 2);
+const jawRenderObject = new RenderObject (jawImage, 2);
+const fallRenderObject = new RenderObject (fallImage, 5);
+const ticklingRenderObject = new RenderObject (ticklingImage, 3);
 
 setInterval (() => {
   allGame(blinkingRenderObject);
