@@ -1,7 +1,7 @@
 import { ctx , playPatrick, imageElements } from "./rendering.js";
 
 let patrickImage: HTMLImageElement = new Image(250 , 272);
-patrickImage.src = "../img/star.png";
+patrickImage.src = "../miniPlay/starOff/img/star.png";
 imageElements.push(patrickImage);
 
 class Patrick {

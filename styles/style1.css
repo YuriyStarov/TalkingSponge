@@ -4,6 +4,7 @@ html, body {
     margin: 0;
     font-size: 0;
     overflow: hidden;
+    position: relative;
 }
 
 main {
@@ -138,5 +139,7 @@ canvas {
     background-color: transparent;
     border: beige solid 2px;
     border-radius: 50%;
-
 }
+
+
+

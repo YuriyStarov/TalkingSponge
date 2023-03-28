@@ -1,7 +1,7 @@
 import { ctx, playBob, imageElements } from "./rendering.js";
 
 let bobImage: HTMLImageElement = new Image(300 , 315);
-bobImage.src = "../img/spongeBurger.png";
+bobImage.src = "../miniPlay/starOff/img/spongeBurger.png";
 imageElements.push(bobImage);
 
 class Bob {

@@ -3,11 +3,11 @@ import { ctx, collectionBurgers, bobPosition, intervals, allAudio, gameEnd, butt
 let speedBurger: number = 3000;
 
 let burgerImage: HTMLImageElement = new Image(60 , 50);
-burgerImage.src = "../img/burger.png";
+burgerImage.src = "../miniPlay/starOff/img/burger.png";
 imageElements.push(burgerImage);
 
 let seaUrchin: HTMLImageElement = new Image(60 , 50);
-seaUrchin.src = "../img/seaUrchin.png";
+seaUrchin.src = "../miniPlay/starOff/img/seaUrchin.png";
 imageElements.push(seaUrchin);
 
 class Burger {

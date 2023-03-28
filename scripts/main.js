@@ -52,6 +52,10 @@ let bobAudio5 = document.getElementById ('jaw_music');
 let bobAudio6 = document.getElementById ('fall_music');
 let bobAudio7 = document.getElementById ('tickling_music');
 
+const audioArray = [];
+
+audioArray.push (bobAudio0);
+
 let reactionLegLeft = document.getElementById ('left_leg');
 let reactionLegRight = document.getElementById ('right_leg');
 let reactionHandLeft = document.getElementById ('left_hand');
@@ -75,7 +79,7 @@ function RenderObject (image, frequencyFrame) {
   this.countEnd = 1;
   this.frequencyFrame = frequencyFrame;
   this.lastFrame = 13500;
-  this.repeatSprite = frequencyFrame*20 + 1;
+  this.repeatSprite = frequencyFrame*20 +1;
   this.frameWidth = 700;
   
 };
@@ -90,7 +94,7 @@ const leftHandRenderObject = new RenderObject (leftHand, 3);
 const rightHandRenderObject = new RenderObject (rightHand, 3);
 const bellyRenderObject = new RenderObject (bellyImage, 2);
 const jawRenderObject = new RenderObject (jawImage, 2);
-const fallRenderObject = new RenderObject (fallImage, 6);
+const fallRenderObject = new RenderObject (fallImage, 5);
 const ticklingRenderObject = new RenderObject (ticklingImage, 3);
 
 setInterval (() => {
@@ -196,3 +200,5 @@ reactionJaw.addEventListener ('click', () => {
   bobAudio5.play();
   counters.countYawn = 0;
 });
+
+export {audioArray};

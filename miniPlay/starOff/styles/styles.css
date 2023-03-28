@@ -1,9 +1,9 @@
-html, body {
+/*html, body {
     width: 1000px;
     height: 700px;
     margin: 0;
     font-size: 0;
-  /*  overflow: hidden;*/
+    overflow: hidden;
 }
 
 main {
@@ -12,13 +12,9 @@ main {
     position: relative;
     background-image: url(../img/krustyKrab.jpg);
     background-size: 100% 100%;
-}
+}*/
 
-canvas {
-    position: absolute;
-}
-
-div {
+.tableBurger {
     position: absolute;
     top: 100px;
     width: 200px;
@@ -26,6 +22,20 @@ div {
     font-size: 46px;
     color: beige;
 }
+
+#iframeGame1 {
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    background-image: url(../img/krustyKrab.jpg);
+    display: none;
+}
+
+/*canvas {
+    position: absolute;
+}*/
+
+
 
 #left {
     left: 0;
@@ -61,7 +71,7 @@ div {
     text-align: center;
 }
 
-img {
+#crystalBonus {
     position: absolute;
     width: 50px;
     height: 71px;
@@ -70,7 +80,7 @@ img {
     display: none;
 }
 
-button {
+.startRestart {
     position: absolute;
     top: 380px;
     left: 425px;

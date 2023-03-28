@@ -1,10 +1,10 @@
-html, body {
+/*html, body {
     width: 1000px;
     height: 700px;
     margin: 0;
     font-size: 0;
     overflow: hidden;
-}
+}*/
 
 
 #gameMenu {
@@ -14,6 +14,7 @@ html, body {
     width: 1000px;
     height: 700px;
     background-image: url(../img/gameMenuPaper.jpg);
+    display: none;
 }
 
 .buttonsGame {

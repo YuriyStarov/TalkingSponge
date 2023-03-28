@@ -5,18 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style1.css">
+    <link rel="stylesheet" href="./styles/miniGamesMenu.css">
+    <link rel="stylesheet" href="./miniPlay/starOff/styles/styles.css">
+    <script type="module" src="./scripts/buttonsControl.js"></script>
     <script type="module" src="./scripts/pinata.js"></script>
     <script type="module" src="./scripts/gift.js"></script>
+    <script type="module" src="./scripts/buttonMenu.js"></script>
     <script type="module" src="./scripts/main.js"></script>
-    <script src="volumeControl.js"></script>
+    <script type="module" src="./miniPlay/starOff/public/rendering.js"></script>
+    <script type="module" src="./miniPlay/starOff/public/createBob.js"></script>
+    <script type="module" src="./miniPlay/starOff/public/createBurgers.js"></script>
+    <script type="module" src="./miniPlay/starOff/public/createPatrick.js"></script>
+    <script type="module" src="./miniPlay/starOff/public/control.js"></script>
+    <script type="module" src="./miniPlay/starOff/public/eatPatrick.js"></script>
     <title>Bob`s playroom</title>
 </head>
 <body>
-    <label>
-        Volume: <span id="volumeValue">1</span>
-        <input id="volume" type="range" min="0" max="1" value="0" step="0.01">
-      </label>
-    <main>
+    <main id="mainGrand">
         <audio src="./audio/voiceBob.m4a" id="main_music"></audio>
         <audio src="./audio/yawn.mp3" id="yawn_music"></audio>
         <audio src="./audio/voiceBobInEye.m4a" id="eyes_music"></audio>
@@ -42,10 +47,34 @@
         <div id="pinataReaction"></div>
         <button id="toMarket" class="buttonMenu"></button>
         <button id="toPlayroom" class="buttonMenu"></button>
-        <button id="toMiniGame" onclick="window.location.href = './indexes/miniGamesMenu.html';"></button>
+        <button id="toMiniGame"></button>
         <button id="toBathroom" class="buttonMenu"></button>
         <button id="toKitchen" class="buttonMenu"></button>
         <button id="toBedroom" class="buttonMenu"></button>
     </main>
+    <div id="gameMenu">
+        <button id="backToPlayroom"></button>
+        <button id="krubsBurgerGame" class="buttonsGame"></button>
+        <button id="snakeGame" class="buttonsGame"></button>
+        <button id="puzzlesGame" class="buttonsGame"></button>
+    </div>
+    <div id="iframeGame1">
+        <audio src="./miniPlay/starOff/audio/funny.mp3" id="funny_music" loop></audio>
+        <audio src="./miniPlay/starOff/audio/end.mp3" id="the_end"></audio>
+        <audio src="./miniPlay/starOff/audio/bulka.mp3" id="bun"></audio>
+        <audio src="./miniPlay/starOff/audio/bowww.mp3" id="bed_eat"></audio>
+        <audio src="./miniPlay/starOff/audio/life.mp3" id="life_minus"></audio>
+        <audio src="./miniPlay/starOff/audio/nyam.mp3" id="good_eat"></audio>
+        <div id="left" class="tableBurger">← PUSH</div>
+        <div id="right" class="tableBurger">PUSH →</div>
+        <div id="eatBurgers" class="tableBurger">Om-Nom-nom</div>
+        <div id="countBurgers" class="tableBurger">0</div>
+        <div id="life" class="tableBurger">❤❤❤</div>
+        <canvas height="700" id="canvasBurger" width="1000"></canvas>
+        <div id="bonus" class="tableBurger"></div>
+        <img src="./miniPlay/starOff/img/crystal.png" alt="no" id="crystalBonus">
+        <button id="startGame" class="startRestart">START</button>
+        <button id="restartGame" class="startRestart">RESTART</button>
+    </div>
 </body>
 </html>
