@@ -27,10 +27,10 @@ const newBun = document.getElementById('bun');
 allAudio.push(newBun);
 const minusLife = document.getElementById('life_minus');
 allAudio.push(minusLife);
-let canvas = document.getElementById('canvas');
-let ctx = canvas.getContext("2d");
-let widthCtx = canvas.width;
-let heightCtx = canvas.height;
+let canvasBurger = document.getElementById('canvasBurger');
+let ctx = canvasBurger.getContext("2d");
+let widthCtx = canvasBurger.width;
+let heightCtx = canvasBurger.height;
 function allRender() {
     if (gameEnd[0]) {
         ctx.clearRect(0, 0, widthCtx, heightCtx);
