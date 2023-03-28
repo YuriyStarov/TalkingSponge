@@ -141,5 +141,10 @@ canvas {
     border-radius: 50%;
 }
 
-
-
+#giftReaction {
+    width: 120px;
+    height: 80px;
+    position: absolute;
+    top: 470px;
+    left: 640px;
+}

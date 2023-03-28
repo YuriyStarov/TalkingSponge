@@ -9,12 +9,22 @@ const iframeGame1 = document.getElementById ('iframeGame1');
 const iframeGame2 = document.getElementById ('iframeGame2');
 const volume1 = document.getElementById ('gift_music');
 const volume2 = document.getElementById ('yawn_music');
+const giftReaction = document.getElementById ('giftReaction');
+const pageOfFortune = document.getElementById ('pageOfFortune');
+const backToPlay = document.getElementById ('backToPlay');
 
 toMiniGame.addEventListener ('click', () => {
     volume1.volume = 0;
     volume2.volume = 0;
     mainGrand.style.display = 'none';
     gameMenu.style.display = 'block';
+});
+
+giftReaction.addEventListener ('click', () => {
+    volume1.volume = 0;
+    volume2.volume = 0;
+    mainGrand.style.display = 'none';
+    pageOfFortune.style.display = 'block';
 });
 
 toBurgerGame.addEventListener ('click', () => {
@@ -31,6 +41,13 @@ backToPlayroom.addEventListener ('click', () => {
     volume1.volume = 1;
     volume2.volume = 1;
     gameMenu.style.display = 'none';
+    mainGrand.style.display = 'block';
+});
+
+backToPlay.addEventListener ('click', () => {
+    volume1.volume = 1;
+    volume2.volume = 1;
+    pageOfFortune.style.display = 'none';
     mainGrand.style.display = 'block';
 });
 

@@ -8,7 +8,7 @@ let heightCtx = canvas.height;
 let blinking = new Image(14000,600);
 blinking.src = "../img/blink.png";
 
-setTimeout (() => {ctx.drawImage(blinking, 0, 0, 700, 600, 200, 130, 500, 500);},500);
+setTimeout (() => {ctx.drawImage(blinking, 0, 0, 700, 600, 200, 130, 500, 500);},1000);
 
 let yawning = new Image(14000,600);
 yawning.src = "../img/yawn.png";
