@@ -91,7 +91,7 @@ const rightHandRenderObject = new RenderObject (rightHand, 3);
 const bellyRenderObject = new RenderObject (bellyImage, 2);
 const jawRenderObject = new RenderObject (jawImage, 2);
 const fallRenderObject = new RenderObject (fallImage, 5);
-const ticklingRenderObject = new RenderObject (ticklingImage, 3);
+const ticklingRenderObject = new RenderObject (ticklingImage, 2);
 
 setInterval (() => {
   allGame(blinkingRenderObject);
@@ -183,17 +183,37 @@ reactionHandRight.addEventListener ('click', () => {
   counters.countYawn = 0;
 });
 
-reactionBelly.addEventListener ('click', () => {
+reactionBelly.addEventListener ('mousedown', () => {
   allGame(bellyRenderObject);
   fallCounter();
   bobAudio4.play();
   counters.countYawn = 0;
 });
 
-reactionJaw.addEventListener ('click', () => {
+reactionJaw.addEventListener ('mousedown', () => {
   allGame(jawRenderObject);
   fallCounter(); 
   bobAudio5.play();
   counters.countYawn = 0;
 });
+
+
+reactionBelly.addEventListener ('mousemove',(event) => {
+    if (event.buttons === 1) {
+    allGame(ticklingRenderObject);
+    bobAudio7.play();
+    counters.countYawn = 0;
+  };
+});
+
+reactionJaw.addEventListener ('mousemove',(event) => {
+  if (event.buttons === 1) {
+  allGame(ticklingRenderObject);
+  bobAudio7.play();
+  counters.countYawn = 0;
+};
+});
+
+  
+
 
