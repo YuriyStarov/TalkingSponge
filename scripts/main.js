@@ -52,10 +52,6 @@ let bobAudio5 = document.getElementById ('jaw_music');
 let bobAudio6 = document.getElementById ('fall_music');
 let bobAudio7 = document.getElementById ('tickling_music');
 
-const audioArray = [];
-
-audioArray.push (bobAudio0);
-
 let reactionLegLeft = document.getElementById ('left_leg');
 let reactionLegRight = document.getElementById ('right_leg');
 let reactionHandLeft = document.getElementById ('left_hand');
@@ -201,4 +197,3 @@ reactionJaw.addEventListener ('click', () => {
   counters.countYawn = 0;
 });
 
-export {audioArray};
