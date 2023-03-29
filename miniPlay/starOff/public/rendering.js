@@ -14,9 +14,11 @@ let allAudio = [];
 let buttons = [];
 const startGame = document.getElementById('startGame');
 buttons.push(startGame);
-setTimeout(() => { startGame.style.display = 'block'; }, 2500);
 const restartGame = document.getElementById('restartGame');
 buttons.push(restartGame);
+const backToMiniGameMenu = document.getElementById('backToMiniGameMenu');
+buttons.push(backToMiniGameMenu);
+setTimeout(() => { startGame.style.display = 'block'; backToMiniGameMenu.style.display = 'block';}, 2500);
 const mainMusic = document.getElementById('funny_music');
 const gameOver = document.getElementById('the_end');
 const goodEat = document.getElementById('good_eat');
@@ -54,6 +56,7 @@ function allRender() {
         bonus.textContent = '+ ' + String(numBonus);
         crystalBonus.style.display = 'block';
         buttons[1].style.display = 'block';
+        buttons[2].style.display = 'block';
     }
     ;
 }
@@ -61,6 +64,7 @@ function allRender() {
 buttons[0].addEventListener('click', () => {
     mainMusic.play();
     buttons[0].style.display = 'none';
+    buttons[2].style.display = 'none';
     allRender();
 });
 buttons[1].addEventListener('click', () => {
@@ -73,6 +77,7 @@ buttons[1].addEventListener('click', () => {
     counter.textContent = '0';
     gameStatistic[0].countBurgers = 0;
     buttons[1].style.display = 'none';
+    buttons[2].style.display = 'none';
     mainMusic.play();
     allRender();
 });
