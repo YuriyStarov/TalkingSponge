@@ -1,3 +1,3 @@
 import { Game } from "./Game.js";
-const canvas = document.getElementById("canvas");
-const game = new Game(canvas);
+const canvasSnake = document.getElementById("canvasSnake");
+const game = new Game(canvasSnake);

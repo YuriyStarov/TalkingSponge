@@ -1,9 +1,10 @@
-html,body{
-    width: 100%;
-    height: 100%;
-    margin: 0;
+#iframeGame2{
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    display: none;
 }
-canvas{
+#canvasSnake{
     position: absolute;
     left: 50%;
     top: 50%;
