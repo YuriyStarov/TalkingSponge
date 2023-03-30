@@ -1,0 +1,16 @@
+{
+"compilerOptions": {
+    "target": "ES2016",
+    "module": "ES2015",
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "strict": true,
+    "watch": true
+},
+// "include": [
+//     "src/**/*"
+// ],
+// "exclude": [
+//     "node_modules"
+// ]
+}
