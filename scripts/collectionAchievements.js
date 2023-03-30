@@ -1,3 +1,6 @@
+const countCoins = document.getElementById ('countCoins');
+const countCrystal = document.getElementById ('countCrystal');
+
 const collectionBonuses = {
 
     coins: 0,
@@ -19,5 +22,7 @@ const collectionBonuses = {
 
 };
 
+countCoins.textContent = collectionBonuses.coins;
+countCrystal.textContent = collectionBonuses.crystal;
 
 export {collectionBonuses};
