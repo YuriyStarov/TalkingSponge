@@ -141,6 +141,39 @@ canvas {
     border-radius: 50%;
 }
 
+#lineWithList {
+    position: absolute;
+    top: 146px;
+    left: 895px;
+}
+
+#marketIcon {
+    position: relative;
+    top: 3px;
+}
+
+#consoleIcon {
+    position: relative;
+    top: -6px;
+    left: -8px;
+}
+
+#playroomIcon {
+    position: relative;
+    top: -4px;
+    left: -7px;
+}
+
+#kitchenIcon {
+    position: relative;
+    left: -2px;
+}
+
+#bedroomIcon {
+    position: relative;
+    top: -3px;
+}
+
 #giftReaction {
     width: 120px;
     height: 80px;
