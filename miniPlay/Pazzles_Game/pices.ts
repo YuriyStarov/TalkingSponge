@@ -9,8 +9,8 @@ interface Piece {
     flag: boolean;
 }
 
-const rows = 2;
-const columns = 2;
+const rows = 3;
+const columns = 3;
 
 const pazzleImg = ["SP_pazzle_1.jpg", "SP_pazzle_2.jpg", "SP_pazzle_3.jpg", "SP_pazzle_4.jpg"]
 
@@ -173,7 +173,7 @@ canvasPuzzles.addEventListener('mouseup', function (event: MouseEvent) {
   });
 
 export function draw(): void {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvasPuzzles.width, canvasPuzzles.height);
 
   for (let i = 0; i < pieces.length; i++) {
     const piece = pieces[i];

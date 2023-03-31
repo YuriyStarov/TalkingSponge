@@ -21,7 +21,7 @@ function start(): void {
         loop();
     }
     window.onresize = resize;
-    wrapper.appendChild(canvas);
+    wrapper.appendChild(canvasPuzzles);
 }
 
 function loop(): void{
@@ -29,7 +29,6 @@ function loop(): void{
   for (const piece of pieces) {
     if(piece.flag){
       sum+=1;
-      console.log(sum)
     }
   }
   if(sum !== pieces.length){
