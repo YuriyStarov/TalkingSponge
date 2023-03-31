@@ -1,4 +1,4 @@
-import { canvas, ctx } from "./canvas.js";
+import { canvasPuzzles, ctx } from "./canvas.js";
 import { moveImg } from "./dragImg.js";
 import { pieces, draw } from "./pices.js";
 const desc = document.querySelector('.discription');
@@ -11,12 +11,12 @@ function start() {
     btn === null || btn === void 0 ? void 0 : btn.remove();
     bg === null || bg === void 0 ? void 0 : bg.remove();
     function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvasPuzzles.width = window.innerWidth;
+        canvasPuzzles.height = window.innerHeight;
         loop();
     }
     window.onresize = resize;
-    wrapper.appendChild(canvas);
+    wrapper.appendChild(canvasPuzzles);
 }
 function loop() {
     let sum = 0;

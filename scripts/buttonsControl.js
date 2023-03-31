@@ -2,11 +2,13 @@
 const backToPlayroom = document.getElementById ('backToPlayroom');
 const toMiniGame = document.getElementById ('toMiniGame');
 const toBurgerGame = document.getElementById ('krubsBurgerGame');
-const snakeGame = document.getElementById ('snakeGame')
+const snakeGame = document.getElementById ('snakeGame');
+const puzzlesGame = document.getElementById ('puzzlesGame');
 const mainGrand = document.getElementById ('mainGrand');
 const gameMenu = document.getElementById ('gameMenu');
 const iframeGame1 = document.getElementById ('iframeGame1');
 const iframeGame2 = document.getElementById ('iframeGame2');
+const iframeGame3 = document.getElementById ('iframeGame3');
 const volume1 = document.getElementById ('gift_music');
 const volume2 = document.getElementById ('yawn_music');
 const giftReaction = document.getElementById ('giftReaction');
@@ -36,6 +38,11 @@ toBurgerGame.addEventListener ('click', () => {
 snakeGame.addEventListener ('click', () => {
     gameMenu.style.display = 'none';
     iframeGame2.style.display = 'block';
+});
+
+puzzlesGame.addEventListener ('click', () => {
+    gameMenu.style.display = 'none';
+    iframeGame3.style.display = 'block';
 });
 
 backToPlayroom.addEventListener ('click', () => {

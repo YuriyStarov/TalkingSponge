@@ -1,13 +1,13 @@
-import { canvas, ctx } from "./canvas.js";
+import { canvasPuzzles, ctx } from "./canvas.js";
 const rows = 2;
 const columns = 2;
 const pazzleImg = ["SP_pazzle_1.jpg", "SP_pazzle_2.jpg", "SP_pazzle_3.jpg", "SP_pazzle_4.jpg"];
 const image = new Image();
-image.src = `./img/${pazzleImg[Math.floor(Math.random() * pazzleImg.length)]}`;
+image.src = `./miniPlay/Pazzles_Game/img/${pazzleImg[Math.floor(Math.random() * pazzleImg.length)]}`;
 let myImg = document.querySelector('#myImage');
 myImg === null || myImg === void 0 ? void 0 : myImg.setAttribute('src', image.src);
-const pieceWidth = canvas.width / columns;
-const pieceHeight = canvas.height / rows;
+const pieceWidth = canvasPuzzles.width / columns;
+const pieceHeight = canvasPuzzles.height / rows;
 const original = [];
 export let pieces = [];
 for (let i = 0; i < rows; i++) {
@@ -59,7 +59,7 @@ function shuffle(array) {
     return array;
 }
 let selectedPiece = null;
-canvas.addEventListener('mousedown', function (event) {
+canvasPuzzles.addEventListener('mousedown', function (event) {
     const x = event.offsetX;
     const y = event.offsetY;
     for (let i = 0; i < pieces.length; i++) {
@@ -74,14 +74,14 @@ canvas.addEventListener('mousedown', function (event) {
         }
     }
 });
-canvas.addEventListener('mousemove', function (event) {
+canvasPuzzles.addEventListener('mousemove', function (event) {
     if (selectedPiece !== null) {
         selectedPiece.dx = event.offsetX - pieceWidth / 2;
         selectedPiece.dy = event.offsetY - pieceHeight / 2;
         draw();
     }
 });
-canvas.addEventListener('mouseup', function (event) {
+canvasPuzzles.addEventListener('mouseup', function (event) {
     if (selectedPiece !== null) {
         const x = event.offsetX;
         const y = event.offsetY;
@@ -129,7 +129,7 @@ image.addEventListener('load', function () {
     draw();
 });
 export function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvasPuzzles.width, canvasPuzzles.height);
     for (let i = 0; i < pieces.length; i++) {
         const piece = pieces[i];
         ctx.drawImage(image, piece.sx, piece.sy, pieceWidth, pieceHeight, piece.dx, piece.dy, pieceWidth, pieceHeight);

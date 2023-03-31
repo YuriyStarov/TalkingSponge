@@ -1,4 +1,4 @@
-import { canvas, ctx } from "./canvas.js";
+import { canvasPuzzles, ctx } from "./canvas.js";
 
 interface Piece {
     name: string;
@@ -15,13 +15,13 @@ const columns = 2;
 const pazzleImg = ["SP_pazzle_1.jpg", "SP_pazzle_2.jpg", "SP_pazzle_3.jpg", "SP_pazzle_4.jpg"]
 
 const image = new Image();
-image.src = `./img/${pazzleImg[Math.floor(Math.random() * pazzleImg.length)]}`;
+image.src = `./miniPlay/Pazzles_Game/img/${pazzleImg[Math.floor(Math.random() * pazzleImg.length)]}`;
 
 let myImg = document.querySelector('#myImage') as HTMLImageElement | null;
 myImg?.setAttribute('src', image.src);
 
-const pieceWidth = canvas.width / columns;
-const pieceHeight = canvas.height / rows;
+const pieceWidth = canvasPuzzles.width / columns;
+const pieceHeight = canvasPuzzles.height / rows;
 const original: Piece[] = [];
   
 export let pieces: Piece[] = [];
@@ -87,7 +87,7 @@ function shuffle(array: Piece[]) {
 
 let selectedPiece: Piece | null = null;
 
-canvas.addEventListener('mousedown', function (event: MouseEvent) {
+canvasPuzzles.addEventListener('mousedown', function (event: MouseEvent) {
   const x = event.offsetX;
   const y = event.offsetY;
 
@@ -106,7 +106,7 @@ canvas.addEventListener('mousedown', function (event: MouseEvent) {
   }
 });
 
-canvas.addEventListener('mousemove', function (event: MouseEvent) {
+canvasPuzzles.addEventListener('mousemove', function (event: MouseEvent) {
   if (selectedPiece !== null) {
     selectedPiece.dx = event.offsetX - pieceWidth / 2;
     selectedPiece.dy = event.offsetY - pieceHeight / 2;
@@ -114,7 +114,7 @@ canvas.addEventListener('mousemove', function (event: MouseEvent) {
   }
 });
 
-canvas.addEventListener('mouseup', function (event: MouseEvent) {
+canvasPuzzles.addEventListener('mouseup', function (event: MouseEvent) {
   if (selectedPiece !== null) {
     const x = event.offsetX;
     const y = event.offsetY;

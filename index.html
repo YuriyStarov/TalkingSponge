@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./miniPlay/starOff/styles/styles.css">
     <link rel="stylesheet" href="./styles/styleWheel.css">
     <link rel="stylesheet" href="./miniPlay/snake_mini_game/styles.css">
+    <link rel="stylesheet" href="./miniPlay/Pazzles_Game/style.css">
     <script type="module" src="./scripts/collectionAchievements.js"></script>
     <script type="module" src="./scripts/wheelOfFortune.js"></script>
     <script type="module" src="./scripts/buttonsControl.js"></script>
@@ -26,6 +27,10 @@
     <script type="module" src="./miniPlay/snake_mini_game/dist/Food.js"></script>
     <script type="module" src="./miniPlay/snake_mini_game/dist/Game.js"></script>
     <script type="module" src="./miniPlay/snake_mini_game/dist/index.js"></script>
+    <script type="module" src="./miniPlay/Pazzles_Game/canvas.js"></script>
+    <script type="module" src="./miniPlay/Pazzles_Game/dragImg.js"></script>
+    <script type="module" src="./miniPlay/Pazzles_Game/pices.js"></script>
+    <script type="module" src="./miniPlay/Pazzles_Game/game.js"></script>
     <title>Bob`s playroom</title>
 </head>
 <body>
@@ -96,6 +101,20 @@
     </div>
     <div id="iframeGame2">
         <canvas id="canvasSnake"></canvas>
+    </div>
+    <div id="iframeGame3">
+        <div class="game">
+            <button class="btn"onclick="start()">START</button>
+            <div class="discription">
+              <h1>Pazzles Game</h1>
+              <h2>Discription</h2>
+              <p>On the right, you have the original picture that you have to compose. Below are puzzles placed randomly. When the puzzle is placed correctly in its place, it becomes stationary. You are the winner when you put all the puzzles in their places as indicated in the picture in the upper right corner.</p>
+            </div>
+            <img id="bgImg" class="bgImg" src="./miniPlay/Pazzles_Game/img/fon-pazl.jpg" alt="pazl">
+          </div>
+          <div class="img_origin">
+             <img id="myImage" src="" alt="spongebob">
+          </div>
     </div>
     <div id="pageOfFortune">
         <audio src="./audio/treschetka_max.mp3" id="spin_music" loop></audio>

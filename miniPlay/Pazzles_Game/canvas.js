@@ -1,6 +1,7 @@
-export const canvas = document.createElement('canvas');
-export const ctx = canvas.getContext('2d');
+export const canvasPuzzles = document.createElement('canvas');
+export const ctx = canvasPuzzles.getContext('2d');
+canvasPuzzles.classList.add ('canvasPuzzlesStyle');
 ctx.globalCompositeOperation = "destination-over";
 ctx.fillStyle = 'red';
-canvas.width = 1300;
-canvas.height = 650;
+canvasPuzzles.width = 1000;
+canvasPuzzles.height = 650;

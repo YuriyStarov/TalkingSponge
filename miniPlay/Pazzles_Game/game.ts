@@ -1,4 +1,4 @@
-import { canvas, ctx } from "./canvas.js";
+import { canvasPuzzles, ctx } from "./canvas.js";
 
 import { moveImg } from "./dragImg.js";
 
@@ -16,8 +16,8 @@ function start(): void {
     btn?.remove();
     bg?.remove();
     function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+      canvasPuzzles.width = window.innerWidth;
+      canvasPuzzles.height = window.innerHeight;
         loop();
     }
     window.onresize = resize;
