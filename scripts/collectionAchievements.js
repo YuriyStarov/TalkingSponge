@@ -25,4 +25,4 @@ const collectionBonuses = {
 countCoins.textContent = collectionBonuses.coins;
 countCrystal.textContent = collectionBonuses.crystal;
 
-export {collectionBonuses};
+export {collectionBonuses, countCoins, countCrystal};

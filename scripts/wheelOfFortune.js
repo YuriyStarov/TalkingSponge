@@ -1,4 +1,4 @@
-import { collectionBonuses } from "./collectionAchievements.js";
+import { collectionBonuses, countCoins, countCrystal } from "./collectionAchievements.js";
 
 let audioSpin = document.getElementById ('spin_music');
 let spinWheel = document.getElementById ('spinWheel');
@@ -87,6 +87,7 @@ function bonusAccount (bonusPosition) {
         case 6: {
             imagePath = "url(../img/eat/coins.png)";
             collectionBonuses.coins += 3;
+            countCoins.textContent = collectionBonuses.coins;
             break
         };
         case 7: {
@@ -102,6 +103,7 @@ function bonusAccount (bonusPosition) {
         case 9: {
             imagePath = "url(../img/eat/crystal.png)";
             collectionBonuses.crystal += 1;
+            countCrystal.textContent = collectionBonuses.crystal;
             break
         };
         case 10: {
@@ -122,6 +124,7 @@ function bonusAccount (bonusPosition) {
         case 13: {
             imagePath = "url(../img/eat/coins_many.png)";
             collectionBonuses.coins += 10;
+            countCoins.textContent = collectionBonuses.coins;
             break
         };
         case 14: {
@@ -132,6 +135,7 @@ function bonusAccount (bonusPosition) {
         case 15: {
             imagePath = "url(../img/eat/crystal.png)";
             collectionBonuses.crystal += 2;
+            countCrystal.textContent = collectionBonuses.crystal;
             break
         };
         case 16: {
