@@ -21,6 +21,9 @@ const giftReaction = document.getElementById ('giftReaction');
 const pageOfFortune = document.getElementById ('pageOfFortune');
 const backToPlay = document.getElementById ('backToPlay');
 const backToMiniGameMenu = document.querySelectorAll('.backToMiniGameMenu');
+const toMarket = document.getElementById('toMarket'); 
+const toTravelAndMarket = document.getElementById ('toTravelAndMarket');
+const marketBackToPlayroom = document.getElementById ('marketBackToPlayroom');
 
 toMiniGame.addEventListener ('click', () => {
     volume1.volume = 0;
@@ -72,4 +75,10 @@ backToMiniGameMenu.forEach(btn=>btn.addEventListener ('click', () => {
     gameMenu.style.display = 'block';
 }));
 
+toMarket.addEventListener ('click', () => {
+    toTravelAndMarket.style.display = 'block';
+});
 
+marketBackToPlayroom.addEventListener ('click', () => {
+    toTravelAndMarket.style.display = 'none';
+});

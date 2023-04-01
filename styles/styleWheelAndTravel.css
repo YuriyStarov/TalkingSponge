@@ -1,0 +1,172 @@
+#pageOfFortune {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1000px;
+    height: 700px;
+    background-color: cornflowerblue;
+    display: none;
+}
+
+#backToPlay {
+    position: absolute;
+    top: 30px;
+    left: 910px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10%;
+    color: green;
+    background-color: transparent;
+    border: green solid 2px;
+}
+
+#spinWheel {
+    position: absolute;
+    top: 570px;
+    left: 330px;
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/arrowUp.png);
+}
+
+#textWithBonus {
+    position: absolute;
+    top: 270px;
+    left: 700px;
+    width: 200px;
+    height: 60px;
+    font-size: 40px;
+    color: beige;
+    font-weight: bold;
+    display: none;
+}
+
+#imageBonus {
+    position: absolute;
+    top: 350px;
+    left: 770px;
+    width: 60px;
+    height: 60px;
+    background-size: 100% 100%;
+    display: none;
+}
+
+#bow {
+    position: absolute;
+    top: 550px;
+    left: 410px;
+    width: 40px;
+    height: 44px;
+    background-image: url(../img/bow.png);
+}
+
+#toTravelAndMarket {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1000px;
+    height: 700px;
+    background-color: #ffffffcc;
+    display: none;
+}
+
+.secondaryButtons {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    color: beige;
+    background-color: #6495edbb;
+    border: beige solid 2px;
+    border-radius: 50%;
+}
+
+#secondaryButton1 {
+    top: 110px;
+    left: 850px;
+    background-color: #ffff00bb;
+}
+
+#secondaryButton2 {
+    top: 70px;
+    left: 775px;
+    background-color: #ffff00bb;
+}
+
+#secondaryButton3 {
+    top: 110px;
+    left: 710px;
+}
+
+.secondaryButtonsText {
+    width: 120px;
+    height: 25px;
+    position: absolute;
+    color: beige;
+    background-color: #ff000088;
+    border: beige solid 2px;
+    border-radius: 15%;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#secondaryText1 {
+    top: 157px;
+    left: 810px;
+}
+
+#secondaryText2 {
+    top: 38px;
+    left: 735px;
+}
+
+#secondaryText3 {
+    top: 157px;
+    left: 670px;
+}
+
+#marketBackToPlayroom {
+    top: 70px;
+    background-color: #6495ed99;
+}
+
+#marketIconBack {
+    position: relative;
+    top: 3px;
+}
+
+#lineWithList1 {
+    position: absolute;
+    top: 94px;
+    left: 891px;
+}
+
+#lineWithList2 {
+    position: absolute;
+    top: 104px;
+    left: 823px;
+}
+
+#lineWithList3 {
+    position: absolute;
+    top: 90px;
+    left: 748px;
+}
+
+#toolsIcon {
+    position: relative;
+    top: 2px;
+    left: -2px;
+}
+
+#shirtIcon {
+    position: relative;
+    top: -2px;
+    left: -2px;
+}
+
+#travelIcon {
+    position: relative;
+    top: 0px;
+    left: -3px;
+}

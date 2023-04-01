@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./styles/style1.css">
     <link rel="stylesheet" href="./styles/miniGamesMenu.css">
     <link rel="stylesheet" href="./miniPlay/starOff/styles/styles.css">
-    <link rel="stylesheet" href="./styles/styleWheel.css">
+    <link rel="stylesheet" href="./styles/styleWheelAndTravel.css">
     <link rel="stylesheet" href="./miniPlay/snake_mini_game/styles.css">
     <link rel="stylesheet" href="./miniPlay/Pazzles_Game/style.css">
     <script type="module" src="./scripts/collectionAchievements.js"></script>
@@ -79,7 +79,7 @@
             M 0,0
             l 30,19"></path>
         </svg>
-        <button id="toMiniGame">
+        <button id="toMiniGame" class="secondaryButtons">
             <img src="./img/consoleIcon.png" alt="no" id="consoleIcon">
         </button>
         <button id="toKitchen" class="buttonMenu">
@@ -156,11 +156,44 @@
                     M 0,30
                     L 30,0">
                 </path>
+            </svg>
         </button>
         <div id="spinWheel"></div>
         <div id="textWithBonus">Your prize</div>
         <div id="imageBonus"></div>
         <div id="bow"></div>
+    </div>
+    <div id="toTravelAndMarket">
+        <button id="marketBackToPlayroom" class="buttonMenu">
+            <img src="./img/marketIcon.png" alt="no" id="marketIconBack">
+        </button>
+        <div class="secondaryButtonsText" id="secondaryText1">TRAVEL</div>
+        <button class="secondaryButtons" id="secondaryButton1">
+            <img src="./img/toolsIcon.png" alt="no" id="toolsIcon">
+        </button>
+        <svg id="lineWithList1" width="30px" height="30px" stroke="beige" stroke-width="3px">
+            <path d="
+            M 0,35
+            L 30,15"></path>
+        </svg> 
+        <div class="secondaryButtonsText" id="secondaryText2">WARDROBE</div>
+        <button class="secondaryButtons" id="secondaryButton2">
+            <img src="./img/shirtIcon.png" alt="no" id="shirtIcon">
+        </button>
+        <svg id="lineWithList2" width="30px" height="30px" stroke="beige" stroke-width="3px">
+            <path d="
+            M 0,0
+            l 30,19"></path>
+        </svg>
+        <div class="secondaryButtonsText" id="secondaryText3">LIVING ROOM</div>
+        <button class="secondaryButtons" id="secondaryButton3">
+            <img src="./img/travelIcon.png" alt="no" id="travelIcon">
+        </button>
+        <svg id="lineWithList3" width="30px" height="30px" stroke="beige" stroke-width="3px">
+            <path d="
+            M 0,35
+            L 30,15"></path>
+        </svg>
     </div>
 </body>
 </html>
