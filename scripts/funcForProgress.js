@@ -31,3 +31,17 @@ for (let i = 0; i < mainButtonArray.length; i += 1) {
 
 };
 
+/*let goColoring = setInterval (() => {
+
+    collectionBonuses.pleasureLevels.forEach ((el,index) => {
+        if (el > 0) {
+            collectionBonuses.pleasureLevels[index] -= 1;
+        }
+        else {
+            clearInterval(goColoring);
+        };
+        coloringMainButton (el,mainButtonArray[index]);
+    });
+
+}, 100)*/
+
