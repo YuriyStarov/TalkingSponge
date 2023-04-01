@@ -20,7 +20,7 @@ const collectionBonuses = {
     cakeChocolate: 0,
     cakeVanilla: 0,
 
-    pleasureLevels: [0, 40, 60, 70],
+    pleasureLevels: [100, 100, 100, 100]
 
 };
 

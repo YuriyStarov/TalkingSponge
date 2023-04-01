@@ -14,12 +14,12 @@ mainButtonArray.push(toBedroom);
 
 function coloringMainButton (pleasureLevel,button) {
 
-    if (pleasureLevel === 0) {
-        button.style.backgroundImage = 'linear-gradient(0deg, #FF0000 0%, #FF0000 100%)';
-    } 
+    if (pleasureLevel < 21) {
+        const gradient = `linear-gradient(0deg, #FFFF0099 ${pleasureLevel}%, #FF0000 ${pleasureLevel}%)`
+        button.style.backgroundImage = gradient;
+    }
     else {
-        const middle = 100 - pleasureLevel;
-        const gradient = `linear-gradient(0deg, #FFFF0099 ${middle}%, #6495ed99 ${middle}%)`
+        const gradient = `linear-gradient(0deg, #FFFF0099 ${pleasureLevel}%, #6495ed99 ${pleasureLevel}%)`
         button.style.backgroundImage = gradient;
     };     
 
