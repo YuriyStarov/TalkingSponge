@@ -24,6 +24,10 @@ const backToMiniGameMenu = document.querySelectorAll('.backToMiniGameMenu');
 const toMarket = document.getElementById('toMarket'); 
 const toTravelAndMarket = document.getElementById ('toTravelAndMarket');
 const marketBackToPlayroom = document.getElementById ('marketBackToPlayroom');
+const secondaryButton3 = document.getElementById ('secondaryButton3');
+const airTravel = document.getElementById ('airTravel');
+const backToTravelMenu = document.getElementById ('backToTravelMenu');
+const allCollectionButtonInTravel1 = document.getElementsByClassName ('allCollectionButtonInTravel');
 
 toMiniGame.addEventListener ('click', () => {
     volume1.volume = 0;
@@ -81,4 +85,19 @@ toMarket.addEventListener ('click', () => {
 
 marketBackToPlayroom.addEventListener ('click', () => {
     toTravelAndMarket.style.display = 'none';
+});
+
+secondaryButton3.addEventListener ('click', () => {
+    volume1.volume = 0;
+    volume2.volume = 0;
+    mainGrand.style.display = 'none';
+    toTravelAndMarket.style.display = 'none';
+    airTravel.style.display = 'block';
+});
+
+backToTravelMenu.addEventListener ('click', () => {
+    volume1.volume = 1;
+    volume2.volume = 1;
+    airTravel.style.display = 'none';
+    mainGrand.style.display = 'block';    
 });

@@ -13,9 +13,9 @@
     <script type="module" src="./scripts/collectionAchievements.js"></script>
     <script type="module" src="./scripts/wheelOfFortune.js"></script>
     <script type="module" src="./scripts/buttonsControl.js"></script>
+    <script type="module" src="./scripts/travel.js"></script>
     <script type="module" src="./scripts/pinata.js"></script>
     <script type="module" src="./scripts/gift.js"></script>
-    <script type="module" src="./scripts/buttonMenu.js"></script>
     <script type="module" src="./scripts/funcForProgress.js"></script>
     <script type="module" src="./scripts/main.js"></script>
     <script type="module" src="./miniPlay/starOff/public/rendering.js"></script>
@@ -167,7 +167,7 @@
         <button id="marketBackToPlayroom" class="buttonMenu">
             <img src="./img/marketIcon.png" alt="no" id="marketIconBack">
         </button>
-        <div class="secondaryButtonsText" id="secondaryText1">TRAVEL</div>
+        <div class="secondaryButtonsText" id="secondaryText1">LIVING ROOM</div>
         <button class="secondaryButtons" id="secondaryButton1">
             <img src="./img/toolsIcon.png" alt="no" id="toolsIcon">
         </button>
@@ -185,7 +185,7 @@
             M 0,0
             l 30,19"></path>
         </svg>
-        <div class="secondaryButtonsText" id="secondaryText3">LIVING ROOM</div>
+        <div class="secondaryButtonsText" id="secondaryText3">TRAVEL</div>
         <button class="secondaryButtons" id="secondaryButton3">
             <img src="./img/travelIcon.png" alt="no" id="travelIcon">
         </button>
@@ -194,6 +194,30 @@
             M 0,35
             L 30,15"></path>
         </svg>
+    </div>
+    <div id="airTravel">
+        <audio src="./audio/wind_middle.mp3" id="globe_music" loop></audio>
+        <canvas id="globeSpin" width="1000" height="700"></canvas>
+        <div id="headerTravel">
+            TRAVEL
+            <button id="backToTravelMenu">
+               <svg id="backToTravelMenuIcon" width="30px" height="30px" stroke="green" stroke-width="3px">
+                    <path d="
+                        M 0,0
+                        l 30,30">
+                    </path>
+                    <path d="
+                        M 0,30
+                        L 30,0">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="buttonsCollectionInTravel">
+            <div class="allCollectionButtonInTravel" id="divTravelCollection"></div>
+            <button class="allCollectionButtonInTravel"></button>
+            <button  class="allCollectionButtonInTravel">📓 ALBUM</button>
+        </div>
     </div>
 </body>
 </html>

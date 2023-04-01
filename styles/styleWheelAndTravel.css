@@ -170,3 +170,60 @@
     top: 0px;
     left: -3px;
 }
+
+#airTravel {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1000px;
+    height: 700px;
+    background-image: linear-gradient(45deg, cornflowerblue 0%, green 50%, darkred 100%);
+    display: none;
+}
+
+#buttonsCollectionInTravel {
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    width: 150px;
+    height: 300px;
+}
+
+.allCollectionButtonInTravel {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 60px;
+    border: 1px solid darkred;
+    border-radius: 10%;
+    background-color: #6495ed;
+    text-align: center;
+    font-size: 20px;
+    color: beige;
+    font-weight: bolder;
+}
+
+#divTravelCollection {
+    background-color: orange;
+    width: 150px;
+    height: 36px;
+    padding-top: 4px;
+}
+
+#headerTravel {
+    width: 1000px;
+    height: 50px;
+    font-size: 40px;
+    color: blue;
+    background-image: linear-gradient(45deg, darkred 0%, orange 50%, yellow 100%);
+}
+
+#backToTravelMenu {
+    position: absolute;
+    left: 930px;
+    top: 3px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    border-radius: 10%;
+}
