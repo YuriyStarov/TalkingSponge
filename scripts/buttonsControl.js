@@ -1,3 +1,9 @@
+import { collectionBonuses } from "./collectionAchievements.js";
+
+const toPlayroom = document.getElementById ('toPlayroom');
+const toKitchen = document.getElementById ('toKitchen');
+const toBathroom = document.getElementById ('toBathroom');
+const toBedroom = document.getElementById ('toBedroom');
 
 const backToPlayroom = document.getElementById ('backToPlayroom');
 const toMiniGame = document.getElementById ('toMiniGame');

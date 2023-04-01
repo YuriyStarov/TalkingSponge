@@ -18,11 +18,13 @@ const collectionBonuses = {
     soup: 0,
     chocolate: 0,
     cakeChocolate: 0,
-    cakeVanilla: 0
+    cakeVanilla: 0,
+
+    pleasureLevels: [0, 40, 60, 70],
 
 };
 
 countCoins.textContent = collectionBonuses.coins;
 countCrystal.textContent = collectionBonuses.crystal;
 
-export {collectionBonuses, countCoins, countCrystal};
+export {collectionBonuses, countCoins, countCrystal };
