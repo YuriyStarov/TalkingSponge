@@ -16,7 +16,7 @@ const startGame = document.getElementById('startGame');
 buttons.push(startGame);
 const restartGame = document.getElementById('restartGame');
 buttons.push(restartGame);
-const backToMiniGameMenu = document.getElementById('backToMiniGameMenu');
+const backToMiniGameMenu = document.getElementById('game1');
 buttons.push(backToMiniGameMenu);
 setTimeout(() => { startGame.style.display = 'block'; backToMiniGameMenu.style.display = 'block';}, 2500);
 const mainMusic = document.getElementById('funny_music');

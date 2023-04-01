@@ -72,6 +72,6 @@
     display: none;
 }
 
-#backToMiniGameMenu {
+.backToMiniGameMenu {
     top: 360px;
 };

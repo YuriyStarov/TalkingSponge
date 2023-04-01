@@ -1,15 +1,27 @@
 import { canvasPuzzles, ctx } from "./canvas.js";
 import { moveImg } from "./dragImg.js";
-import { pieces, draw } from "./pices.js";
+import { pieces, draw, setupPices, image } from "./pices.js";
 const desc = document.querySelector('.discription');
 const btn = document.querySelector('.btn');
 const bg = document.querySelector('.bgImg');
 const wrapper = document.querySelector('.game');
-moveImg();
+let btnBack = document.querySelector('#game3');
+// moveImg();
 function start() {
     desc === null || desc === void 0 ? void 0 : desc.remove();
     btn === null || btn === void 0 ? void 0 : btn.remove();
     bg === null || bg === void 0 ? void 0 : bg.remove();
+    btnBack.style.display = 'none';
+    setupPices();
+    let imgOrigin = document.createElement('div');
+    imgOrigin.classList.add('img_origin');
+    imgOrigin.setAttribute('id', 'myImage');
+    let imgPazzle = document.createElement('img');
+    imgPazzle.setAttribute('src', image.src);
+    imgPazzle.setAttribute('alt', 'spongebob');
+    imgOrigin.appendChild(imgPazzle);
+    wrapper.appendChild(imgOrigin);
+    moveImg();
     function resize() {
         canvasPuzzles.width = window.innerWidth;
         canvasPuzzles.height = window.innerHeight;
@@ -23,7 +35,6 @@ function loop() {
     for (const piece of pieces) {
         if (piece.flag) {
             sum += 1;
-            console.log(sum);
         }
     }
     if (sum !== pieces.length) {
@@ -45,10 +56,11 @@ function loop() {
         lastBlock.appendChild(span);
         wrapper.appendChild(lastBlock);
         let btnRestart = document.createElement('button');
-        btnRestart.addEventListener('click', () => location.reload());
+        btnRestart.addEventListener('click', () => start());
         wrapper.appendChild(btnRestart);
         btnRestart.textContent = 'Restart';
         btnRestart.setAttribute('class', 'btn_restart');
+        btnBack.style.display = 'block';
     }
 }
 window.loop = loop;

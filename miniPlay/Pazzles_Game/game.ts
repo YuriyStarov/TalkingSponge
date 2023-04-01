@@ -2,19 +2,33 @@ import { canvasPuzzles, ctx } from "./canvas.js";
 
 import { moveImg } from "./dragImg.js";
 
-import { pieces,  draw } from "./pices.js";
+import { pieces,  draw, setupPices, image } from "./pices.js";
 
 const desc = document.querySelector('.discription') as HTMLDivElement | null;
 const btn = document.querySelector('.btn') as HTMLButtonElement | null;
 const bg = document.querySelector('.bgImg') as HTMLImageElement | null;
 const wrapper = document.querySelector('.game') as HTMLDivElement;
 
-moveImg();
+let btnBack = document.querySelector('#game3') as HTMLButtonElement;
+
+
+// moveImg();
 
 function start(): void {
     desc?.remove();
     btn?.remove();
     bg?.remove();
+    btnBack.style.display = 'none';
+    setupPices();
+    let imgOrigin = document.createElement('div');
+    imgOrigin.classList.add('img_origin');
+    imgOrigin.setAttribute('id', 'myImage');
+    let imgPazzle = document.createElement('img');
+    imgPazzle.setAttribute('src', image.src);
+    imgPazzle.setAttribute('alt', 'spongebob');
+    imgOrigin.appendChild(imgPazzle);
+    wrapper.appendChild(imgOrigin);
+    moveImg();
     function resize() {
       canvasPuzzles.width = window.innerWidth;
       canvasPuzzles.height = window.innerHeight;
@@ -50,10 +64,13 @@ function loop(): void{
           lastBlock.appendChild(span);
           wrapper.appendChild(lastBlock);
           let btnRestart = document.createElement('button');
-          btnRestart.addEventListener('click', () => location.reload());
+          btnRestart.addEventListener('click', () => start());
           wrapper.appendChild(btnRestart);
           btnRestart.textContent = 'Restart';
           btnRestart.setAttribute('class', 'btn_restart');
+          btnBack.style.display = 'block';
+
+      
   }
 }
 

@@ -20,7 +20,7 @@ const volume2 = document.getElementById ('yawn_music');
 const giftReaction = document.getElementById ('giftReaction');
 const pageOfFortune = document.getElementById ('pageOfFortune');
 const backToPlay = document.getElementById ('backToPlay');
-const backToMiniGameMenu = document.getElementById('backToMiniGameMenu');
+const backToMiniGameMenu = document.querySelectorAll('.backToMiniGameMenu');
 
 toMiniGame.addEventListener ('click', () => {
     volume1.volume = 0;
@@ -65,9 +65,11 @@ backToPlay.addEventListener ('click', () => {
     mainGrand.style.display = 'block';
 });
 
-backToMiniGameMenu.addEventListener ('click', () => {
+backToMiniGameMenu.forEach(btn=>btn.addEventListener ('click', () => {
     iframeGame1.style.display = 'none';
+    iframeGame2.style.display = 'none';
+    iframeGame3.style.display = 'none';
     gameMenu.style.display = 'block';
-});
+}));
 
 

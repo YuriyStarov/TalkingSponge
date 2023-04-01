@@ -12,19 +12,43 @@ interface Piece {
 const rows = 3;
 const columns = 3;
 
-const pazzleImg = ["SP_pazzle_1.jpg", "SP_pazzle_2.jpg", "SP_pazzle_3.jpg", "SP_pazzle_4.jpg"]
-
-const image = new Image();
-image.src = `./miniPlay/Pazzles_Game/img/${pazzleImg[Math.floor(Math.random() * pazzleImg.length)]}`;
-
-let myImg = document.querySelector('#myImage') as HTMLImageElement | null;
-myImg?.setAttribute('src', image.src);
-
 const pieceWidth = canvasPuzzles.width / columns;
 const pieceHeight = canvasPuzzles.height / rows;
-const original: Piece[] = [];
-  
+
+const pazzleImg = ["SP_pazzle_1.jpg", "SP_pazzle_2.jpg", "SP_pazzle_3.jpg", "SP_pazzle_4.jpg"]
+
+export const image = new Image();
+
+
 export let pieces: Piece[] = [];
+
+export function draw(): void {
+  ctx.clearRect(0, 0, canvasPuzzles.width, canvasPuzzles.height);
+
+  for (let i = 0; i < pieces.length; i++) {
+    const piece = pieces[i];
+
+    ctx.drawImage(
+        image,
+        piece.sx,
+        piece.sy,
+        pieceWidth,
+        pieceHeight,
+        piece.dx,
+        piece.dy,
+        pieceWidth,
+        pieceHeight
+    );
+  }
+    
+}
+
+export function setupPices() {
+  pieces = [];
+  image.src = `./miniPlay/Pazzles_Game/img/${pazzleImg[Math.floor(Math.random() * pazzleImg.length)]}`;
+  
+
+  const original: Piece[] = [];
   
 for (let i = 0; i < rows; i++) {
   for (let j = 0; j < columns; j++) {
@@ -171,24 +195,4 @@ canvasPuzzles.addEventListener('mouseup', function (event: MouseEvent) {
   image.addEventListener('load', function (): void {
     draw();
   });
-
-export function draw(): void {
-  ctx.clearRect(0, 0, canvasPuzzles.width, canvasPuzzles.height);
-
-  for (let i = 0; i < pieces.length; i++) {
-    const piece = pieces[i];
-
-    ctx.drawImage(
-        image,
-        piece.sx,
-        piece.sy,
-        pieceWidth,
-        pieceHeight,
-        piece.dx,
-        piece.dy,
-        pieceWidth,
-        pieceHeight
-    );
-  }
-    
 }
