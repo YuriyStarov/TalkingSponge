@@ -38,10 +38,10 @@ let ctx = canvas.getContext("2d");
 let widthCtx = canvas.width;
 let heightCtx = canvas.height;
 
-let globe = new Image(2410,247);
+let globe = new Image(9000,500);
 globe.src = "img/globe.png";
 setTimeout (() => {
-    ctx.drawImage(globe, 0, 0, 241, 247, 150, 100, 500, 500);
+    ctx.drawImage(globe, 0, 0, 500, 500, 150, 100, 500, 500);
 },2000);
 
 function allGame (randomParameter) {
@@ -57,15 +57,15 @@ function allGame (randomParameter) {
 };
 
 function draw () {
-  ctx.drawImage(globe, counters.countSprite, 0, 241, 247, 150, 100, 500, 500),
-  counters.countSprite += 241;
-  if (counters.countSprite > 2300) {
+  ctx.drawImage(globe, counters.countSprite, 0, 500, 500, 150, 100, 500, 500),
+  counters.countSprite += 500;
+  if (counters.countSprite > 8900) {
       counters.countSprite = 0;
   };
 };
 
 allCollectionButtonInTravel1[1].addEventListener ('click', () => {
-  const randomFortune = Math.floor(Math.random()*60 + 240);
+  const randomFortune = Math.floor(Math.random()*90 + 270);
   allGame(randomFortune);
   globeAudio.play();
 });
