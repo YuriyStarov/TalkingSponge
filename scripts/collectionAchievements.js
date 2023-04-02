@@ -21,7 +21,9 @@ const collectionBonuses = {
     cakeVanilla: 0,
     tickets: 0,
 
-    pleasureLevels: [100, 100, 100, 100]
+    pleasureLevels: [100, 100, 100, 100],
+
+    photoAlbum: []
 
 };
 
