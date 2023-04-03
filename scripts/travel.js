@@ -1,6 +1,8 @@
 import { collectionBonuses } from "./collectionAchievements.js";
 
 const allCollectionButtonInTravel1 = document.getElementsByClassName ('allCollectionButtonInTravel');
+const nameAndFlagOfCountries = document.getElementById ('nameAndFlagOfCountries');
+const countryNameAndIcon = nameAndFlagOfCountries.children;
 
 function CountryToPhotoAlbum (country,countryPositionX,countryPositionY,positionInAlbum) {
 
@@ -77,7 +79,7 @@ setTimeout (() => {
 },2000);
 
 function allGame (randomParameter) {
-      if (counters.countTime < randomParameter) {
+      if (counters.countTime <= randomParameter) {
       ctx.clearRect(0, 0, widthCtx, heightCtx);
       draw();
       counters.countTime += 1;
@@ -85,6 +87,13 @@ function allGame (randomParameter) {
     } else {
       counters.countTime = 0;
       globeAudio.pause();
+      const newCountry = (randomParameter % 18);
+      setTimeout (() => {
+        counters.countSprite = 0;
+        ctx.drawImage(globe, 0, 0, 500, 500, 150, 100, 500, 500);
+        nameAndFlagOfCountries.style.display = 'none';
+      }, 5000);
+      bedMan (collectionBonuses.photoAlbum[newCountry]);
     }
 };
 
@@ -96,108 +105,12 @@ function draw () {
   };
 };
 
-function photoInAlbum (framePosition) {
-
-    let imagePath;
-    const remainder = framePosition % 18;
-
-    switch (remainder) {
-        
-        case 0: {
-            imagePath = "url(../img/eat/cake_1.png)";
-            collectionBonuses.cakeChocolate += 1;
-            break
-        };
-        case 1: {
-            imagePath = "url(../img/eat/cake_2.png)";
-            collectionBonuses.cakeVanilla += 1;
-            break
-        };
-        case 2: {
-            imagePath = "url(../img/eat/cola.png)";
-            collectionBonuses.cola += 1;
-            break
-        };
-        case 3: {
-            imagePath = "url(../img/eat/milk.png)";
-            collectionBonuses.milk += 1;
-            break
-        };
-        case 4: {
-            imagePath = "url(../img/eat/pizza.png)";
-            collectionBonuses.pizza += 1;
-            break
-        };
-        case 5: {
-            imagePath = "url(../img/eat/soup.png)";
-            collectionBonuses.soup += 1;
-            break
-        };
-        case 6: {
-            imagePath = "url(../img/eat/coins.png)";
-            collectionBonuses.coins += 3;
-            countCoins.textContent = collectionBonuses.coins;
-            break
-        };
-        case 7: {
-            imagePath = "url(../img/eat/elixir_energy.png)";
-            collectionBonuses.elixirWakefulness += 1;
-            break
-        };
-        case 8: {
-            imagePath = "url(../img/eat/choko.png)";
-            collectionBonuses.chocolate += 1;
-            break
-        };
-        case 9: {
-            imagePath = "url(../img/eat/crystal.png)";
-            collectionBonuses.crystal += 1;
-            countCrystal.textContent = collectionBonuses.crystal;
-            break
-        };
-        case 10: {
-            imagePath = "url(../img/eat/potatoes.png)";
-            collectionBonuses.potatoes += 1;
-            break
-        };
-        case 11: {
-            imagePath = "url(../img/eat/elixir_funny.png)";
-            collectionBonuses.elixirJoy += 1;
-            break
-        };
-        case 12: {
-            imagePath = "url(../img/eat/apple.png)";
-            collectionBonuses.apple += 1;
-            break
-        };
-        case 13: {
-            imagePath = "url(../img/eat/coins_many.png)";
-            collectionBonuses.coins += 10;
-            countCoins.textContent = collectionBonuses.coins;
-            break
-        };
-        case 14: {
-            imagePath = "url(../img/eat/coffee.png)";
-            collectionBonuses.coffee += 1;
-            break
-        };
-        case 15: {
-            imagePath = "url(../img/eat/crystal.png)";
-            collectionBonuses.crystal += 2;
-            countCrystal.textContent = collectionBonuses.crystal;
-            break
-        };
-        case 16: {
-            imagePath = "url(../img/eat/burger.png)";
-            collectionBonuses.burgers += 1;
-            break
-        };
-        case 17: {
-            imagePath = "url(../img/eat/elixir_eat.png)";
-            collectionBonuses.elixirSatiety += 1;
-        };
-    };
-
+function bedMan (object) {
+    nameAndFlagOfCountries.style.top = object.countryPositionY;
+    nameAndFlagOfCountries.style.left = object.countryPositionX;
+    countryNameAndIcon[1].textContent = object.country;
+    countryNameAndIcon[2].style.backgroundImage = `url(${object.pathToFlag})`
+    nameAndFlagOfCountries.style.display = 'block';
 };
 
 allCollectionButtonInTravel1[1].addEventListener ('click', () => {
