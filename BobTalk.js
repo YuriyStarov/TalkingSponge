@@ -31,7 +31,6 @@ if (navigator.onLine) {
     filterLowpass = new Tone.Filter();
     filterLowpass.set(lowpass);
     mic = new Tone.UserMedia();
-    console.log(mic);
 }
 
 
@@ -53,7 +52,6 @@ export class BobTalk {
         this.data = data;
 
         this.timer;
-        console.log(meter);
         this.startMonitoring()
     }
 
@@ -78,20 +76,20 @@ export class BobTalk {
         const currentLevel = meter.getValue();
         if (currentLevel >= this.triggerLevel && !this.noiseTriggered) {
             this.noiseTriggered = true;
-            console.log('noiseTriggered');
+            // console.log('noiseTriggered');
         }
 
         if (this.noiseTriggered && !this.timerStarted && currentLevel >= this.triggerLevel) {
             this.timerStarted = true;
             this.startRecording();
-            console.log('secondEvent');
+            // console.log('secondEvent');
         }
 
         if (this.noiseTriggered && currentLevel < this.SecondTriggerLevel) {
             this.stopRecordingAndPlayback()
             this.timerStarted = false;
             this.noiseTriggered = false;
-            console.log('thirdEvent');
+            // console.log('thirdEvent');
         }
     }
 
