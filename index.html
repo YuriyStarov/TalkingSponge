@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./styles/styleWheelAndTravel.css">
     <link rel="stylesheet" href="./miniPlay/snake_mini_game/styles.css">
     <link rel="stylesheet" href="./miniPlay/Pazzles_Game/style.css">
+    <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+    <script type="module" src="./BobTalk.js"></script>
     <script type="module" src="./scripts/collectionAchievements.js"></script>
     <script type="module" src="./scripts/wheelOfFortune.js"></script>
     <script type="module" src="./scripts/buttonsControl.js"></script>
@@ -35,6 +37,7 @@
     <title>Bob`s playroom</title>
 </head>
 <body>
+    <button id="startAudioModule">Start</button>
         <label>
         Volume: <span id="volumeValue">1</span>
         <input id="volume" type="range" min="0" max="1" value="0" step="0.01">
