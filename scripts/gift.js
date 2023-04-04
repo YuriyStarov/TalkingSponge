@@ -1,5 +1,4 @@
 
-let giftAudio = document.getElementById ('gift_music');
 
 const counters = {
     countSprite: 0,
@@ -46,5 +45,4 @@ const counters = {
   
     const goSprite = setInterval (() => {
     allGame();
-    giftAudio.play();
   },2000);
