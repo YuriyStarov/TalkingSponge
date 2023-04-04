@@ -19,6 +19,12 @@ let meter;
 let filterLowpass;
 let mic;
 
+let gameState;
+export default gameState = {
+    bobOnScreen: false,
+    bobSleep: false
+};
+
 if (navigator.onLine) {
     vol = new Tone.Volume(40).toDestination()
     delay = new Tone.Delay(2);
@@ -73,6 +79,9 @@ export class BobTalk {
 
 
     checkNoiseLevel = async () => {
+        if (!gameState.bobOnScreen || gameState.bobSleep) {
+            return;
+        }
         const currentLevel = meter.getValue();
         if (currentLevel >= this.triggerLevel && !this.noiseTriggered) {
             this.noiseTriggered = true;
