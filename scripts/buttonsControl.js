@@ -36,23 +36,23 @@ const rooms = {
 
 playroomIn () {
     mainGrand.style.backgroundImage = 'url(../img/playroom.png)';
-    canvasGift.display.style = 'block';
-    canvasPinata.display.style = 'block';
-    giftReaction.display.style = 'block';
-    pinataReaction.display.style = 'block';
-    toMiniGame.display.style = 'block';
-    toMarket.display.style = 'block';
-    lineWithList.display.style = 'block';
+    canvasGift.style.display = 'block';
+    canvasPinata.style.display = 'block';
+    giftReaction.style.display = 'block';
+    pinataReaction.style.display = 'block';
+    toMiniGame.style.display = 'block';
+    toMarket.style.display = 'block';
+    lineWithList.style.display = 'block';
 },
 
 playroomOut () {
-    canvasGift.display.style = 'none';
-    canvasPinata.display.style = 'none';
-    giftReaction.display.style = 'none';
-    pinataReaction.display.style = 'none';
-    toMiniGame.display.style = 'none';
-    toMarket.display.style = 'none';
-    lineWithList.display.style = 'none';
+    canvasGift.style.display = 'none';
+    canvasPinata.style.display = 'none';
+    giftReaction.style.display = 'none';
+    pinataReaction.style.display = 'none';
+    toMiniGame.style.display = 'none';
+    toMarket.style.display = 'none';
+    lineWithList.style.display = 'none';
 },
 
 kitchenIn () {
@@ -148,7 +148,7 @@ backToTravelMenu.addEventListener ('click', () => {
     mainGrand.style.display = 'block';    
 });
 
-/*toPlayroom.addEventListener ('click', () => {
+toPlayroom.addEventListener ('click', () => {
     rooms.bathroomOut();
     rooms.bedroomOut();
     rooms.kitchenOut();
@@ -174,4 +174,4 @@ toBedroom.addEventListener ('click', () => {
     rooms.playroomOut();
     rooms.kitchenOut();
     rooms.bedroomIn();
-});*/
+});
