@@ -211,6 +211,9 @@
 
 #headerTravel {
     width: 1000px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
     height: 50px;
     font-size: 40px;
     color: blue;
@@ -266,4 +269,67 @@
     width: 48px;
     margin-left: 56px;
     background-size: 100% 100%;
+}
+
+#greatPhotoAlbum {
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    background-image: linear-gradient(45deg, darkred 0%, blue 50%, violet 100%);
+    display: none;
+}
+
+#bigPhotoInAlbum {
+    position: absolute;
+    top: 0px;
+    width: 1000px;
+    height: 700px;
+    display: none;
+    background-size: 100% 100%;
+}
+
+#realAlbum {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    width: 840px;
+    height: 640px;
+    background-image: url(../img/travel/photoAlbum.jpg);
+    transform: rotateZ(-3deg);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+}
+
+.photosInTravel {
+    width: 152px;
+    height: 107px;
+    border: 1px solid darkred;
+    background-size: 100% 100%;
+}
+
+#backToGlobeSpin {
+    position: absolute;
+    top: 20px;
+    left: 940px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: orange;
+    font-size: 40px;
+}
+
+.notCrystals {
+    position: absolute;
+    top: 250px;
+    left: 700px;
+    width: 95px;
+    height: 140px;
+    border: 1px solid red;
+    background-color: beige;
+    color: red;
+    font-size: 30px;
+    text-align: center;
 }

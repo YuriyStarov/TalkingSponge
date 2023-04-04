@@ -4,7 +4,7 @@ const countCrystal = document.getElementById ('countCrystal');
 const collectionBonuses = {
 
     coins: 0,
-    crystal: 0,
+    crystal: 10,
     elixirWakefulness: 0,
     elixirJoy: 0,
     elixirSatiety: 0,
@@ -19,11 +19,11 @@ const collectionBonuses = {
     chocolate: 0,
     cakeChocolate: 0,
     cakeVanilla: 0,
-    tickets: 0,
+    tickets: 5,
 
     pleasureLevels: [100, 100, 100, 100],
 
-    photoAlbum: []
+    countries: []
 
 };
 
