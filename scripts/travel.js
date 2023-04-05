@@ -179,7 +179,7 @@ allCollectionButtonInTravel1[1].addEventListener ('click', () => {
   buttonsCollectionInTravel.style.display = 'none';
   setTimeout (() => {
     buttonsCollectionInTravel.style.display = 'block';
-  },10000)
+  },12000)
   buyOrFly();
   const randomFortune = Math.floor(Math.random()*90 + 270);
   allGame(randomFortune);

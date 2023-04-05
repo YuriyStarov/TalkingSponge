@@ -98,6 +98,23 @@ canvas {
     height: 180px;
 }
 
+#pinataPrize {
+    position: absolute;
+    padding-top: 5px;
+    left: 115px;
+    top: 300px;
+    width: 170px;
+    height: 100px;
+    border: gold 1px solid;
+    border-radius: 20%;
+    color: gold;
+    background-color: #00008b77;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+}
+
 .buttonMenu {
     width: 60px;
     height: 60px;
