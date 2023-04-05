@@ -21,8 +21,8 @@ let mic;
 
 let gameState;
 export default gameState = {
-    bobOnScreen: false,
-    bobSleep: false
+    bobOnScreen: true,
+    bobBusy: false
 };
 
 if (navigator.onLine) {
@@ -79,7 +79,7 @@ export class BobTalk {
 
 
     checkNoiseLevel = async () => {
-        if (!gameState.bobOnScreen || gameState.bobSleep) {
+        if (!gameState.bobOnScreen || gameState.bobBusy) {
             return;
         }
         const currentLevel = meter.getValue();
