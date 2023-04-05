@@ -22,7 +22,7 @@ let mic;
 let gameState;
 export default gameState = {
     bobOnScreen: true,
-    bobBusy: false
+    bobBusy: false 
 };
 
 if (navigator.onLine) {
@@ -46,7 +46,7 @@ export class BobTalk {
     audioBufferSourceNode;
     mediaStreamSource;
     scriptProcessor;
-    triggerLevel = -20;
+    triggerLevel = -30;
     SecondTriggerLevel = -35;
     triggerDuration = 0.1;
     noiseTriggered = false;
@@ -84,21 +84,22 @@ export class BobTalk {
         }
         const currentLevel = meter.getValue();
         if (currentLevel >= this.triggerLevel && !this.noiseTriggered) {
+            // console.log('dfdf');
             this.noiseTriggered = true;
-            // console.log('noiseTriggered');
+            console.log('noiseTriggered');
         }
 
         if (this.noiseTriggered && !this.timerStarted && currentLevel >= this.triggerLevel) {
             this.timerStarted = true;
             this.startRecording();
-            // console.log('secondEvent');
+            console.log('secondEvent');
         }
 
         if (this.noiseTriggered && currentLevel < this.SecondTriggerLevel) {
             this.stopRecordingAndPlayback()
             this.timerStarted = false;
             this.noiseTriggered = false;
-            // console.log('thirdEvent');
+            console.log('thirdEvent');
         }
     }
 

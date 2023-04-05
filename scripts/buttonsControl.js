@@ -72,11 +72,24 @@ bathroomOut () {
 },
 
 bedroomIn () {
-
+    mainGrand.style.backgroundImage = 'url(../img/bedRoom/background_1.jpg)';
+    // canvasGift.style.display = 'block';
+    // canvasPinata.style.display = 'block';
+    // giftReaction.style.display = 'block';
+    // pinataReaction.style.display = 'block';
+    // toMiniGame.style.display = 'block';
+    // toMarket.style.display = 'block';
+    // lineWithList.style.display = 'block';
 },
 
 bedroomOut () {
-    
+    canvasGift.style.display = 'none';
+    canvasPinata.style.display = 'none';
+    giftReaction.style.display = 'none';
+    pinataReaction.style.display = 'none';
+    toMiniGame.style.display = 'none';
+    toMarket.style.display = 'none';
+    lineWithList.style.display = 'none';
 }
 
 }; 
