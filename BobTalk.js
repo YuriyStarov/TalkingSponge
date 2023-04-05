@@ -46,7 +46,7 @@ export class BobTalk {
     audioBufferSourceNode;
     mediaStreamSource;
     scriptProcessor;
-    triggerLevel = -30;
+    triggerLevel = -25;
     SecondTriggerLevel = -35;
     triggerDuration = 0.1;
     noiseTriggered = false;
@@ -82,6 +82,7 @@ export class BobTalk {
         if (!gameState.bobOnScreen || gameState.bobBusy) {
             return;
         }
+        
         const currentLevel = meter.getValue();
         if (currentLevel >= this.triggerLevel && !this.noiseTriggered) {
             // console.log('dfdf');
