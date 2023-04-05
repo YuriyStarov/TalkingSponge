@@ -22,7 +22,7 @@ let mic;
 let gameState;
 export default gameState = {
     bobOnScreen: true,
-    bobBusy: false 
+    bobBusy: false
 };
 
 if (navigator.onLine) {
@@ -41,12 +41,14 @@ if (navigator.onLine) {
 
 
 export class BobTalk {
+    noiseAnalyser;
     audioContext;
     audioBuffer;
     audioBufferSourceNode;
     mediaStreamSource;
     scriptProcessor;
-    triggerLevel = -25;
+    currentLevel;
+    triggerLevel = -20;
     SecondTriggerLevel = -35;
     triggerDuration = 0.1;
     noiseTriggered = false;
@@ -56,12 +58,33 @@ export class BobTalk {
 
     }) {
         this.data = data;
-
+        this.noiseAnalyser = this.initNoiseAnalyser();
         this.timer;
-        this.startMonitoring()
+    }
+    initNoiseAnalyser = async () => {
+        const audioContext = new AudioContext();
+        const microphoneStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const source = audioContext.createMediaStreamSource(microphoneStream);
+        const scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+        source.connect(scriptProcessor);
+        scriptProcessor.connect(audioContext.destination);
+
+        scriptProcessor.onaudioprocess = event => {
+            const inputBuffer = event.inputBuffer;
+            const inputData = inputBuffer.getChannelData(0);
+            let sum = 0;
+
+            for (let i = 0; i < inputData.length; i++) {
+                sum += inputData[i] * inputData[i];
+            }
+
+            const rms = Math.sqrt(sum / inputData.length);
+            const db = 20 * Math.log10(rms);
+            this.currentLevel = db;
+        };
     }
 
-    async startMonitoring() {
+    startMonitoring = async () => {
         if (!this.timerStarted) {
             try {
                 // Запрашиваем доступ к микрофону
@@ -82,21 +105,19 @@ export class BobTalk {
         if (!gameState.bobOnScreen || gameState.bobBusy) {
             return;
         }
-        
-        const currentLevel = meter.getValue();
-        if (currentLevel >= this.triggerLevel && !this.noiseTriggered) {
-            // console.log('dfdf');
+
+        if (this.currentLevel >= this.triggerLevel && !this.noiseTriggered) {
             this.noiseTriggered = true;
             console.log('noiseTriggered');
         }
 
-        if (this.noiseTriggered && !this.timerStarted && currentLevel >= this.triggerLevel) {
+        if (this.noiseTriggered && !this.timerStarted && this.currentLevel >= this.triggerLevel) {
             this.timerStarted = true;
             this.startRecording();
             console.log('secondEvent');
         }
 
-        if (this.noiseTriggered && currentLevel < this.SecondTriggerLevel) {
+        if (this.noiseTriggered && this.currentLevel < this.SecondTriggerLevel) {
             this.stopRecordingAndPlayback()
             this.timerStarted = false;
             this.noiseTriggered = false;
@@ -174,7 +195,7 @@ export class BobTalk {
                 this.audioBufferSourceNode.disconnect();
                 this.audioContext.close();
                 this.audioContext = null;
-            }, 500);
+            }, 1000);
         });
     }
 
@@ -184,6 +205,8 @@ export class BobTalk {
 let bob = null;
 document.getElementById('startAudioModule').addEventListener('click', () => {
     if (navigator.onLine) {
-        bob = new BobTalk()
+        bob = new BobTalk();
+        bob.startMonitoring()
+        document.getElementById('startAudioModule').disabled = true;
     }
 });
