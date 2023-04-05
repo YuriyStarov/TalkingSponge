@@ -1,6 +1,7 @@
 import { collectionBonuses } from "./collectionAchievements.js";
 
 const airTravel = document.getElementById ('airTravel');
+const buttonsCollectionInTravel = document.getElementById ('buttonsCollectionInTravel');
 const allCollectionButtonInTravel1 = document.getElementsByClassName ('allCollectionButtonInTravel');
 const nameAndFlagOfCountries = document.getElementById ('nameAndFlagOfCountries');
 const greatPhotoAlbum = document.getElementById ('greatPhotoAlbum');
@@ -21,24 +22,26 @@ function CountryToPhotoAlbum (country,countryPositionX,countryPositionY,position
     this.placeToAlbum = false;
 };
 
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Morocco', '290px','210px',0));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Egypt', '330px','220px',1));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Turkey', '250px','180px',2));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Pakistan', '320px','220px',3));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('India', '260px','260px',4));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('China', '300px','200px',5));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Indonesia', '250px','380px',6));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Australia', '250px','480px',7));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Solomon_Islands', '300px','420px',8));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Fiji', '280px','460px',9));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Hawaii', '280px','250px',10));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('USA', '380px','150px',11));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Mexico', '380px','250px',12));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Cuba', '390px','240px',13));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Colombia', '320px','350px',14));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Bolivia', '250px','450px',15));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Brazil', '200px','400px',16));
-collectionBonuses.countries.push (new CountryToPhotoAlbum ('Senegal', '290px','290px',17));
+if (!collectionBonuses.countries.length) {
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Morocco', '290px','210px',0));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Egypt', '330px','220px',1));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Turkey', '250px','180px',2));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Pakistan', '320px','220px',3));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('India', '260px','260px',4));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('China', '300px','200px',5));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Indonesia', '250px','380px',6));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Australia', '250px','480px',7));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Solomon_Islands', '300px','420px',8));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Fiji', '280px','460px',9));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Hawaii', '280px','250px',10));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('USA', '380px','150px',11));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Mexico', '380px','250px',12));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Cuba', '390px','240px',13));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Colombia', '320px','350px',14));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Bolivia', '250px','450px',15));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Brazil', '200px','400px',16));
+  collectionBonuses.countries.push (new CountryToPhotoAlbum ('Senegal', '290px','290px',17));
+};
 
 
 
@@ -173,6 +176,10 @@ function freePlaceInAlbum () {
 allCollectionButtonInTravel1[1].addEventListener ('click', () => {
   if (collectionBonuses.tickets > 0) {
   collectionBonuses.tickets -=1; 
+  buttonsCollectionInTravel.style.display = 'none';
+  setTimeout (() => {
+    buttonsCollectionInTravel.style.display = 'block';
+  },10000)
   buyOrFly();
   const randomFortune = Math.floor(Math.random()*90 + 270);
   allGame(randomFortune);
