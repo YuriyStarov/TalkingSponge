@@ -1,0 +1,22 @@
+.item {
+    z-index: 1000;
+}
+.lamp {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* background-image: url('lamp.jpg'); */
+    /* background-size: cover; */
+}
+
+.light-on {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.lamp.on {
+    box-shadow: 0 0 50px #fff, 0 0 100px #fff, 0 0 150px #fff, 0 0 200px #f0f;
+}
+
+.lamp {
+    transition: box-shadow 0.5s ease-in-out;
+}
