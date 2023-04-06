@@ -1,0 +1,50 @@
+:root {
+    --height: 0px;
+  }
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width: 1000px;
+    height: 700px;
+    margin: 0;
+    overflow: hidden;
+}
+
+#c{
+    background-image: url("../img/eat/table3.jpg");
+    background-size: 1055px 247px;
+    background-repeat: no-repeat;
+    background-position: -26.4px bottom;
+}
+
+
+#c img{
+    object-fit: cover;
+    width: 70px;
+    height: 50px;
+}
+
+.energy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 999;
+    top: 20px;
+    left: 870px;
+    font-size: 42px;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.energy::before{
+    content: "";
+    display: inline-flex;
+    width: 60px;
+    height: var(--height);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='60' height='60'%3E%3Cpath fill='none' stroke='%23ff0' stroke-width='1.5' d='M11.25 18.75l6-8.5h-4.5V5.5L7 13.75h4.25v5Z'%3E%3C/path%3E%3C/svg%3E");    
+    background-size: fill;
+}

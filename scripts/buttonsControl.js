@@ -1,4 +1,5 @@
 import { collectionBonuses } from "./collectionAchievements.js";
+import { kitchenStart } from "./kitchen.js";
 
 const toPlayroom = document.getElementById ('toPlayroom');
 const toKitchen = document.getElementById ('toKitchen');
@@ -31,6 +32,8 @@ const secondaryButton3 = document.getElementById ('secondaryButton3');
 const airTravel = document.getElementById ('airTravel');
 const backToTravelMenu = document.getElementById ('backToTravelMenu');
 const allCollectionButtonInTravel1 = document.getElementsByClassName ('allCollectionButtonInTravel');
+const kitchenRoom = document.querySelector('#kitchen');
+const kitchenCanvas = kitchenRoom.querySelector('#c');
 
 const rooms = {
 
@@ -56,11 +59,15 @@ playroomOut () {
 },
 
 kitchenIn () {
-
+    mainGrand.style.backgroundImage = 'url(../img/eat/kitchen.jpg)';
+    kitchenRoom.style.display = 'block';
+    kitchenCanvas.style.display = 'block';
+    kitchenStart();
 },
 
 kitchenOut () {
-
+    kitchenRoom.style.display = 'none';
+    kitchenCanvas.style.display = 'none';
 },
 
 bathroomIn () {
