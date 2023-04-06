@@ -72,7 +72,7 @@ bathroomOut () {
 },
 
 bedroomIn () {
-    mainGrand.style.backgroundImage = 'url(../img/bedRoom/background_1.jpg)';
+    mainGrand.style.backgroundImage = 'url(../img/bedRoom/background.png)';
     // canvasGift.style.display = 'block';
     // canvasPinata.style.display = 'block';
     // giftReaction.style.display = 'block';
