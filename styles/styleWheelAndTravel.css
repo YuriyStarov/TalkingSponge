@@ -8,6 +8,11 @@
     display: none;
 }
 
+#globeSpin{
+    z-index: 0;
+}
+
+
 #backToPlay {
     position: absolute;
     top: 30px;
@@ -68,6 +73,7 @@
     height: 700px;
     background-color: #ffffffcc;
     display: none;
+    z-index: 100;
 }
 
 .secondaryButtons {
