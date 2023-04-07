@@ -1,16 +1,35 @@
 'use srtict';
 
-// import * as ONE from "./main.js";
+import { allGame, RenderObject } from "./rendering.js";
 
-// window.onload = function() {
-//   ONE.ctx.fillRect(0, 0, ONE.canvas.width, ONE.canvas.height);
-// }
+const wrapperKitchen = document.querySelector('#kitchen');
+
+let eatHot = new Image(14000,600);
+eatHot.src = "../img/eatHot.png";
+
+let eatElixir = new Image(14000,600);
+eatElixir.src = "../img/eatElixir.png";
+
+let eatBurger = new Image(14000,600);
+eatBurger.src = "../img/giveMeBurger.png";
+
+let eatSugar = new Image(14000,600);
+eatSugar.src = "../img/eatSugar.png";
+
+let noEat = new Image(14000,600);
+noEat.src = "../img/noEat.png";
+
+const renderingEatHot = new RenderObject (eatHot, 8, 20, 700, 600, 200, 130, 500, 500);
+const renderingEatElixir = new RenderObject (eatElixir, 8, 20, 700, 600, 200, 130, 500, 500);
+const renderingEatSugar = new RenderObject (eatSugar, 8, 20, 700, 600, 200, 130, 500, 500);
+const renderingEatBurger = new RenderObject (eatBurger, 8, 20, 700, 600, 200, 130, 500, 500);
+const renderingNoEat = new RenderObject (noEat, 8, 20, 700, 600, 200, 130, 500, 500);
+
 
 export function kitchenStart() {
-const wrapper = document.querySelector('#kitchen');
 let progress = document.querySelector('#progress');
 
-wrapper.hoverCursor = 'pointer';
+wrapperKitchen.hoverCursor = 'pointer';
 
 const canvas = new fabric.Canvas('c', { 
   width: 1000,
@@ -19,7 +38,7 @@ const canvas = new fabric.Canvas('c', {
   hoverCursor: 'pointer'
 });
 
-let foods = [{img: "./img/eat/apple.png", energy: 10}, {img:"./img/eat/burger.png", energy: 45}, {img:"./img/eat/cake_1.png", energy: 20}, {img:"./img/eat/cake_2.png", energy: 20}, {img:"./img/eat/choko.png", energy: 15}, {img:"./img/eat/coffee.png", energy: 5}, {img:"./img/eat/cola.png", energy: 15}, {img:"./img/eat/elixir_eat.png", energy: 100}, {img:"./img/eat/elixir_energy.png", energy: 100}, {img:"./img/eat/elixir_funny.png", energy: 100}, {img:"./img/eat/milk.png", energy: 10}, {img:"./img/eat/pizza.png", energy: 35}, {img:"./img/eat/potatoes.png", energy: 25}, {img:"./img/eat/soup.png", energy: 20}];
+let foods = [{img: "./img/eat/apple.png", energy: 10, type: "sugar"}, {img:"./img/eat/burger.png", energy: 45, type: "hot"}, {img:"./img/eat/cake_1.png", energy: 20, type: "sugar"}, {img:"./img/eat/cake_2.png", energy: 20, type: "sugar"}, {img:"./img/eat/choko.png", energy: 15, type: "sugar"}, {img:"./img/eat/coffee.png", energy: 5, type: "hot"}, {img:"./img/eat/cola.png", energy: 15, type: "sugar"}, {img:"./img/eat/elixir_eat.png", energy: 50, type: "elixir"}, {img:"./img/eat/elixir_energy.png", energy: 50, type: "elixir"}, {img:"./img/eat/elixir_funny.png", energy: 50, type: "elixir"}, {img:"./img/eat/milk.png", energy: 10, type: "sugar"}, {img:"./img/eat/pizza.png", energy: 35, type: "hot"}, {img:"./img/eat/potatoes.png", energy: 25, type: "hot"}, {img:"./img/eat/soup.png", energy: 20, type: "hot"}];
 
 let j = 400;
 let g = 520;
@@ -32,8 +51,21 @@ let width = 70;
 let height = 50;
 let spacing = 75;
 
+let hungryPoint = 0
+
 let capacityEnergy = 0;
 changeProggress();
+
+setInterval (() => {
+  if(wrapperKitchen.style.display === "block" && capacityEnergy < 60){
+    hungryPoint += 1;
+    if (hungryPoint === 10) {
+      allGame(renderingEatBurger);
+      hungryPoint = 0;
+    }
+  }
+},1000);
+
 
 setInterval(() => {
   if(capacityEnergy > 0){
@@ -72,15 +104,27 @@ let addFoods = () => {
       let foodTop = img.top;
       img.on('mouseup', function() {
         // canvas.setActiveObject(img);
-        if(img.left >= 270 && img.left <= 540 && img.top >= 105 && img.top <= 435 && capacityEnergy < 100 && capacityEnergy+food.energy <= 100){
+        if((img.left >= 270 && img.left <= 540 && img.top >= 105 && img.top <= 435 && capacityEnergy < 100 && capacityEnergy+food.energy <= 100 ) || food.type === "elixir"){
           console.log("I am eat this food")
-          capacityEnergy += food.energy;
+          switch(food.type){
+            case "hot":
+              allGame(renderingEatHot)
+            break;
+            case "elixir":
+              allGame(renderingEatElixir)
+            break;
+            case "sugar":
+              allGame(renderingEatSugar)
+            break;
+          }
+          capacityEnergy+food.energy > 100 ? capacityEnergy = 100 : capacityEnergy += food.energy;
           changeProggress();
           canvas.remove(img);
           foods.splice(i, 1);
           renderFoods();
         } else{
           console.log("I am not eat this food")
+          allGame(renderingNoEat)
           img.animate('left', foodLeft, {
             duration: 500,
             onChange: canvas.renderAll.bind(canvas),

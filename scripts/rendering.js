@@ -1,3 +1,4 @@
+const wrapperKitchen = document.querySelector('#kitchen');
 
 export let canvasMain = document.getElementById("canvas");
 
@@ -104,11 +105,13 @@ setInterval (() => {
 },5000);
 
 setInterval (() => {
-  counters.countYawn += 1;
-  if (counters.countYawn === 21) {
-    allGame(yawningRenderObject);
-    bobAudio0.play();
-    counters.countYawn = 0;
+  if(wrapperKitchen.style.display !== "block"){
+    counters.countYawn += 1;
+    if (counters.countYawn === 21) {
+      allGame(yawningRenderObject);
+      bobAudio0.play();
+      counters.countYawn = 0;
+    }
   }
 },1000);
 
@@ -220,6 +223,6 @@ reactionJaw.addEventListener ('mousemove',(event) => {
 };
 });
 
-  
+
 
 
