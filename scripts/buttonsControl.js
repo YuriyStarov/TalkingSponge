@@ -34,6 +34,9 @@ const backToTravelMenu = document.getElementById ('backToTravelMenu');
 const allCollectionButtonInTravel1 = document.getElementsByClassName ('allCollectionButtonInTravel');
 const kitchenRoom = document.querySelector('#kitchen');
 const kitchenCanvas = kitchenRoom.querySelector('#c');
+const washcloth = document.getElementById ('washcloth');
+const showerUp = document.getElementById ('showerUp');
+const showerDown = document.getElementById ('showerDown');
 
 import { bedRoom } from "./store/main.js";
 
@@ -73,11 +76,16 @@ kitchenOut () {
 },
 
 bathroomIn () {
-
+    mainGrand.style.backgroundImage = 'url(../img/bathroom/bathroomBack.jpg)';
+    washcloth.style.display = 'block';
+    showerUp.style.display = 'block';
+    showerDown.style.display = 'block';
 },
 
 bathroomOut () {
-
+    washcloth.style.display = 'none';
+    showerUp.style.display = 'none';
+    showerDown.style.display = 'none';
 },
 
 bedroomIn () {

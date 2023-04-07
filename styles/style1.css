@@ -237,3 +237,31 @@ canvas {
 #kitchen{
     display: none;
 }
+
+#washcloth {
+    width: 110px;
+    height: 90px;
+    position: absolute;
+    top: 495px;
+    left: 760px;
+    background-image: url(../img/bathroom/mocha.png);
+    display: none;
+}
+
+#showerUp {
+    width: 25px;
+    height: 47px;
+    position: absolute;
+    top: 0px;
+    left: 435px;
+    /*display: none;*/
+}
+
+#showerDown {
+    width: 160px;
+    height: 35px;
+    position: absolute;
+    top: 45px;
+    left: 365px;
+    /*display: none;*/
+}
