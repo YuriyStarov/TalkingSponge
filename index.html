@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./scripts/store/store.css">
     <link rel="stylesheet" href="/styles/kitchen.css">
     <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+    <script type="module" src="./scripts/customElement.js"></script>
     <script type="module" src="./scripts/rendering.js"></script>
     <script type="module" src="./scripts/store/Room.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/fabric@5.3.0/dist/fabric.min.js"></script>
@@ -84,9 +85,7 @@
         <div id="pinataReaction"></div>
         <div id="pinataPrize">Your prize<br>2 </div>
         <div id="giftReaction"></div>
-        <button id="toMarket" class="buttonMenu">
-            <img src="./img/marketIcon.png" alt="no" id="marketIcon">
-        </button>
+        <market-button id="toMarket" class="toMarket"></market-button>
         <button id="toPlayroom" class="buttonMenu">
             <img src="./img/playroomIcon.png" alt="no" id="playroomIcon">
         </button>
@@ -184,9 +183,7 @@
         <div id="bow"></div>
     </div>
     <div id="toTravelAndMarket">
-        <button id="marketBackToPlayroom" class="buttonMenu">
-            <img src="./img/marketIcon.png" alt="no" id="marketIconBack">
-        </button>
+        <market-button id="marketBackToPlayroom" class="toMarket"></market-button>
         <div class="secondaryButtonsText" id="secondaryText1">LIVING ROOM</div>
         <button class="secondaryButtons" id="secondaryButton1">
             <img src="./img/toolsIcon.png" alt="no" id="toolsIcon">
