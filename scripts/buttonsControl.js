@@ -35,6 +35,8 @@ const allCollectionButtonInTravel1 = document.getElementsByClassName ('allCollec
 const kitchenRoom = document.querySelector('#kitchen');
 const kitchenCanvas = kitchenRoom.querySelector('#c');
 
+import { bedRoom } from "./store/main.js";
+
 const rooms = {
 
 playroomIn () {
@@ -87,6 +89,8 @@ bedroomIn () {
     // toMiniGame.style.display = 'block';
     // toMarket.style.display = 'block';
     // lineWithList.style.display = 'block';
+    bedRoom.render();
+
 },
 
 bedroomOut () {
@@ -97,6 +101,7 @@ bedroomOut () {
     toMiniGame.style.display = 'none';
     toMarket.style.display = 'none';
     lineWithList.style.display = 'none';
+    bedRoom.close()
 }
 
 }; 

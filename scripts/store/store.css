@@ -4,9 +4,13 @@
 .lamp {
     width: 100px;
     height: 100px;
+    padding-bottom: 0px;
     border-radius: 50%;
-    /* background-image: url('lamp.jpg'); */
-    /* background-size: cover; */
+}
+.item img{
+    -webkit-user-drag: none;
+    position: relative;
+    top: -15px;
 }
 
 .light-on {
@@ -18,5 +22,5 @@
 }
 
 .lamp {
-    transition: box-shadow 0.5s ease-in-out;
+    /* transition: box-shadow 0.5s ease-in-out; */
 }

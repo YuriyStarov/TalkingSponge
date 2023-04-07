@@ -1,5 +1,4 @@
 export default class Item {
-  itemElement;
   constructor(id, name, basePrice, position, versions, eventListeners = false) {
     this.id = id;
     this.name = name;
@@ -31,7 +30,9 @@ export default class Item {
   }
   render() {
     const renderedItem = document.getElementById(this.name);
-    // let itemDiv = document.createElement("div");
+    if (!this.itemDiv) {
+      this.itemDiv = document.createElement("div");
+    }
     if (renderedItem) {
       this.itemDiv.remove()
       this.itemDiv = renderedItem;
@@ -53,7 +54,6 @@ export default class Item {
     const itemPrice = document.createElement("p");
     itemPrice.textContent = `Price: ${this.basePrice}`;
     this.itemDiv.appendChild(itemPrice);
-    // this.itemElement = this.itemDiv;
     return this.itemDiv;
   }
 
