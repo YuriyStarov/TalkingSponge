@@ -1,9 +1,9 @@
-const countCoins = document.getElementById ('countCoins');
-const countCrystal = document.getElementById ('countCrystal');
+const countCoins = document.getElementById('countCoins');
+const countCrystal = document.getElementById('countCrystal');
 
 const collectionBonuses = {
 
-    coins: 0,
+    coins: 20,
     crystal: 10,
     elixirWakefulness: 0,
     elixirJoy: 0,
@@ -27,7 +27,19 @@ const collectionBonuses = {
 
 };
 
+document.addEventListener('moneyUpdate', moneyUpdateEvent);
+
+export function moneyUpdateEvent(event) {
+    console.log(event);
+    Object.entries(event.detail).forEach(([key, value]) => {
+        console.log(collectionBonuses[key]);
+        collectionBonuses[key] = value;
+    })
+    
+    countCoins.textContent = collectionBonuses.coins;
+    countCrystal.textContent = collectionBonuses.crystal;
+}
 countCoins.textContent = collectionBonuses.coins;
 countCrystal.textContent = collectionBonuses.crystal;
 
-export {collectionBonuses, countCoins, countCrystal };
+export { collectionBonuses, countCoins, countCrystal };

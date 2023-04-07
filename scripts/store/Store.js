@@ -1,5 +1,7 @@
 export default class Store {
-  constructor() {
+  constructor({ coins = 0, crystal = 0 } = {}) {
+    this.coins = coins;
+    this.crystal = crystal;
     this.currentRoom = null;
   }
 
@@ -9,9 +11,14 @@ export default class Store {
   }
 
   buyItem(item) {
-    if (item.currentVersionIndex < item.versions.length - 1) {
+    const itemPrice = item.basePrice;
+    if (item.currentVersionIndex < item.versions.length - 1 && this.coins >= itemPrice) {
       item.upgrade();
+      this.coins -= itemPrice;
       this.updateRender();
+
+      const moneyUpdateEvent = new CustomEvent('moneyUpdate', { detail: { coins: this.coins, crystal: this.crystal } });
+      document.dispatchEvent(moneyUpdateEvent);
     }
   }
 
