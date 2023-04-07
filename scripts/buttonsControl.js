@@ -61,7 +61,7 @@ playroomOut () {
 },
 
 kitchenIn () {
-    mainGrand.style.backgroundImage = 'url(../img/eat/kitchen.jpg)';
+    mainGrand.style.backgroundImage = 'url(../img/eat/greatKitchen.jpg)';
     kitchenRoom.style.display = 'block';
     kitchenCanvas.style.display = 'block';
     kitchenStart();
