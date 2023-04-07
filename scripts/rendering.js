@@ -1,14 +1,14 @@
 
-let canvas = document.getElementById("canvas");
+export let canvasMain = document.getElementById("canvas");
 
-let ctx = canvas.getContext("2d");
-let widthCtx = canvas.width;
-let heightCtx = canvas.height;
+export let ctxMain = canvasMain.getContext("2d");
+export let widthCtxMain = canvasMain.width;
+export let heightCtxMain = canvasMain.height;
 
-let blinking = new Image(14000,600);
+export let blinking = new Image(14000,600);
 blinking.src = "../img/blink.png";
 
-setTimeout (() => {ctx.drawImage(blinking, 0, 0, 700, 600, 200, 130, 500, 500);},1000);
+setTimeout (() => {ctxMain.drawImage(blinking, 0, 0, 700, 600, 200, 130, 500, 500);},1000);
 
 let yawning = new Image(14000,600);
 yawning.src = "../img/yawn.png";
@@ -68,30 +68,36 @@ const counters = {
 
 };
 
-function RenderObject (image, frequencyFrame) {
+export function RenderObject (image, frequencyFrame,numFrame,frameWidth,frameHeight,objectPositionX,objectPositionY,objectWidth,objectHeight) {
 
   this.image = image;
+  this.frameWidth = frameWidth;
+  this.frameHeight = frameHeight;
+  this.numFrame = numFrame;
+  this.objectPositionX = objectPositionX;
+  this.objectPositionY = objectPositionY;
+  this.objectWidth = objectWidth;
+  this.objectHeight = objectHeight;
   this.countFrame = 0;
   this.countEnd = 1;
   this.frequencyFrame = frequencyFrame;
-  this.lastFrame = 13500;
-  this.repeatSprite = frequencyFrame*20 +1;
-  this.frameWidth = 700;
+  this.lastFrame = this.numFrame*this.frameWidth;
+  this.repeatSprite = frequencyFrame*this.numFrame + 1;
   
 };
 
-const blinkingRenderObject = new RenderObject (blinking, 1);
-const yawningRenderObject = new RenderObject (yawning, 4);
-const leftLegRenderObject = new RenderObject (leftLeg, 3);
-const rightLegRenderObject = new RenderObject (rightLeg, 3);
-const leftEyeRenderObject = new RenderObject (leftEyes, 2);
-const rightEyeRenderObject = new RenderObject (rightEyes, 2);
-const leftHandRenderObject = new RenderObject (leftHand, 3);
-const rightHandRenderObject = new RenderObject (rightHand, 3);
-const bellyRenderObject = new RenderObject (bellyImage, 2);
-const jawRenderObject = new RenderObject (jawImage, 2);
-const fallRenderObject = new RenderObject (fallImage, 5);
-const ticklingRenderObject = new RenderObject (ticklingImage, 2);
+const blinkingRenderObject = new RenderObject (blinking, 1, 20, 700, 600, 200, 130, 500, 500);
+const yawningRenderObject = new RenderObject (yawning, 4, 20, 700, 600, 200, 130, 500, 500);
+const leftLegRenderObject = new RenderObject (leftLeg, 3, 20, 700, 600, 200, 130, 500, 500);
+const rightLegRenderObject = new RenderObject (rightLeg, 3, 20, 700, 600, 200, 130, 500, 500);
+const leftEyeRenderObject = new RenderObject (leftEyes, 2, 20, 700, 600, 200, 130, 500, 500);
+const rightEyeRenderObject = new RenderObject (rightEyes, 2, 20, 700, 600, 200, 130, 500, 500);
+const leftHandRenderObject = new RenderObject (leftHand, 3, 20, 700, 600, 200, 130, 500, 500);
+const rightHandRenderObject = new RenderObject (rightHand, 3, 20, 700, 600, 200, 130, 500, 500);
+const bellyRenderObject = new RenderObject (bellyImage, 2, 20, 700, 600, 200, 130, 500, 500);
+const jawRenderObject = new RenderObject (jawImage, 2, 20, 700, 600, 200, 130, 500, 500);
+const fallRenderObject = new RenderObject (fallImage, 5, 20, 700, 600, 200, 130, 500, 500);
+const ticklingRenderObject = new RenderObject (ticklingImage, 2, 20, 700, 600, 200, 130, 500, 500);
 
 setInterval (() => {
   allGame(blinkingRenderObject);
@@ -106,25 +112,25 @@ setInterval (() => {
   }
 },1000);
 
-function allGame (renderObject) {
+export function allGame (renderObject) {
   if (renderObject.countEnd < renderObject.repeatSprite) {
-  ctx.clearRect(0, 0, widthCtx, heightCtx);
+  ctxMain.clearRect(0, 0, widthCtxMain, heightCtxMain);
   draw(renderObject);
   renderObject.countEnd += 1;
   requestAnimationFrame(() => {allGame(renderObject)});
 } else {
-  ctx.clearRect(0, 0, widthCtx, heightCtx);
-  ctx.drawImage(blinking, 0, 0, 700, 600, 200, 130, 500, 500);
+  ctxMain.clearRect(0, 0, widthCtxMain, heightCtxMain);
+  ctxMain.drawImage(blinking, 0, 0, 700, 600, 200, 130, 500, 500);
   renderObject.countEnd = 1;
 }
 };
 
-function draw (renderObject) {
-ctx.drawImage(renderObject.image, renderObject.countFrame, 0, 700, 600, 200, 130, 500, 500);
+export function draw (renderObject) {
+ctxMain.drawImage(renderObject.image, renderObject.countFrame, 0, renderObject.frameWidth, renderObject.frameHeight, renderObject.objectPositionX, renderObject.objectPositionY, renderObject.objectWidth, renderObject.objectHeight);
 if (!(renderObject.countEnd % renderObject.frequencyFrame)) {
   renderObject.countFrame += renderObject.frameWidth;
 };
-if (renderObject.countFrame > renderObject.lastFrame) {
+if (renderObject.countFrame >= renderObject.lastFrame) {
   renderObject.countFrame = 0;
 };
 };
