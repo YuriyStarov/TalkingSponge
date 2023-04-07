@@ -22,5 +22,6 @@
 }
 
 .lamp {
+    margin: auto;
     /* transition: box-shadow 0.5s ease-in-out; */
 }

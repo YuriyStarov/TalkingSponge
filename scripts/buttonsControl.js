@@ -59,7 +59,7 @@ playroomOut () {
     giftReaction.style.display = 'none';
     pinataReaction.style.display = 'none';
     toMiniGame.style.display = 'none';
-    toMarket.style.display = 'none';
+    // toMarket.style.display = 'none';
     lineWithList.style.display = 'none';
 },
 
