@@ -64,10 +64,11 @@ let reactionEyesRight = document.getElementById ('right_eyes');
 let reactionBelly = document.getElementById ('belly');
 let reactionJaw = document.getElementById ('jaw');
 
-const counters = {
+export const countersIntervals = {
 
   countYawn: 0,
-  countFall: 0
+  countFall: 0,
+  countBlink: 0
 
 };
 
@@ -103,16 +104,20 @@ const fallRenderObject = new RenderObject (fallImage, 5, 20, 700, 600, 200, 130,
 const ticklingRenderObject = new RenderObject (ticklingImage, 2, 20, 700, 600, 200, 130, 500, 500);
 
 setInterval (() => {
-  allGame(blinkingRenderObject);
-},5000);
+  countersIntervals.countBlink += 1;
+    if (countersIntervals.countBlink === 6) {
+      allGame(blinkingRenderObject);
+      countersIntervals.countBlink = 0;
+    }
+},1000);
 
 setInterval (() => {
   if(wrapperKitchen.style.display !== "block"){
-    counters.countYawn += 1;
-    if (counters.countYawn === 21) {
+    countersIntervals.countYawn += 1;
+    if (countersIntervals.countYawn === 21) {
       allGame(yawningRenderObject);
       bobAudio0.play();
-      counters.countYawn = 0;
+      countersIntervals.countYawn = 0;
     }
   }
 },1000);
@@ -142,14 +147,17 @@ if (renderObject.countFrame >= renderObject.lastFrame) {
 };
 
 function fallCounter () {
-  counters.countFall += 1;
-  if (counters.countFall === 5) {
-    setTimeout (() => {allGame(fallRenderObject);}, 500);
-    counters.countFall = 0;
+  countersIntervals.countFall += 1;
+  if (countersIntervals.countFall === 5) {
+    setTimeout (() => {
+      queueObject.listenerNone();
+      allGame(fallRenderObject);
+    }, 800);
+    countersIntervals.countFall = 0;
     bobAudio6.play();
   };
-  if (counters.countFall === 1) {
-    setTimeout (() => {counters.countFall = 0;}, 3000);
+  if (countersIntervals.countFall === 1) {
+    setTimeout (() => {countersIntervals.countFall = 0;}, 3000);
   };
 };
 
@@ -157,56 +165,64 @@ reactionLegLeft.addEventListener ('click', () => {
   allGame(leftLegRenderObject);
   fallCounter();
   bobAudio1.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 3;
 });
 
 reactionLegRight.addEventListener ('click', () => {
   allGame(rightLegRenderObject);
   fallCounter();
   bobAudio1.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 3;
 });
 
 reactionEyesLeft.addEventListener ('click', () => {
   allGame(leftEyeRenderObject);
   fallCounter();
   bobAudio2.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 3;
 });
 
 reactionEyesRight.addEventListener ('click', () => {
   allGame(rightEyeRenderObject);
   fallCounter();
   bobAudio2.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 3;
 });
 
 reactionHandLeft.addEventListener ('click', () => {
   allGame(leftHandRenderObject);
   fallCounter();
   bobAudio3.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 3;
 });
 
 reactionHandRight.addEventListener ('click', () => {
   allGame(rightHandRenderObject);
   fallCounter();
   bobAudio3.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 3;
 });
 
 reactionBelly.addEventListener ('mousedown', () => {
   allGame(bellyRenderObject);
   fallCounter();
   bobAudio4.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 3;
 });
 
 reactionJaw.addEventListener ('mousedown', () => {
   allGame(jawRenderObject);
   fallCounter(); 
   bobAudio5.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 3;
 });
 
 
@@ -214,7 +230,8 @@ reactionBelly.addEventListener ('mousemove',(event) => {
     if (event.buttons === 1) {
     allGame(ticklingRenderObject);
     bobAudio7.play();
-    counters.countYawn = 0;
+    countersIntervals.countYawn = 0;
+    countersIntervals.countBlink = 0;
   };
 });
 
@@ -222,7 +239,8 @@ reactionJaw.addEventListener ('mousemove',(event) => {
   if (event.buttons === 1) {
   allGame(ticklingRenderObject);
   bobAudio7.play();
-  counters.countYawn = 0;
+  countersIntervals.countYawn = 0;
+  countersIntervals.countBlink = 0;
 };
 });
 
