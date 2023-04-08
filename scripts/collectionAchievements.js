@@ -29,7 +29,7 @@ const collectionBonuses = {
 
 document.addEventListener('moneyUpdate', moneyUpdateEvent);
 
-export function moneyUpdateEvent(event) {
+function moneyUpdateEvent(event) {
     console.log(event);
     Object.entries(event.detail).forEach(([key, value]) => {
         console.log(collectionBonuses[key]);
@@ -42,4 +42,4 @@ export function moneyUpdateEvent(event) {
 countCoins.textContent = collectionBonuses.coins;
 countCrystal.textContent = collectionBonuses.crystal;
 
-export { collectionBonuses, countCoins, countCrystal };
+export { collectionBonuses, countCoins, countCrystal, moneyUpdateEvent };

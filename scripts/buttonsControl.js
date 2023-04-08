@@ -1,5 +1,6 @@
 import { collectionBonuses } from "./collectionAchievements.js";
 import { kitchenStart } from "./kitchen.js";
+import { toilet } from "./bathroom.js";
 
 const toPlayroom = document.getElementById ('toPlayroom');
 const toKitchen = document.getElementById ('toKitchen');
@@ -98,6 +99,7 @@ bathroomIn () {
     showerDown.style.display = 'block';
     interior[2].style.display = 'block';
     textPosition[2].style.display = 'block';
+    toilet();
 },
 
 bathroomOut () {

@@ -1,3 +1,5 @@
+import { queue, queueObject } from "./queueObject.js";
+
 const wrapperKitchen = document.querySelector('#kitchen');
 
 export let canvasMain = document.getElementById("canvas");
@@ -125,6 +127,7 @@ export function allGame (renderObject) {
   ctxMain.clearRect(0, 0, widthCtxMain, heightCtxMain);
   ctxMain.drawImage(blinking, 0, 0, 700, 600, 200, 130, 500, 500);
   renderObject.countEnd = 1;
+  queueObject.listenerBlock();
 }
 };
 
