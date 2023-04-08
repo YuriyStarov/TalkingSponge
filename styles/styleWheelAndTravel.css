@@ -86,10 +86,14 @@
     border-radius: 50%;
 }
 
-#secondaryButton1 {
+.interior {
     top: 110px;
     left: 850px;
     background-color: #ffff00bb;
+}
+
+.screenNone {
+    display: none;
 }
 
 #secondaryButton2 {
@@ -101,6 +105,12 @@
 #secondaryButton3 {
     top: 110px;
     left: 710px;
+}
+
+#secondaryButton4 {
+    top: 70px;
+    left: 635px;
+    background-color: #ffff00bb;
 }
 
 .secondaryButtonsText {
@@ -116,19 +126,24 @@
     padding-top: 5px;
 }
 
-#secondaryText1 {
+.textPosition {
     top: 157px;
     left: 810px;
 }
 
 #secondaryText2 {
-    top: 38px;
+    top: 45px;
     left: 735px;
 }
 
 #secondaryText3 {
     top: 157px;
     left: 670px;
+}
+
+#secondaryText4 {
+    top: 45px;
+    left: 605px;
 }
 
 #marketBackToPlayroom {
@@ -158,7 +173,13 @@
     left: 748px;
 }
 
-#toolsIcon {
+#lineWithList4 {
+    position: absolute;
+    top: 104px;
+    left: 683px;
+}
+
+.toolsIcon {
     position: relative;
     top: 2px;
     left: -2px;
@@ -174,6 +195,12 @@
     position: relative;
     top: 0px;
     left: -3px;
+}
+
+#foodIcon {
+    position: relative;
+    top: -2px;
+    left: -10px;
 }
 
 #airTravel {

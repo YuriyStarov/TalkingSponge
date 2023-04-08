@@ -37,6 +37,10 @@ const kitchenCanvas = kitchenRoom.querySelector('#c');
 const washcloth = document.getElementById ('washcloth');
 const showerUp = document.getElementById ('showerUp');
 const showerDown = document.getElementById ('showerDown');
+const interior = document.getElementsByClassName ('interior');
+const textPosition = document.getElementsByClassName ('textPosition');
+const foodButton = document.getElementsByClassName ('foodButton');
+
 
 import { bedRoom } from "./store/main.js";
 
@@ -49,8 +53,9 @@ playroomIn () {
     giftReaction.style.display = 'block';
     pinataReaction.style.display = 'block';
     toMiniGame.style.display = 'block';
-    toMarket.style.display = 'block';
     lineWithList.style.display = 'block';
+    interior[0].style.display = 'block';
+    textPosition[0].style.display = 'block';
 },
 
 playroomOut () {
@@ -59,20 +64,31 @@ playroomOut () {
     giftReaction.style.display = 'none';
     pinataReaction.style.display = 'none';
     toMiniGame.style.display = 'none';
-    // toMarket.style.display = 'none';
     lineWithList.style.display = 'none';
+    interior[0].style.display = 'none';
+    textPosition[0].style.display = 'none';
 },
 
 kitchenIn () {
     mainGrand.style.backgroundImage = 'url(../img/eat/greatKitchen.jpg)';
     kitchenRoom.style.display = 'block';
     kitchenCanvas.style.display = 'block';
+    interior[1].style.display = 'block';
+    textPosition[1].style.display = 'block';
+    foodButton[0].style.display = 'block';
+    foodButton[1].style.display = 'block';
+    foodButton[2].style.display = 'block';
     kitchenStart();
 },
 
 kitchenOut () {
     kitchenRoom.style.display = 'none';
     kitchenCanvas.style.display = 'none';
+    interior[1].style.display = 'none';
+    textPosition[1].style.display = 'none';
+    foodButton[0].style.display = 'none';
+    foodButton[1].style.display = 'none';
+    foodButton[2].style.display = 'none';
 },
 
 bathroomIn () {
@@ -80,12 +96,16 @@ bathroomIn () {
     washcloth.style.display = 'block';
     showerUp.style.display = 'block';
     showerDown.style.display = 'block';
+    interior[2].style.display = 'block';
+    textPosition[2].style.display = 'block';
 },
 
 bathroomOut () {
     washcloth.style.display = 'none';
     showerUp.style.display = 'none';
     showerDown.style.display = 'none';
+    interior[2].style.display = 'none';
+    textPosition[2].style.display = 'none';
 },
 
 bedroomIn () {
@@ -95,8 +115,9 @@ bedroomIn () {
     // giftReaction.style.display = 'block';
     // pinataReaction.style.display = 'block';
     // toMiniGame.style.display = 'block';
-    // toMarket.style.display = 'block';
     // lineWithList.style.display = 'block';
+    interior[3].style.display = 'block';
+    textPosition[3].style.display = 'block';
     bedRoom.render();
 
 },
@@ -107,8 +128,9 @@ bedroomOut () {
     giftReaction.style.display = 'none';
     pinataReaction.style.display = 'none';
     toMiniGame.style.display = 'none';
-    toMarket.style.display = 'none';
     lineWithList.style.display = 'none';
+    interior[3].style.display = 'none';
+    textPosition[3].style.display = 'none';
     bedRoom.close()
 }
 
