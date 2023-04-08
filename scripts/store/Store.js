@@ -16,6 +16,9 @@ export default class Store {
       item.upgrade();
       this.coins -= itemPrice;
       this.updateRender();
+      // if (item.currentVersionIndex < item.versions.length - 1) {
+        this.render();
+      // }
 
       const moneyUpdateEvent = new CustomEvent('moneyUpdate', { detail: { coins: this.coins, crystal: this.crystal } });
       document.dispatchEvent(moneyUpdateEvent);

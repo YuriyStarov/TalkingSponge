@@ -37,5 +37,6 @@ export default class Room {
         item.itemDiv.innerHTML = '';
       }
     });
+
   }
 }

@@ -41,6 +41,7 @@ const showerDown = document.getElementById ('showerDown');
 const interior = document.getElementsByClassName ('interior');
 const textPosition = document.getElementsByClassName ('textPosition');
 const foodButton = document.getElementsByClassName ('foodButton');
+const maskForSleep = document.getElementById('maskForSleep');
 
 
 import { bedRoom } from "./store/main.js";
@@ -133,6 +134,7 @@ bedroomOut () {
     lineWithList.style.display = 'none';
     interior[3].style.display = 'none';
     textPosition[3].style.display = 'none';
+    maskForSleep.style.display = 'none';
     bedRoom.close()
 }
 
