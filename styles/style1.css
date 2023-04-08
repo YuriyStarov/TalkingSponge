@@ -254,7 +254,7 @@ canvas {
     position: absolute;
     top: 0px;
     left: 435px;
-    /*display: none;*/
+    display: none;
 }
 
 #showerDown {
@@ -263,5 +263,16 @@ canvas {
     position: absolute;
     top: 45px;
     left: 365px;
-    /*display: none;*/
+    display: none;
+}
+
+#maskForSleep {
+    width: 225px;
+    height: 101px;
+    position: absolute;
+    top: 200px;
+    left: 340px;
+    background-image: url(../img/mask.png);
+    background-size: 100% 100%;
+    display: none;
 }
