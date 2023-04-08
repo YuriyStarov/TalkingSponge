@@ -12,7 +12,7 @@ mainButtonArray.push(toKitchen);
 mainButtonArray.push(toBathroom);
 mainButtonArray.push(toBedroom);
 
-function coloringMainButton (pleasureLevel,button) {
+export function coloringMainButton (pleasureLevel,button) {
 
     if (pleasureLevel < 21) {
         const gradient = `linear-gradient(0deg, #FFFF0099 ${pleasureLevel}%, #FF0000 ${pleasureLevel}%)`
