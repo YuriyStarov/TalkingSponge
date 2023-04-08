@@ -3,9 +3,9 @@ import Room from "./Room.js";
 import Item from "./Item.js";
 import LampItem from "./lampItem.js";
 import { collectionBonuses } from "../collectionAchievements.js";
-const toStore = document.getElementById('toStore');
-const outStore = document.getElementById('outStore');
-const goToBedRoom = document.getElementById('toBedroom');
+const toStore = document.getElementById('secondaryButton1_4');
+// const outStore = document.getElementById('outStore');
+// const goToBedRoom = document.getElementById('toBedroom');
 
 const slipper = new Item(1, "slippers", 2, { x: 700, y: 400 }, [
     { name: "slippers_1", image: "img/bedRoom/slippers/slippers_1.png" },
@@ -42,11 +42,17 @@ const store = new Store(collectionBonuses);
 
 
 toStore.addEventListener('click', (event) => {
+    if (toStore.classList.contains('open')) {
+        store.close();
+        toStore.classList.remove("open");
+        return;
+    }
+    toStore.classList.add("open");
     store.open(bedRoom);
 });
-outStore.addEventListener('click', (event) => {
-    store.close();
-});
+// outStore.addEventListener('click', (event) => {
+//     store.close();
+// });
 
 // document.body.addEventListener('click', (event) => {
 //   console.log(event.clientX);

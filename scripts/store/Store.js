@@ -37,7 +37,10 @@ export default class Store {
 
       if (item.currentVersionIndex < item.versions.length - 1) {
         const buyButton = document.createElement("button");
-        buyButton.textContent = "Buy";
+        buyButton.style.backgroundColor = 'transparent';
+        buyButton.style.color = 'grey';
+        buyButton.style.border = 'solid white 1px';
+        buyButton.textContent = `${item.basePrice} 🪙`;
         buyButton.addEventListener("click", () => {
           this.buyItem(item);
         });
