@@ -44,7 +44,8 @@ const foodButton = document.getElementsByClassName ('foodButton');
 const maskForSleep = document.getElementById('maskForSleep');
 
 
-import { bedRoom } from "./store/main.js";
+import { bedRoom, kitchenStore } from "./store/main.js";
+import { kitchen } from "./store/main.js";
 
 const rooms = {
 
@@ -81,16 +82,19 @@ kitchenIn () {
     foodButton[1].style.display = 'block';
     foodButton[2].style.display = 'block';
     kitchenStart();
+    kitchen.render();
 },
 
 kitchenOut () {
     kitchenRoom.style.display = 'none';
-    kitchenCanvas.style.display = 'none';
+    kitchenCanvas.style.display = 'none'; // Uncaught TypeError: Cannot read properties of null (reading 'style')
     interior[1].style.display = 'none';
     textPosition[1].style.display = 'none';
     foodButton[0].style.display = 'none';
     foodButton[1].style.display = 'none';
     foodButton[2].style.display = 'none';
+    // kitchenStore.close()
+    kitchen.close();
 },
 
 bathroomIn () {
@@ -112,6 +116,7 @@ bathroomOut () {
 },
 
 bedroomIn () {
+    
     mainGrand.style.backgroundImage = 'url(../img/bedRoom/background.png)';
     // canvasGift.style.display = 'block';
     // canvasPinata.style.display = 'block';

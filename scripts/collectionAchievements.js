@@ -30,9 +30,7 @@ const collectionBonuses = {
 document.addEventListener('moneyUpdate', moneyUpdateEvent);
 
 function moneyUpdateEvent(event) {
-    console.log(event);
     Object.entries(event.detail).forEach(([key, value]) => {
-        console.log(collectionBonuses[key]);
         collectionBonuses[key] = value;
     })
     

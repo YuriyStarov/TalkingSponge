@@ -1,4 +1,5 @@
 export default class Room {
+  subElements;
   constructor({id, items = [], tagName = '', roomTypeItems = []} = {}) {
     this.id = id;
     this.name = `Room_${id}`;
@@ -11,10 +12,11 @@ export default class Room {
 
   render() {
     this.items.forEach((item) => {
+      item.itemDiv.remove()
       const itemDiv = item.render();
       this.roomDiv.appendChild(itemDiv);
     });
-
+    this.getSubElements();
     return this.roomDiv;
   }
 
@@ -27,6 +29,15 @@ export default class Room {
   updateRender() {
     this.roomDiv.replaceWith(this.render());
   }
+    getSubElements() {
+      const result = {};
+    const elements = this.roomDiv.querySelectorAll("[data-element]");
+    [...elements].map(element => {
+      result[element.dataset.element] = element;
+    });
+    this.subElements = result;
+
+  }
 
   close() {
     this.items.forEach((item) => {
@@ -34,7 +45,7 @@ export default class Room {
         item.turnOfLight()
       }
       if (item.itemDiv) {
-        item.itemDiv.innerHTML = '';
+        this.roomDiv.innerHTML = '';
       }
     });
 

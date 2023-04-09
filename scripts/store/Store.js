@@ -1,11 +1,12 @@
 export default class Store {
-  constructor({ coins = 0, crystal = 0 } = {}) {
-    this.coins = coins;
-    this.crystal = crystal;
-    this.currentRoom = null;
+  constructor({ room, bonuses } = {}) {
+    this.coins = bonuses.coins;
+    this.crystal = bonuses.crystal;
+    this.room = room;
   }
 
   open(room) {
+    this.items = room.subElements;
     this.currentRoom = room;
     this.render();
   }
@@ -15,10 +16,8 @@ export default class Store {
     if (item.currentVersionIndex < item.versions.length - 1 && this.coins >= itemPrice) {
       item.upgrade();
       this.coins -= itemPrice;
-      this.updateRender();
-      // if (item.currentVersionIndex < item.versions.length - 1) {
-        this.render();
-      // }
+      this.updateRender(item);
+      this.render();
 
       const moneyUpdateEvent = new CustomEvent('moneyUpdate', { detail: { coins: this.coins, crystal: this.crystal } });
       document.dispatchEvent(moneyUpdateEvent);
@@ -31,13 +30,9 @@ export default class Store {
       return;
     }
 
-    // const storeDiv = document.createElement("div");
-    // storeDiv.classList.add("store");
-
     this.currentRoom.items.forEach((item) => {
       const itemDiv = item.itemDiv;
-      // storeDiv.appendChild(itemDiv);
-
+      // console.log(item);
       if (item.currentVersionIndex < item.versions.length - 1) {
         const buyButton = document.createElement("button");
         buyButton.style.backgroundColor = 'transparent';
@@ -50,28 +45,18 @@ export default class Store {
         itemDiv.appendChild(buyButton);
       }
     });
-
-    // document.body.appendChild(storeDiv);
   }
 
   updateRender() {
     this.currentRoom.render()
-    // const storeDiv = document.querySelector(".store");
-    // if (storeDiv) {
-    //   storeDiv.remove();
-    //   this.render();
-    // }
   }
 
   close() {
-    // const storeDiv = document.querySelector(".store");
     this.currentRoom.items.forEach(item => {
       const buyButtons = item.itemDiv.querySelectorAll("button");
       buyButtons.forEach((button) => button.remove());
     })
+    // this.currentRoom.close();
     this.currentRoom = null;
-
-    // const buyButtons = this.currentRoom.items.querySelectorAll("button");
-    // buyButtons.forEach((button) => button.remove());
   }
 }
