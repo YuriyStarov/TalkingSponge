@@ -4,6 +4,7 @@ let audioCrash = document.getElementById ('crash_music');
 let audioBoom = document.getElementById ('boom_music');
 let reaction = document.getElementById ('pinataReaction');
 let pinataPrize = document.getElementById ('pinataPrize');
+let prizeAudio = document.getElementById ('prize_music');
 
 const counters = {
   countSprite: 0,
@@ -73,6 +74,7 @@ export function paintPrize () {
   const arrayPrize = ['🟡','🔶'];
   const numPrize = Math.floor ( Math.random()*10 + 1 );
   const typePrize = Math.floor ( Math.random() + 0.5 );
+  prizeAudio.play();
   pinataPrize.textContent = `Your prize\n${numPrize} ${arrayPrize[typePrize]}`;
   pinataPrize.style.display = 'block';
   if (typePrize) {
