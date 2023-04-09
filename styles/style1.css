@@ -304,3 +304,11 @@ canvas {
     display: none;
 }
 
+#toiletReaction {
+    width: 100px;
+    height: 65px;
+    position: absolute;
+    top: 440px;
+    left: 10px;
+    display: none;
+};

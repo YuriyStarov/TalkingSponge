@@ -57,7 +57,7 @@ function beforeAllGame () {
   if (counters.countKick === 20) {
     audioCrash.play();
     paintPrize();
-    setTimeout (() => {bigToLittlePrize(170,100,300,115,35,1,30)},1000);
+    setTimeout (() => {bigToLittlePrize(170,100,300,115,35,1,30)},2000);
     ctx.clearRect(0, 0, widthCtx, heightCtx);
     ctx.drawImage(pinata5, 0, 0, 200, 300, 0, 0, 200, 300);
     setTimeout (() => {
@@ -68,7 +68,7 @@ function beforeAllGame () {
   };
 };
 
-function paintPrize () {
+export function paintPrize () {
 
   const arrayPrize = ['🟡','🔶'];
   const numPrize = Math.floor ( Math.random()*10 + 1 );
@@ -85,7 +85,7 @@ function paintPrize () {
   }
 };
 
-function bigToLittlePrize (width,height,top,left,fontSize,opacity,endPoint) {
+export function bigToLittlePrize (width,height,top,left,fontSize,opacity,endPoint) {
 
   if (endPoint > 0) {
     pinataPrize.style.width = `${width}px`;

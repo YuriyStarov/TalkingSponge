@@ -1,6 +1,6 @@
 import { collectionBonuses } from "./collectionAchievements.js";
 import { kitchenStart } from "./kitchen.js";
-import { toilet, foamCollection, exitFoam } from "./bathroom.js";
+import { toilet, foamCollection, exitFoam, moveWC } from "./bathroom.js";
 
 const toPlayroom = document.getElementById ('toPlayroom');
 const toKitchen = document.getElementById ('toKitchen');
@@ -43,6 +43,7 @@ const textPosition = document.getElementsByClassName ('textPosition');
 const foodButton = document.getElementsByClassName ('foodButton');
 const maskForSleep = document.getElementById('maskForSleep');
 const showerCanvas = document.getElementById('showerCanvas');
+const toiletReaction = document.getElementById('toiletReaction');
 
 
 import { bedRoom } from "./store/main.js";
@@ -102,6 +103,7 @@ bathroomIn () {
     interior[2].style.display = 'block';
     textPosition[2].style.display = 'block';
     showerCanvas.style.display = 'block';
+    toiletReaction.style.display = 'block';
     toilet();
 },
 
@@ -112,6 +114,7 @@ bathroomOut () {
     interior[2].style.display = 'none';
     textPosition[2].style.display = 'none';
     showerCanvas.style.display = 'none';
+    toiletReaction.style.display = 'none';
     exitFoam();
 },
 

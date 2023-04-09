@@ -3,6 +3,7 @@ import { collectionBonuses, countCoins, countCrystal, moneyUpdateEvent } from ".
 import { queue, queueObject } from "./queueObject.js";
 import { allGame, draw, RenderObject, canvasMain, ctxMain, widthCtxMain, heightCtxMain, blinking, countersIntervals } from "./rendering.js";
 import { coloringMainButton } from "./funcForProgress.js";
+import { paintPrize, bigToLittlePrize } from "./pinata.js";
 
 let toiletBobs = new Image(2800,600);
 toiletBobs.src = "../img/bathroom/toiletBobs.png";
@@ -16,11 +17,14 @@ let heightCtxShowerCanvas = showerCanvas.height;
 let showerSprite = new Image(600,520);
 showerSprite.src = "../img/bathroom/showerSprite_2.png";
 
+const toiletAudio = document.getElementById ('toilet_music');
+const showerAudio = document.getElementById ('shower_music');
 const toBathroom = document.getElementById ('toBathroom');
 const washcloth = document.getElementById ('washcloth');
 const showerDown = document.getElementById ('showerDown');
 const showerUp = document.getElementById ('showerUp');
 const dirt = document.getElementById ('dirt');
+const toiletReaction = document.getElementById('toiletReaction');
 export const foamCollection = [];
 const newWashclothPosition = [760,495];
 const movePosition = [0,0];
@@ -35,13 +39,16 @@ if (collectionBonuses.dirtBobs > 1) {
     collectionBonuses.dirtBobs = 1;
 };
 dirt.style.opacity = `${collectionBonuses.dirtBobs}`;
-}, 60000)
+}, 60000);
 
-export function toilet () {
+export function moveWC () {
 
-    if (collectionBonuses.pleasureLevels[2] < 21) {
+    if (collectionBonuses.pleasureLevels[2] < 81) {
 
         queueObject.listenerNone();
+        countersIntervals.countBlink = 0;
+        countersIntervals.countYawn = 0;
+        toiletAudio.play();
         let newInt;
 
         setTimeout (() => {
@@ -60,7 +67,19 @@ export function toilet () {
             clearInterval(newInt);
             dirt.style.display = 'block';
             queueObject.listenerBlock();
+            paintPrize();
+            setTimeout (() => {bigToLittlePrize(170,100,300,115,35,1,30)},2000);
         },4700);
+
+    };
+
+};
+
+export function toilet () {
+
+    if (collectionBonuses.pleasureLevels[2] < 21) {
+
+       moveWC ();
 
     };
 
@@ -170,6 +189,9 @@ washcloth.addEventListener ('mouseup',(event) => {
 
 showerDown.addEventListener ('mousedown',() => {
 
+    countersIntervals.countBlink = 0;
+    countersIntervals.countYawn = 0;
+    showerAudio.play();
     countDirt[0] = foamCollection.length;
     booleanShower = true;
     drawShower(0);
@@ -181,21 +203,30 @@ showerDown.addEventListener ('mousedown',() => {
 
 showerDown.addEventListener ('mouseup',() => {
 
-   booleanShower = false;
+    booleanShower = false;
+   showerAudio.pause();
    clearInterval(washInterval);
    countDirt[1] = foamCollection.length;
    const dirtOpacity = collectionBonuses.dirtBobs;
-   let newOpacity = dirtOpacity - ((countDirt[0] - countDirt[1])/25);
+   const showProgress = (countDirt[0] - countDirt[1])/25;
+   let newOpacity = dirtOpacity - showProgress;
    if (newOpacity < 0) {
         newOpacity = 0;
    };
    collectionBonuses.dirtBobs = newOpacity;
    dirt.style.opacity = `${newOpacity}`;
+   if (showProgress > 0.4 && dirtOpacity > 0.2) {
+    paintPrize();
+    setTimeout (() => {bigToLittlePrize(170,100,300,115,35,1,30)},2000);
+   };
    
 });
 
 showerUp.addEventListener ('mousedown',() => {
     
+    countersIntervals.countBlink = 0;
+    countersIntervals.countYawn = 0;
+    showerAudio.play();
     countDirt[0] = foamCollection.length;
     booleanShower = true;
     drawShower(0);
@@ -208,19 +239,25 @@ showerUp.addEventListener ('mousedown',() => {
 showerUp.addEventListener ('mouseup',() => {
 
    booleanShower = false;
+   showerAudio.pause();
    clearInterval(washInterval);
    countDirt[1] = foamCollection.length;
    const dirtOpacity = collectionBonuses.dirtBobs;
-   let newOpacity = dirtOpacity - ((countDirt[0] - countDirt[1])/25);
+   const showProgress = (countDirt[0] - countDirt[1])/25;
+   let newOpacity = dirtOpacity - showProgress;
    if (newOpacity < 0) {
         newOpacity = 0;
    };
    collectionBonuses.dirtBobs = newOpacity;
    dirt.style.opacity = `${newOpacity}`;
-    
+   if (showProgress > 0.4 && dirtOpacity > 0.2) {
+    paintPrize();
+    setTimeout (() => {bigToLittlePrize(170,100,300,115,35,1,30)},2000);
+   };
+
 });
 
-
+toiletReaction.addEventListener ('click',moveWC);
 
 /*document.body.addEventListener ('click',(event) => {
     console.log (`x = ${event.x}; y = ${event.y}`);
