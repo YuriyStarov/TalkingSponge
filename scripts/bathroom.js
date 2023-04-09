@@ -4,6 +4,10 @@ import { queue, queueObject } from "./queueObject.js";
 import { allGame, draw, RenderObject, canvasMain, ctxMain, widthCtxMain, heightCtxMain, blinking, countersIntervals } from "./rendering.js";
 import { coloringMainButton } from "./funcForProgress.js";
 
+let toiletBobs = new Image(2800,600);
+toiletBobs.src = "../img/bathroom/toiletBobs.png";
+const toiletBobsObject = new RenderObject (toiletBobs, 60, 4, 700, 600, 50, 150, 500, 500);
+
 let showerCanvas = document.getElementById("showerCanvas");
 let ctxShowerCanvas = showerCanvas.getContext("2d");
 let widthCtxShowerCanvas = showerCanvas.width;
@@ -12,6 +16,7 @@ let heightCtxShowerCanvas = showerCanvas.height;
 let showerSprite = new Image(600,520);
 showerSprite.src = "../img/bathroom/showerSprite_2.png";
 
+const toBathroom = document.getElementById ('toBathroom');
 const washcloth = document.getElementById ('washcloth');
 const showerDown = document.getElementById ('showerDown');
 const showerUp = document.getElementById ('showerUp');
@@ -34,13 +39,30 @@ dirt.style.opacity = `${collectionBonuses.dirtBobs}`;
 
 export function toilet () {
 
-    /*if (collectionBonuses.pleasureLevels[2] < 21) {
+    if (collectionBonuses.pleasureLevels[2] < 21) {
 
         queueObject.listenerNone();
+        let newInt;
 
-300-600x  185-620y
-110/90 size
-    };*/
+        setTimeout (() => {
+            dirt.style.display = 'none';
+            allGame (toiletBobsObject);
+            newInt = setInterval (() => {
+                collectionBonuses.pleasureLevels[2] += 1;
+                 if (collectionBonuses.pleasureLevels[2] > 100) {
+                     collectionBonuses.pleasureLevels[2] = 100;
+                 };
+                coloringMainButton(collectionBonuses.pleasureLevels[2],toBathroom);
+            }, 33.333);
+        }, 500);
+        
+        setTimeout (() => {
+            clearInterval(newInt);
+            dirt.style.display = 'block';
+            queueObject.listenerBlock();
+        },4700);
+
+    };
 
 };
 
@@ -163,7 +185,7 @@ showerDown.addEventListener ('mouseup',() => {
    clearInterval(washInterval);
    countDirt[1] = foamCollection.length;
    const dirtOpacity = collectionBonuses.dirtBobs;
-   let newOpacity = dirtOpacity - ((countDirt[0] - countDirt[1])/20);
+   let newOpacity = dirtOpacity - ((countDirt[0] - countDirt[1])/25);
    if (newOpacity < 0) {
         newOpacity = 0;
    };
@@ -189,7 +211,7 @@ showerUp.addEventListener ('mouseup',() => {
    clearInterval(washInterval);
    countDirt[1] = foamCollection.length;
    const dirtOpacity = collectionBonuses.dirtBobs;
-   let newOpacity = dirtOpacity - ((countDirt[0] - countDirt[1])/20);
+   let newOpacity = dirtOpacity - ((countDirt[0] - countDirt[1])/25);
    if (newOpacity < 0) {
         newOpacity = 0;
    };
