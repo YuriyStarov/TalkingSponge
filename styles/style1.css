@@ -246,6 +246,7 @@ canvas {
     left: 760px;
     background-image: url(../img/bathroom/mocha.png);
     display: none;
+    z-index: 100;
 }
 
 #showerUp {
@@ -276,3 +277,38 @@ canvas {
     background-size: 100% 100%;
     display: none;
 }
+
+.foamStyle {
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    background-image: url(../img/bathroom/foam.png);
+}
+
+#dirt {
+    width: 210px;
+    height: 250px;
+    position: absolute;
+    top: 165px;
+    left: 350px;
+    background-image: url(../img/bathroom/dirt.png);
+    opacity: 1;
+}
+
+#showerCanvas {
+    width: 150px;
+    height: 540px;
+    position: absolute;
+    top: 70px;
+    left: 370px;
+    display: none;
+}
+
+#toiletReaction {
+    width: 100px;
+    height: 65px;
+    position: absolute;
+    top: 440px;
+    left: 10px;
+    display: none;
+};
