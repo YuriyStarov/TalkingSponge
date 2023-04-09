@@ -29,8 +29,11 @@ const backToMiniGameMenu = document.querySelectorAll('.backToMiniGameMenu');
 const toMarket = document.getElementById('toMarket'); 
 const toTravelAndMarket = document.getElementById ('toTravelAndMarket');
 const marketBackToPlayroom = document.getElementById ('marketBackToPlayroom');
+const secondaryButton2 = document.getElementById ('secondaryButton2');
 const secondaryButton3 = document.getElementById ('secondaryButton3');
+const wardrobe = document.getElementById('wardrobe');
 const airTravel = document.getElementById ('airTravel');
+const backToAllButtons = document.getElementById ('backToAllButtons');
 const backToTravelMenu = document.getElementById ('backToTravelMenu');
 const allCollectionButtonInTravel1 = document.getElementsByClassName ('allCollectionButtonInTravel');
 const kitchenRoom = document.querySelector('#kitchen');
@@ -206,11 +209,24 @@ marketBackToPlayroom.addEventListener ('click', () => {
     toTravelAndMarket.style.display = 'none';
 });
 
+secondaryButton2.addEventListener ('click', () => {
+    volume2.volume = 0;
+    mainGrand.style.display = 'none';
+    toTravelAndMarket.style.display = 'none';
+   wardrobe.style.display = 'block';
+});
+
 secondaryButton3.addEventListener ('click', () => {
     volume2.volume = 0;
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
     airTravel.style.display = 'block';
+});
+
+backToAllButtons.addEventListener ('click', () => {
+    volume2.volume = 1;
+    wardrobe.style.display = 'none';
+    mainGrand.style.display = 'block';    
 });
 
 backToTravelMenu.addEventListener ('click', () => {
