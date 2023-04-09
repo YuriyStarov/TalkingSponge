@@ -4,13 +4,33 @@ import { queue, queueObject } from "./queueObject.js";
 import { allGame, draw, RenderObject, canvasMain, ctxMain, widthCtxMain, heightCtxMain, blinking, countersIntervals } from "./rendering.js";
 import { coloringMainButton } from "./funcForProgress.js";
 
+let showerCanvas = document.getElementById("showerCanvas");
+let ctxShowerCanvas = showerCanvas.getContext("2d");
+let widthCtxShowerCanvas = showerCanvas.width;
+let heightCtxShowerCanvas = showerCanvas.height;
+
+let showerSprite = new Image(600,520);
+showerSprite.src = "../img/bathroom/showerSprite_2.png";
+
 const washcloth = document.getElementById ('washcloth');
 const showerDown = document.getElementById ('showerDown');
 const showerUp = document.getElementById ('showerUp');
-const foamCollection = [];
+const dirt = document.getElementById ('dirt');
+export const foamCollection = [];
 const newWashclothPosition = [760,495];
 const movePosition = [0,0];
+let countFrameShower = 1;
+let booleanShower = false;
+const countDirt = [0,0];
 let washInterval;
+
+setInterval (() => {
+collectionBonuses.dirtBobs += 0.01;
+if (collectionBonuses.dirtBobs > 1) {
+    collectionBonuses.dirtBobs = 1;
+};
+dirt.style.opacity = `${collectionBonuses.dirtBobs}`;
+}, 60000)
 
 export function toilet () {
 
@@ -52,6 +72,34 @@ function washFoam () {
         foamCollection.shift().remove();
     };
     
+};
+
+export function exitFoam () {
+
+    foamCollection.forEach ((element) => {
+        element.remove ();
+    });
+    foamCollection.filter (() => {
+        return false;
+    });
+};
+
+function drawShower (pruning) {
+    ctxShowerCanvas.drawImage(showerSprite,pruning,0,150,520,0,0,300,540);
+    if (!(countFrameShower % 5)) {
+        pruning += 150;
+    };
+    if (pruning > 500) {
+        pruning = 0;
+    };
+    if (booleanShower) {
+        countFrameShower += 1;
+        requestAnimationFrame(() => {drawShower(pruning)});
+    }
+    else {
+        countFrameShower = 1;
+        ctxShowerCanvas.clearRect(0, 0, widthCtxShowerCanvas, heightCtxShowerCanvas);
+    };
 };
 
 washcloth.addEventListener ('mousedown',(event) => {
@@ -100,6 +148,9 @@ washcloth.addEventListener ('mouseup',(event) => {
 
 showerDown.addEventListener ('mousedown',() => {
 
+    countDirt[0] = foamCollection.length;
+    booleanShower = true;
+    drawShower(0);
     washInterval = setInterval (() => {
         washFoam();
     }, 100);
@@ -108,12 +159,24 @@ showerDown.addEventListener ('mousedown',() => {
 
 showerDown.addEventListener ('mouseup',() => {
 
+   booleanShower = false;
    clearInterval(washInterval);
-    
+   countDirt[1] = foamCollection.length;
+   const dirtOpacity = collectionBonuses.dirtBobs;
+   let newOpacity = dirtOpacity - ((countDirt[0] - countDirt[1])/20);
+   if (newOpacity < 0) {
+        newOpacity = 0;
+   };
+   collectionBonuses.dirtBobs = newOpacity;
+   dirt.style.opacity = `${newOpacity}`;
+   
 });
 
 showerUp.addEventListener ('mousedown',() => {
-
+    
+    countDirt[0] = foamCollection.length;
+    booleanShower = true;
+    drawShower(0);
     washInterval = setInterval (() => {
         washFoam();
     }, 100);
@@ -122,7 +185,16 @@ showerUp.addEventListener ('mousedown',() => {
 
 showerUp.addEventListener ('mouseup',() => {
 
+   booleanShower = false;
    clearInterval(washInterval);
+   countDirt[1] = foamCollection.length;
+   const dirtOpacity = collectionBonuses.dirtBobs;
+   let newOpacity = dirtOpacity - ((countDirt[0] - countDirt[1])/20);
+   if (newOpacity < 0) {
+        newOpacity = 0;
+   };
+   collectionBonuses.dirtBobs = newOpacity;
+   dirt.style.opacity = `${newOpacity}`;
     
 });
 

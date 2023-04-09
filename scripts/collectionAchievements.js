@@ -21,6 +21,8 @@ const collectionBonuses = {
     cakeVanilla: 0,
     tickets: 5,
 
+    dirtBobs: 1,
+
     pleasureLevels: [100, 100, 100, 100],
 
     countries: []
