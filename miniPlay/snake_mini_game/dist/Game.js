@@ -120,7 +120,6 @@ class Game {
                 this.pause();
             }
             else if (event.key === 'n' && this.gameOver) {
-                console.log('element');
                 this.clearGameState();
                 this.food.update();
                 this.score = 0;

@@ -182,14 +182,14 @@ startSnakeGame.addEventListener('click', () => {
     if (snakeGameObj.isPaused) {
         snakeGameObj.pause();
     }
-    
+
     startSnakeGame.style.display = 'none';
     game2.style.position = 'absolute';
     game2.style.top = '310px';
 })
 snakeGame.addEventListener('click', () => {
     startSnakeGame.style.display = 'block';
-    
+
     if (!snakeGameObj.isPaused) {
         snakeGameObj.pause();
     }
@@ -197,7 +197,13 @@ snakeGame.addEventListener('click', () => {
     iframeGame2.style.display = 'block';
     game2.style.position = 'static';
 });
-
+game2.addEventListener('click', () => {
+    if (snakeGameObj.gameOver) {
+        console.log(snakeGameObj.snake.bonus );
+        const moneyUpdateEvent = new CustomEvent('moneyUpdate', { detail: { action:"plus", coins: snakeGameObj.snake.bonus } });
+        document.dispatchEvent(moneyUpdateEvent);
+    }
+})
 puzzlesGame.addEventListener('click', () => {
     gameMenu.style.display = 'none';
     iframeGame3.style.display = 'block';

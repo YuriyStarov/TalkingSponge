@@ -32,12 +32,35 @@ const collectionBonuses = {
 document.addEventListener('moneyUpdate', moneyUpdateEvent);
 
 function moneyUpdateEvent(event) {
-    Object.entries(event.detail).forEach(([key, value]) => {
-        collectionBonuses[key] = value;
-    })
-    
-    countCoins.textContent = collectionBonuses.coins;
-    countCrystal.textContent = collectionBonuses.crystal;
+
+    const updateCollection = () => {
+        Object.entries(event.detail).forEach(([key, value]) => {
+            collectionBonuses[key] = value;
+        })
+
+        countCoins.textContent = collectionBonuses.coins;
+        countCrystal.textContent = collectionBonuses.crystal;
+    }
+
+    if ("action" in event.detail) {
+        switch (event.detail.action) {
+            case 'plus':
+                delete event.detail.action
+                Object.entries(event.detail).forEach(([key, value]) => {
+                    collectionBonuses[key] += value;
+                })
+                countCoins.textContent = collectionBonuses.coins;
+                countCrystal.textContent = collectionBonuses.crystal;
+                break;
+
+            default:
+                break;
+        }
+        return;
+    }
+
+
+    updateCollection();
 }
 countCoins.textContent = collectionBonuses.coins;
 countCrystal.textContent = collectionBonuses.crystal;

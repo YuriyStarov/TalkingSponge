@@ -80,6 +80,7 @@ class Snake {
         const newTail = { x: tail.x, y: tail.y };
         this.segments.unshift(newTail);
         this.sessionScore += 1;
+        this.bonus = this.sessionScore;
     }
     collidesWith(x, y, size) {
         const head = this.segments[this.segments.length - 1];
