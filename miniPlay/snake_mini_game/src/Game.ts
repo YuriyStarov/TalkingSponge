@@ -124,13 +124,8 @@ class Game {
             this.ctx.fillStyle = "#000";
             this.ctx.font = "24px Arial";
             this.ctx.fillText(
-                `Press 'N' to start a new game or 'Escape' to exit the main game`,
-                100,
-                this.canvas.height / 2
-            );
-            this.ctx.fillText(
-                `Escape' to exit the main game`,
-                100,
+                `Press 'N' to start a new game`,
+                50,
                 this.canvas.height / 2
             );
         }
@@ -142,10 +137,10 @@ class Game {
                 this.pause();
             } else if (event.key === 'n' && this.gameOver) {
                 this.clearGameState();
-                this.snake.reset(15, this.canvas.width, this.canvas.height);
                 this.food.update();
                 this.score = 0;
                 this.gameOver = this.snake.collidesWithSelf = false;
+                this.render();
                 this.pause();
             }else if (event.code === 'Escape'){
                 // pluggable exit functionality to the main game
