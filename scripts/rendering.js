@@ -1,5 +1,8 @@
 import { queue, queueObject } from "./queueObject.js";
 
+export let foods = [];
+
+
 const wrapperKitchen = document.querySelector('#kitchen');
 
 export let canvasMain = document.getElementById("canvas");

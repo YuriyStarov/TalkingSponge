@@ -238,6 +238,10 @@ canvas {
     display: none;
 }
 
+#shop{
+    display: none;
+}
+
 #washcloth {
     width: 110px;
     height: 90px;

@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width: 1000px;
+    height: 700px;
+    margin: 0;
+    overflow: hidden;
+}
+
+#s{
+    background-image: url('../img/eat/shop.jpg');
+    background-size: cover;
+}
+
+#cart {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    /* top: 50px;
+    right: 50px; */
+  }
+  
+.btn_backK{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}

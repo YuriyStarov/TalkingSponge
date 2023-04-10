@@ -29,17 +29,17 @@ const blanket = new Item(4, "blanket", 2, { x: 210, y: 330 }, [
 ]);
 
 // Items for kitchen
-const item1 = new Item(1, "item1", 2, { x: 500, y: 400 }, [
+const item1 = new Item(1, "item1", 2, { x: 0, y: 0 }, [
     { name: "item1_1", image: "img/bedRoom/slippers/slippers_1.png" },
     { name: "item1_2", image: "img/bedRoom/slippers/slippers_2.png" },
     { name: "item1_3", image: "img/bedRoom/slippers/slippers_3.png" },
 ]);
-const item2 = new Item(2, "item2", 2, { x: 180, y: 155 }, [
+const item2 = new Item(2, "item2", 2, { x: 0, y: 5 }, [
     { name: "item2_1", image: "img/bedRoom/lamp/lamp_1.png" },
     { name: "item2_2", image: "img/bedRoom/lamp/lamp_2.png" },
     { name: "item2_3", image: "img/bedRoom/lamp/lamp_3.png" },
 ])
-const item3 = new Item(3, "item3", 2, { x: 390, y: 390 }, [
+const item3 = new Item(3, "item3", 2, { x: 0, y: 0 }, [
     { name: "item3_1", image: "img/bedRoom/rug/rug_1.png" },
     { name: "item3_2", image: "img/bedRoom/rug/rug_2.png" },
     { name: "item3_3", image: "img/bedRoom/rug/rug_3.png" },
