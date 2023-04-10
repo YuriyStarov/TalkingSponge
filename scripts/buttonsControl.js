@@ -1,3 +1,4 @@
+import { foods } from "./rendering.js";
 import { collectionBonuses } from "./collectionAchievements.js";
 import { kitchenStart } from "./kitchen.js";
 import { toilet, foamCollection, exitFoam, moveWC } from "./bathroom.js";
@@ -29,12 +30,18 @@ const backToMiniGameMenu = document.querySelectorAll('.backToMiniGameMenu');
 const toMarket = document.getElementById('toMarket'); 
 const toTravelAndMarket = document.getElementById ('toTravelAndMarket');
 const marketBackToPlayroom = document.getElementById ('marketBackToPlayroom');
+const secondaryButton2 = document.getElementById ('secondaryButton2');
 const secondaryButton3 = document.getElementById ('secondaryButton3');
+const secondaryButton4 = document.getElementById ('secondaryButton4');
+const backToKitchen = document.getElementById ('backToKitchen');
+const wardrobe = document.getElementById('wardrobe');
 const airTravel = document.getElementById ('airTravel');
+const backToAllButtons = document.getElementById ('backToAllButtons');
 const backToTravelMenu = document.getElementById ('backToTravelMenu');
 const allCollectionButtonInTravel1 = document.getElementsByClassName ('allCollectionButtonInTravel');
 const kitchenRoom = document.querySelector('#kitchen');
 const kitchenCanvas = kitchenRoom.querySelector('#c');
+const foodStore = document.querySelector('#shop');
 const washcloth = document.getElementById ('washcloth');
 const showerUp = document.getElementById ('showerUp');
 const showerDown = document.getElementById ('showerDown');
@@ -206,11 +213,43 @@ marketBackToPlayroom.addEventListener ('click', () => {
     toTravelAndMarket.style.display = 'none';
 });
 
+secondaryButton2.addEventListener ('click', () => {
+    volume2.volume = 0;
+    mainGrand.style.display = 'none';
+    toTravelAndMarket.style.display = 'none';
+   wardrobe.style.display = 'block';
+});
+
 secondaryButton3.addEventListener ('click', () => {
     volume2.volume = 0;
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
     airTravel.style.display = 'block';
+});
+
+secondaryButton4.addEventListener ('click', () => {
+    rooms.kitchenOut();
+    volume2.volume = 0;
+    mainGrand.style.display = 'none';
+    toTravelAndMarket.style.display = 'none';
+    foodStore.style.display = 'block';
+});
+
+backToKitchen.addEventListener ('click', () => {
+    volume2.volume = 1;
+    foodStore.style.display = 'none';
+    mainGrand.style.display = 'block';
+    toTravelAndMarket.style.display = 'block';
+    rooms.bathroomOut();
+    rooms.bedroomOut();
+    rooms.playroomOut();
+    rooms.kitchenIn();   
+});
+
+backToAllButtons.addEventListener ('click', () => {
+    volume2.volume = 1;
+    wardrobe.style.display = 'none';
+    mainGrand.style.display = 'block';    
 });
 
 backToTravelMenu.addEventListener ('click', () => {
@@ -232,6 +271,8 @@ toKitchen.addEventListener ('click', () => {
     rooms.playroomOut();
     rooms.kitchenIn();
 });
+
+
 
 toBathroom.addEventListener ('click', () => {
     rooms.playroomOut();

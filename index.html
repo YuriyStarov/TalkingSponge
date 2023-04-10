@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="./miniPlay/Pazzles_Game/style.css">
         <link rel="stylesheet" href="./scripts/store/store.css">
         <link rel="stylesheet" href="/styles/kitchen.css">
+        <link rel="stylesheet" href="/styles/shop.css">
+        <link rel="stylesheet" href="./styles/wardrobe.css">
         <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
         <script type="module" src="./scripts/collectionAchievements.js"></script>
         <script type="module" src="./scripts/customElement.js"></script>
@@ -31,7 +33,9 @@
         <script type="module" src="./scripts/gift.js"></script>
         <script type="module" src="./scripts/funcForProgress.js"></script>
         <script type="module" src="./scripts/kitchen.js"></script>
+        <script type="module" src="./scripts/shop.js"></script>
         <script type="module" src="./scripts/bathroom.js"></script>
+        <script type="module" src="./scripts/wardrobe.js"></script>
         <script type="module" src="./miniPlay/starOff/public/rendering.js"></script>
         <script type="module" src="./miniPlay/starOff/public/createBob.js"></script>
         <script type="module" src="./miniPlay/starOff/public/createBurgers.js"></script>
@@ -76,6 +80,7 @@
         <audio src="./audio/fall_audio.mp3" id="fall_music"></audio>
         <audio src="./audio/xoxo.mp3" id="tickling_music"></audio>
         <audio src="./audio/lol.m4a" id="toilet_music"></audio>
+        <audio src="./audio/prize.mp3" id="prize_music"></audio>
         <audio src="./audio/shower.mp3" id="shower_music" loop></audio>
         <canvas height="700" id="canvas2" width="1000"></canvas>
         <canvas height="300" id="canvas3" width="200"></canvas>
@@ -250,6 +255,12 @@
             l 30,19"></path>
         </svg>
     </div>
+    <div id="shop">
+        <button id="backToKitchen" class="btn_backK">BACK</button>
+        <div id="canvas-container"></div>
+        <canvas id="s"></canvas>
+        <img id="cart" src="img/eat/cart.png" alt="Cart">
+    </div>
     <div id="airTravel">
         <audio src="./audio/wind_middle.mp3" id="globe_music" loop></audio>
         <audio src="./audio/wowPhoto.mp3" id="wowPhoto"></audio>
@@ -304,6 +315,9 @@
             <button id="backToGlobeSpin">×</button>
         </div>
         <div id="bigPhotoInAlbum"></div>
+    </div>
+    <div id="wardrobe">
+        <button id="backToAllButtons">×</button>
     </div>
 </body>
 </html>
