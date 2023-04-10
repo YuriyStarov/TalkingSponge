@@ -29,8 +29,8 @@ class Game {
         this.score = 0;
         this.highScore = this.loadHighScore();
         this.ctx.fillRect(0, 0, canvas.width, canvas.height);
-        this.snake = new Snake(15, this.canvas.clientWidth, this.canvas.clientHeight);
-        this.food = new Food(this.canvas.clientWidth, this.canvas.clientHeight);
+        this.snake = new Snake(15, this.canvas.width, this.canvas.height);
+        this.food = new Food(this.canvas.width, this.canvas.height);
         this.loadGameState();
         this.loop(this.lastFrameTime);
         this.initEventListeners();
@@ -125,7 +125,12 @@ class Game {
             this.ctx.font = "24px Arial";
             this.ctx.fillText(
                 `Press 'N' to start a new game or 'Escape' to exit the main game`,
-                10,
+                100,
+                this.canvas.height / 2
+            );
+            this.ctx.fillText(
+                `Escape' to exit the main game`,
+                100,
                 this.canvas.height / 2
             );
         }
@@ -137,7 +142,7 @@ class Game {
                 this.pause();
             } else if (event.key === 'n' && this.gameOver) {
                 this.clearGameState();
-                this.snake.reset(15, this.canvas.clientWidth, this.canvas.clientHeight);
+                this.snake.reset(15, this.canvas.width, this.canvas.height);
                 this.food.update();
                 this.score = 0;
                 this.gameOver = this.snake.collidesWithSelf = false;

@@ -4,5 +4,5 @@ import { Game } from "./Game.js";
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
 // Create a new instance of the Game class and start the game loop
-const game = new Game(canvas);
+export const snakeGameObj = new Game(canvas);
 // game.loop();
