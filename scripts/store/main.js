@@ -3,8 +3,11 @@ import Room from "./Room.js";
 import Item from "./Item.js";
 import LampItem from "./lampItem.js";
 import { collectionBonuses } from "../collectionAchievements.js";
+import { coloringMainButton } from '../funcForProgress.js'
 const toBedRoomStore = document.getElementById('secondaryButton1_4');
 const tokitchenStore = document.getElementById('secondaryButton1_2');
+const toplayroomStore = document.getElementById('secondaryButton1_1');
+const tobathroomStore = document.getElementById('secondaryButton1_3');
 
 // Itens for bedRoom
 const slipper = new Item(1, "slippers", 2, { x: 700, y: 400 }, [
@@ -45,6 +48,40 @@ const item3 = new Item(3, "item3", 2, { x: 390, y: 390 }, [
     { name: "item3_3", image: "img/bedRoom/rug/rug_3.png" },
 ]);
 
+// Items for playroom  NEED TO CHANGE ITEMS
+const item4 = new Item(1, "item1", 2, { x: 500, y: 400 }, [
+    { name: "item1_1", image: "img/bedRoom/slippers/slippers_1.png" },
+    { name: "item1_2", image: "img/bedRoom/slippers/slippers_2.png" },
+    { name: "item1_3", image: "img/bedRoom/slippers/slippers_3.png" },
+]);
+const item5 = new Item(2, "item2", 2, { x: 180, y: 155 }, [
+    { name: "item2_1", image: "img/bedRoom/lamp/lamp_1.png" },
+    { name: "item2_2", image: "img/bedRoom/lamp/lamp_2.png" },
+    { name: "item2_3", image: "img/bedRoom/lamp/lamp_3.png" },
+])
+const item6 = new Item(3, "item3", 2, { x: 390, y: 390 }, [
+    { name: "item3_1", image: "img/bedRoom/rug/rug_1.png" },
+    { name: "item3_2", image: "img/bedRoom/rug/rug_2.png" },
+    { name: "item3_3", image: "img/bedRoom/rug/rug_3.png" },
+]);
+
+// Items for bathroom  NEED TO CHANGE ITEMS
+const item7 = new Item(1, "item1", 2, { x: 500, y: 400 }, [
+    { name: "item1_1", image: "img/bedRoom/slippers/slippers_1.png" },
+    { name: "item1_2", image: "img/bedRoom/slippers/slippers_2.png" },
+    { name: "item1_3", image: "img/bedRoom/slippers/slippers_3.png" },
+]);
+const item8 = new Item(2, "item2", 2, { x: 180, y: 155 }, [
+    { name: "item2_1", image: "img/bedRoom/lamp/lamp_1.png" },
+    { name: "item2_2", image: "img/bedRoom/lamp/lamp_2.png" },
+    { name: "item2_3", image: "img/bedRoom/lamp/lamp_3.png" },
+])
+const item9 = new Item(3, "item3", 2, { x: 390, y: 390 }, [
+    { name: "item3_1", image: "img/bedRoom/rug/rug_1.png" },
+    { name: "item3_2", image: "img/bedRoom/rug/rug_2.png" },
+    { name: "item3_3", image: "img/bedRoom/rug/rug_3.png" },
+]);
+
 
 const itemsBedroom = [slipper, lamp, rug, blanket]
 export const bedRoom = new Room({
@@ -60,17 +97,42 @@ export const kitchen = new Room({
     tagName: 'kitchenRoom'
 });
 
+const itemsPlayroom = [] // ADD ITEMS
+export const playRoom = new Room({
+    id: 3,
+    items: itemsPlayroom,
+    tagName: 'playroom'
+});
+
+const itemsBathroom = [] // ADD ITEMS
+export const bathRoom = new Room({
+    id: 4,
+    items: itemsBathroom,
+    tagName: 'bathroom'
+});
+
 export const bedRoomStore = new Store({
     room: itemsBedroom,
     bonuses: collectionBonuses
 });
+
 export const kitchenStore = new Store({
     room: itemsKitchen,
     bonuses: collectionBonuses
 });
 
+export const playRoomStore = new Store({
+    room: itemsPlayroom,
+    bonuses: collectionBonuses
+});
 
-// remove insidee class Store
+export const bathRoomStore = new Store({
+    room: itemsPlayroom,
+    bonuses: collectionBonuses
+});
+
+
+
 toBedRoomStore.addEventListener('click', (event) => {
     if (toBedRoomStore.classList.contains('open')) {
         bedRoomStore.close();
@@ -90,11 +152,22 @@ tokitchenStore.addEventListener('click', (event) => {
     tokitchenStore.classList.add("open");
     kitchenStore.open(kitchen);
 });
-// outStore.addEventListener('click', (event) => {
-//     store.close();
-// });
 
-// document.body.addEventListener('click', (event) => {
-//   console.log(event.clientX);
-//   console.log(event.clientY);
-// })
+// toplayroomStore.addEventListener('click', (event) => {
+//     if (toBedRoomStore.classList.contains('open')) {
+//         bedRoomStore.close();
+//         toBedRoomStore.classList.remove("open");
+//         return;
+//     }
+//     toBedRoomStore.classList.add("open");
+//     bedRoomStore.open(bedRoom);
+// });
+// toBedRoomStore.addEventListener('click', (event) => {
+//     if (toBedRoomStore.classList.contains('open')) {
+//         bedRoomStore.close();
+//         toBedRoomStore.classList.remove("open");
+//         return;
+//     }
+//     toBedRoomStore.classList.add("open");
+//     bedRoomStore.open(bedRoom);
+// });
