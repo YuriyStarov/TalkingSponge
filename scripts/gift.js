@@ -12,7 +12,7 @@ const counters = {
   let heightCtx = canvas.height;
   
   let gift = new Image(2000,200);
-  gift.src = "../img/gift_box_sprite.png";
+  gift.src = "./img/gift_box_sprite.png";
   gift.addEventListener(
     "load",
     ctx.drawImage(gift, 0, 0, 200, 200, 600, 400, 200, 200),

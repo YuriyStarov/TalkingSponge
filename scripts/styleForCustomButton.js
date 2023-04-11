@@ -17,7 +17,7 @@ export default class List extends HTMLElement {
 
         this.button = this.htmlButton();
         this.img = this.htmlImg();
-        this.path = "../img/marketIcon.png";
+        this.path = "./img/marketIcon.png";
 
     }
 

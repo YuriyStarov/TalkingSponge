@@ -6,7 +6,7 @@ import { coloringMainButton } from "./funcForProgress.js";
 import { paintPrize, bigToLittlePrize } from "./pinata.js";
 
 let toiletBobs = new Image(2800,600);
-toiletBobs.src = "../img/bathroom/toiletBobs.png";
+toiletBobs.src = "./img/bathroom/toiletBobs.png";
 const toiletBobsObject = new RenderObject (toiletBobs, 60, 4, 700, 600, 50, 150, 500, 500);
 
 let showerCanvas = document.getElementById("showerCanvas");
@@ -15,7 +15,7 @@ let widthCtxShowerCanvas = showerCanvas.width;
 let heightCtxShowerCanvas = showerCanvas.height;
 
 let showerSprite = new Image(600,520);
-showerSprite.src = "../img/bathroom/showerSprite_2.png";
+showerSprite.src = "./img/bathroom/showerSprite_2.png";
 
 const toiletAudio = document.getElementById ('toilet_music');
 const showerAudio = document.getElementById ('shower_music');

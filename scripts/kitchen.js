@@ -5,19 +5,19 @@ import { allGame, RenderObject, foods } from "./rendering.js";
 const wrapperKitchen = document.querySelector('#kitchen');
 
 let eatHot = new Image(14000,600);
-eatHot.src = "../img/eatHot.png";
+eatHot.src = "./img/eatHot.png";
 
 let eatElixir = new Image(14000,600);
-eatElixir.src = "../img/eatElixir.png";
+eatElixir.src = "./img/eatElixir.png";
 
 let eatBurger = new Image(14000,600);
-eatBurger.src = "../img/giveMeBurger.png";
+eatBurger.src = "./img/giveMeBurger.png";
 
 let eatSugar = new Image(14000,600);
-eatSugar.src = "../img/eatSugar.png";
+eatSugar.src = "./img/eatSugar.png";
 
 let noEat = new Image(14000,600);
-noEat.src = "../img/noEat.png";
+noEat.src = "./img/noEat.png";
 
 const renderingEatHot = new RenderObject (eatHot, 8, 20, 700, 600, 200, 130, 500, 500);
 const renderingEatElixir = new RenderObject (eatElixir, 8, 20, 700, 600, 200, 130, 500, 500);

@@ -62,7 +62,7 @@ import { kitchen } from "./store/main.js";
 const rooms = {
 
     playroomIn() {
-        mainGrand.style.backgroundImage = 'url(../img/playroom.png)';
+        mainGrand.style.backgroundImage = 'url(./img/playroom.png)';
         canvasGift.style.display = 'block';
         canvasPinata.style.display = 'block';
         giftReaction.style.display = 'block';
@@ -85,7 +85,7 @@ const rooms = {
     },
 
     kitchenIn() {
-        mainGrand.style.backgroundImage = 'url(../img/eat/greatKitchen.jpg)';
+        mainGrand.style.backgroundImage = 'url(./img/eat/greatKitchen.jpg)';
         kitchenRoom.style.display = 'block';
         kitchenCanvas.style.display = 'block';
         interior[1].style.display = 'block';
@@ -109,7 +109,7 @@ const rooms = {
     },
 
     bathroomIn() {
-        mainGrand.style.backgroundImage = 'url(../img/bathroom/bathroomBack.jpg)';
+        mainGrand.style.backgroundImage = 'url(./img/bathroom/bathroomBack.jpg)';
         washcloth.style.display = 'block';
         showerUp.style.display = 'block';
         showerDown.style.display = 'block';
@@ -133,7 +133,7 @@ const rooms = {
 
     bedroomIn() {
 
-        mainGrand.style.backgroundImage = 'url(../img/bedRoom/background.png)';
+        mainGrand.style.backgroundImage = 'url(./img/bedRoom/background.png)';
         // canvasGift.style.display = 'block';
         // canvasPinata.style.display = 'block';
         // giftReaction.style.display = 'block';

@@ -12,42 +12,42 @@ export let widthCtxMain = canvasMain.width;
 export let heightCtxMain = canvasMain.height;
 
 export let blinking = new Image(14000,600);
-blinking.src = "../img/blink.png";
+blinking.src = "./img/blink.png";
 
 setTimeout (() => {ctxMain.drawImage(blinking, 0, 0, 700, 600, 200, 130, 500, 500);},1000);
 
 let yawning = new Image(14000,600);
-yawning.src = "../img/yawn.png";
+yawning.src = "./img/yawn.png";
 
 let leftLeg = new Image(14000,600);
-leftLeg.src = "../img/left_leg_reaction.png";
+leftLeg.src = "./img/left_leg_reaction.png";
 
 let rightLeg = new Image(14000,600);
-rightLeg.src = "../img/right_leg_reaction.png";
+rightLeg.src = "./img/right_leg_reaction.png";
 
 let leftEyes = new Image(14000,600);
-leftEyes.src = "../img/left_eye_ooops.png";
+leftEyes.src = "./img/left_eye_ooops.png";
 
 let rightEyes = new Image(14000,600);
-rightEyes.src = "../img/right_eye_ooops.png";
+rightEyes.src = "./img/right_eye_ooops.png";
 
 let leftHand = new Image(14000,600);
-leftHand.src = "../img/left_hand_reaction.png";
+leftHand.src = "./img/left_hand_reaction.png";
 
 let rightHand = new Image(14000,600);
-rightHand.src = "../img/right_hand_reaction.png";
+rightHand.src = "./img/right_hand_reaction.png";
 
 let bellyImage = new Image(14000,600);
-bellyImage.src = "../img/belly.png";
+bellyImage.src = "./img/belly.png";
 
 let jawImage = new Image(14000,600);
-jawImage.src = "../img/teeth.png";
+jawImage.src = "./img/teeth.png";
 
 let fallImage = new Image(14000,600);
-fallImage.src = "../img/new_fall.png";
+fallImage.src = "./img/new_fall.png";
 
 let ticklingImage = new Image(14000,600);
-ticklingImage.src = "../img/tickling.png";
+ticklingImage.src = "./img/tickling.png";
 
 let bobAudio0 = document.getElementById ('yawn_music');
 let bobAudio1 = document.getElementById ('main_music');

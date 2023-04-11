@@ -19,21 +19,21 @@ let widthCtx = canvas.width;
 let heightCtx = canvas.height;
 
 let pinata1 = new Image(3000,300);
-pinata1.src = "../img/crubs_pinata_1_sprite.png";
+pinata1.src = "./img/crubs_pinata_1_sprite.png";
 
 setTimeout (() => {ctx.drawImage(pinata1, 0, 0, 200, 300, 0, 0, 200, 300);}, 1000);
 
 let pinata2 = new Image(3000,300);
-pinata2.src = "../img/crubs_pinata_2_sprite.png";
+pinata2.src = "./img/crubs_pinata_2_sprite.png";
 
 let pinata3 = new Image(3000,300);
-pinata3.src = "../img/crubs_pinata_3_sprite.png";
+pinata3.src = "./img/crubs_pinata_3_sprite.png";
 
 let pinata4 = new Image(3000,300);
-pinata4.src = "../img/crubs_pinata_4_sprite.png";
+pinata4.src = "./img/crubs_pinata_4_sprite.png";
 
 let pinata5 = new Image(200,300);
-pinata5.src = "../img/crubs_pinata_5.png";
+pinata5.src = "./img/crubs_pinata_5.png";
 
 function beforeAllGame () {
   counters.countKick += 1;

@@ -16,9 +16,9 @@ function CountryToPhotoAlbum (country,countryPositionX,countryPositionY,position
     this.country = country;
     this.countryPositionX = countryPositionX;
     this.countryPositionY = countryPositionY;
-    this.pathPhoto = `../img/travel/${country}.jpg`;
+    this.pathPhoto = `./img/travel/${country}.jpg`;
     this.positionInAlbum = positionInAlbum;
-    this.pathToFlag = `../img/travel/${country}_flag.png`;
+    this.pathToFlag = `./img/travel/${country}_flag.png`;
     this.placeToAlbum = false;
 };
 

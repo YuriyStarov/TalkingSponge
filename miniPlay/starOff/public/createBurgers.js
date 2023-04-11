@@ -1,10 +1,10 @@
 import { ctx, collectionBurgers, bobPosition, intervals, allAudio, gameEnd, buttons, imageElements } from "./rendering.js";
 let speedBurger = 3000;
 let burgerImage = new Image(60, 50);
-burgerImage.src = "../miniPlay/starOff/img/burger.png";
+burgerImage.src = "./miniPlay/starOff/img/burger.png";
 imageElements.push(burgerImage);
 let seaUrchin = new Image(60, 50);
-seaUrchin.src = "../miniPlay/starOff/img/seaUrchin.png";
+seaUrchin.src = "./miniPlay/starOff/img/seaUrchin.png";
 imageElements.push(seaUrchin);
 class Burger {
     xDisposition;
