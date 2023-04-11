@@ -179,7 +179,14 @@ toBurgerGame.addEventListener('click', () => {
 });
 startSnakeGame.addEventListener('click', () => {
 
-    if (snakeGameObj.isPaused) {
+    if (snakeGameObj.isPaused && !snakeGameObj.gameOver) {
+        snakeGameObj.pause();
+    } else if (snakeGameObj.isPaused) {
+        snakeGameObj.clearGameState();
+        snakeGameObj.food.update();
+        snakeGameObj.score = 0;
+        snakeGameObj.gameOver = snakeGameObj.snake.collidesWithSelf = false;
+        snakeGameObj.render();
         snakeGameObj.pause();
     }
 
