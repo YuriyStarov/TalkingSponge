@@ -23,7 +23,7 @@ const collectionBonuses = {
 
     dirtBobs: 1,
 
-    pleasureLevels: [100, 100, 50, 100],
+    pleasureLevels: [100, 100, 50, 50],
 
     countries: []
 

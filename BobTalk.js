@@ -20,8 +20,9 @@ let filterLowpass;
 let mic;
 
 let gameState;
-export default gameState = {
+export default gameState  = {
     bobOnScreen: true,
+    bobSleep: false,
     bobBusy: false
 };
 

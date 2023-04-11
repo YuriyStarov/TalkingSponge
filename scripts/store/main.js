@@ -15,7 +15,7 @@ const slipper = new Item(1, "slippers", 2, { x: 700, y: 400 }, [
     { name: "slippers_2", image: "img/bedRoom/slippers/slippers_2.png" },
     { name: "slippers_3", image: "img/bedRoom/slippers/slippers_3.png" },
 ]);
-const lamp = new LampItem(2, "lamp", 2, { x: 80, y: 155 }, [
+export const lamp = new LampItem(2, "lamp", 2, { x: 80, y: 155 }, [
     { name: "lamp_1", image: "img/bedRoom/lamp/lamp_1.png" },
     { name: "lamp_2", image: "img/bedRoom/lamp/lamp_2.png" },
     { name: "lamp_3", image: "img/bedRoom/lamp/lamp_3.png" },
