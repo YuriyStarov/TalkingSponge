@@ -11,7 +11,7 @@ wrapper.hoverCursor = 'pointer';
 const canvas = new fabric.Canvas('s', { 
     width: 1000,
     height: 700,
-    preserveObjectStacking: true
+    preserveObjectStacking: true,
 });
 
 let cartMoney = {

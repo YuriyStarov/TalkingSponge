@@ -27,4 +27,11 @@ body{
     top: 20px;
     right: 20px;
     z-index: 100;
+    width: 90px;
+    height: 90px;
+    color:darkred;
+    background-color: transparent;
+    border: none;
+    font-size: 90px;
+    font-weight: bold;
 }

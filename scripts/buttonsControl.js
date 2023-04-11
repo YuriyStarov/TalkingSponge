@@ -270,7 +270,7 @@ backToKitchen.addEventListener('click', () => {
     volume2.volume = 1;
     foodStore.style.display = 'none';
     mainGrand.style.display = 'block';
-    toTravelAndMarket.style.display = 'block';
+    // toTravelAndMarket.style.display = 'block';
     rooms.bathroomOut();
     rooms.bedroomOut();
     rooms.playroomOut();

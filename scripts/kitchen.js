@@ -10,10 +10,10 @@ const canvas = new fabric.Canvas('c', {
   width: 1000,
   height: 700,
   preserveObjectStacking: true,
-  hoverCursor: 'pointer'
+  hoverCursor: 'pointer',
 });
 
-let [playRoom, kitchen, bathRoom, bedRoom] = collectionBonuses.pleasureLevels
+let [playRoom, kitchen, bathRoom, bedRoom] = collectionBonuses.pleasureLevels;
 
 let eatHot = new Image(14000,600);
 eatHot.src = "./img/eatHot.png";
@@ -47,7 +47,7 @@ setInterval(() => {
 
 function changeProggress(){
   progress.innerHTML = kitchen;
-  document.documentElement.style.setProperty('--height', (kitchen * 0.6) + 'px')
+  document.documentElement.style.setProperty('--height', (kitchen * 0.6) + 'px');
   coloringMainButton(kitchen,toKitchen);
 }
 
@@ -116,16 +116,16 @@ function createFood(food, x, y, i){
     img.on('mouseup', function() {
       // canvas.setActiveObject(img);
       if((img.left >= 270 && img.left <= 540 && img.top >= 105 && img.top <= 435 && kitchen < 100 && kitchen+food.energy <= 100 ) || food.type === "elixir"){
-        console.log("I am eat this food")
+        console.log("I am eat this food");
         switch(food.type){
           case "hot":
-            allGame(renderingEatHot)
+            allGame(renderingEatHot);
           break;
           case "elixir":
-            allGame(renderingEatElixir)
+            allGame(renderingEatElixir);
           break;
           case "sugar":
-            allGame(renderingEatSugar)
+            allGame(renderingEatSugar);
           break;
         }
         kitchen+food.energy > 100 ? kitchen = 100 : kitchen += food.energy;
@@ -134,8 +134,8 @@ function createFood(food, x, y, i){
         foods.splice(i, 1);
         renderFoods();
       } else{
-        console.log("I am not eat this food")
-        allGame(renderingNoEat)
+        console.log("I am not eat this food");
+        allGame(renderingNoEat);
         img.animate('left', foodLeft, {
           duration: 500,
           onChange: canvas.renderAll.bind(canvas),
