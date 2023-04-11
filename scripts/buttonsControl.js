@@ -1,8 +1,8 @@
-import { foods } from "./rendering.js";
 import { collectionBonuses } from "./collectionAchievements.js";
 import { kitchenStart } from "./kitchen.js";
 import { toilet, foamCollection, exitFoam, moveWC } from "./bathroom.js";
 import { snakeGameObj } from "../miniPlay/snake_mini_game/dist/index.js";
+import { startCart, discardInCart } from "./shop.js";
 
 const toPlayroom = document.getElementById('toPlayroom');
 const toKitchen = document.getElementById('toKitchen');
@@ -259,6 +259,7 @@ secondaryButton3.addEventListener('click', () => {
 
 secondaryButton4.addEventListener('click', () => {
     rooms.kitchenOut();
+    startCart();
     volume2.volume = 0;
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
@@ -274,6 +275,7 @@ backToKitchen.addEventListener('click', () => {
     rooms.bedroomOut();
     rooms.playroomOut();
     rooms.kitchenIn();
+    discardInCart();
 });
 
 backToAllButtons.addEventListener('click', () => {

@@ -1,6 +1,6 @@
 'use strict';
 
-import { foods } from "./rendering.js";
+import { collectionBonuses } from "./collectionAchievements.js";
 
 
 const wrapper = document.querySelector('#canvas-container');
@@ -14,29 +14,44 @@ const canvas = new fabric.Canvas('s', {
     preserveObjectStacking: true
 });
 
-let ShopFoods = [
-  {img: "./img/eat/apple.png", price: 2, valute: "crystals", top: 78, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
-  {img: "./img/eat/burger.png", price: 5, valute: "coins", top: 88, left: 450, energyType: "food", energy: 20, type: "hot"}, 
-  {img: "./img/eat/cake_1.png", price: 4, valute: "crystals", top: 85, left: 600, energyType: "food", energy: 30, type: "sugar"}, 
-  {img: "./img/eat/cake_2.png", price: 3, valute: "crystals", top: 205, left: 320, energyType: "food", energy: 30, type: "sugar"}, 
-  {img: "./img/eat/choko.png", price: 0, valute: "coins", top: 205, left: 450, energyType: "food", energy: 10, type: "sugar"}, 
-  {img: "./img/eat/coffee.png", price: 2, valute: "crystals", top: 208, left: 600, energyType: "food", energy: 10, type: "hot"}, 
-  {img: "./img/eat/cola.png", price: 2, valute: "coins", top: 325, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
-  {img: "./img/eat/elixir_eat.png", price: 7, valute: "crystals", top: 330, left: 410, energyType: "food", energy: 100, type: "elixir"}, 
-  {img: "./img/eat/elixir_energy.png", price: 7, valute: "crystals", top: 330, left: 520, energyType: "energy", energy: 100, type: "elixir"}, 
-  {img: "./img/eat/elixir_funny.png", price: 7, valute: "crystals", top: 330, left: 620, energyType: "funny", energy: 100, type: "elixir"}, 
-  {img: "./img/eat/milk.png", price: 0, valute: "coins", top: 445, left: 320, energyType: "food", energy: 20, type: "sugar"}, 
-  {img: "./img/eat/pizza.png", price: 7, valute: "coins", top: 445, left: 410, energyType: "food", energy: 40, type: "hot"}, 
-  {img: "./img/eat/potatoes.png", price: 5, valute: "coins", top: 448, left: 520, energyType: "food", energy: 30, type: "hot"}, 
-  {img: "./img/eat/soup.png", price: 8, valute: "coins", top: 450, left: 620, energyType: "food", energy: 20, type: "hot"}
-];
-
-// Створюємо об'єкт кошика
-const cartMoney = {
+let cartMoney = {
   // totalPrice: 0,
   totalCrystals: 0,
   totalCoins: 0,
 };
+
+let newFood = [];
+
+export function startCart(){
+  cartMoney = {
+    // totalPrice: 0,
+    totalCrystals: 0,
+    totalCoins: 0,
+  };
+  
+  newFood=[];
+
+  updateCartTotalPrice(cartMoney);
+}
+
+let ShopFoods = [
+  {img: "../img/eat/apple.png", price: 2, valute: "crystals", top: 78, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
+  {img: "../img/eat/burger.png", price: 5, valute: "coins", top: 88, left: 450, energyType: "food", energy: 20, type: "hot"}, 
+  {img: "../img/eat/cake_1.png", price: 4, valute: "crystals", top: 85, left: 600, energyType: "food", energy: 30, type: "sugar"}, 
+  {img: "../img/eat/cake_2.png", price: 3, valute: "crystals", top: 205, left: 320, energyType: "food", energy: 30, type: "sugar"}, 
+  {img: "../img/eat/choko.png", price: 0, valute: "coins", top: 205, left: 450, energyType: "food", energy: 10, type: "sugar"}, 
+  {img: "../img/eat/coffee.png", price: 2, valute: "crystals", top: 208, left: 600, energyType: "food", energy: 10, type: "hot"}, 
+  {img: "../img/eat/cola.png", price: 2, valute: "coins", top: 325, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
+  {img: "../img/eat/elixir_eat.png", price: 7, valute: "crystals", top: 330, left: 410, energyType: "food", energy: 100, type: "elixir"}, 
+  {img: "../img/eat/elixir_energy.png", price: 7, valute: "crystals", top: 330, left: 520, energyType: "energy", energy: 100, type: "elixir"}, 
+  {img: "../img/eat/elixir_funny.png", price: 7, valute: "crystals", top: 330, left: 620, energyType: "funny", energy: 100, type: "elixir"}, 
+  {img: "../img/eat/milk.png", price: 0, valute: "coins", top: 445, left: 320, energyType: "food", energy: 20, type: "sugar"}, 
+  {img: "../img/eat/pizza.png", price: 7, valute: "coins", top: 445, left: 410, energyType: "food", energy: 40, type: "hot"}, 
+  {img: "../img/eat/potatoes.png", price: 5, valute: "coins", top: 448, left: 520, energyType: "food", energy: 30, type: "hot"}, 
+  {img: "../img/eat/soup.png", price: 8, valute: "coins", top: 450, left: 620, energyType: "food", energy: 20, type: "hot"}
+];
+
+// Створюємо об'єкт кошика
 
 ShopFoods.forEach(elem => {
   fabric.Image.fromURL(elem.img, (img) => {
@@ -50,7 +65,18 @@ ShopFoods.forEach(elem => {
     img.on('mouseup', function(){
       console.log(img.left)
       if(img.left >= 22 && img.left <= 220 && img.top >= 355 && img.top <= 505){
-        foods.push({img: elem.img, energyType: elem.energyType, energy: elem.energy, type: elem.type})
+        collectionBonuses.foods.push({img: elem.img, energyType: elem.energyType, energy: elem.energy, type: elem.type});
+        newFood.push({img: elem.img})
+        switch (elem.valute) {
+          case 'coins':
+            cartMoney.totalCoins += elem.price;
+            break;
+          case 'crystals':
+            cartMoney.totalCrystals += elem.price;
+            break;
+        }
+        updateCartTotalPrice(cartMoney);
+        renderInCart();
       }
       img.animate('left', foodLeft, {
         duration: 500,
@@ -65,6 +91,29 @@ ShopFoods.forEach(elem => {
   });
 
 });
+
+function renderInCart(){
+  newFood.forEach(elem => {
+    fabric.Image.fromURL(elem.img, (img) => {
+      img.top = 450;
+      img.left = 60;
+      img.selectable = false;
+      img.hasControls = false;
+      img.hasBorders = false;
+      canvas.add(img);
+    });
+  
+  });
+}
+
+export function discardInCart(){
+  newFood.forEach(elem => {
+    fabric.Image.fromURL(elem.img, (img) => {
+      canvas.remove(img);
+    });
+  
+  });
+}
 
 // Створюємо об'єкт корзини
 const cartImage = new fabric.Image(document.getElementById('cart'), {
@@ -260,20 +309,7 @@ canvas.add(cartHeader);
 
 
 
-function updateCartTotalPrice() {
-
-  // // Перебираємо всі продукти на канвасі і додаємо ціну продуктів, які знаходяться в корзині, до загальної суми у кошику
-  // canvas.getObjects().forEach(function(img) {
-  //   if (img.inCart) {
-  //     const food = foods.find(f => f.id === img.foodId);
-  //     if (food.priceText.includes('crystals')) {
-  //       cartMoney.totalCrystals += parseInt(food.priceText);
-  //     } else if (food.priceText.includes('coins')) {
-  //       cartMoney.totalCoins += parseInt(food.priceText);
-  //     }
-  //   }
-  // });
-
+function updateCartTotalPrice(cartMoney) {
   // Оновлюємо текстовий елемент з ціною у заголовку кошика
   cartHeader.set({
     text: `Cart: ${cartMoney.totalCoins} coins, ${cartMoney.totalCrystals} crystals`

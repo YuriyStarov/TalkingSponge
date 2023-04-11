@@ -1,3 +1,4 @@
+
 const countCoins = document.getElementById('countCoins');
 const countCrystal = document.getElementById('countCrystal');
 
@@ -5,25 +6,12 @@ const collectionBonuses = {
 
     coins: 20,
     crystal: 10,
-    elixirWakefulness: 0,
-    elixirJoy: 0,
-    elixirSatiety: 0,
-    burgers: 0,
-    pizza: 0,
-    potatoes: 0,
-    apple: 0,
-    cola: 0,
-    coffee: 0,
-    milk: 0,
-    soup: 0,
-    chocolate: 0,
-    cakeChocolate: 0,
-    cakeVanilla: 0,
+    foods: [],
     tickets: 5,
 
     dirtBobs: 1,
 
-    pleasureLevels: [100, 100, 50, 50],
+    pleasureLevels: [100, 50, 50, 50],
 
     countries: []
 

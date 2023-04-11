@@ -1,8 +1,19 @@
 'use srtict';
 
-import { allGame, RenderObject, foods } from "./rendering.js";
+import { allGame, RenderObject } from "./rendering.js";
+import { collectionBonuses } from "./collectionAchievements.js";
+import { coloringMainButton } from "./funcForProgress.js";
 
 const wrapperKitchen = document.querySelector('#kitchen');
+const toKitchen = document.getElementById ('toKitchen');
+const canvas = new fabric.Canvas('c', { 
+  width: 1000,
+  height: 700,
+  preserveObjectStacking: true,
+  hoverCursor: 'pointer'
+});
+
+let [playRoom, kitchen, bathRoom, bedRoom] = collectionBonuses.pleasureLevels
 
 let eatHot = new Image(14000,600);
 eatHot.src = "./img/eatHot.png";
@@ -19,24 +30,32 @@ eatSugar.src = "./img/eatSugar.png";
 let noEat = new Image(14000,600);
 noEat.src = "./img/noEat.png";
 
+
+
 const renderingEatHot = new RenderObject (eatHot, 8, 20, 700, 600, 200, 130, 500, 500);
 const renderingEatElixir = new RenderObject (eatElixir, 8, 20, 700, 600, 200, 130, 500, 500);
 const renderingEatSugar = new RenderObject (eatSugar, 8, 20, 700, 600, 200, 130, 500, 500);
 const renderingEatBurger = new RenderObject (eatBurger, 8, 20, 700, 600, 200, 130, 500, 500);
 const renderingNoEat = new RenderObject (noEat, 8, 20, 700, 600, 200, 130, 500, 500);
 
+setInterval(() => {
+  if(kitchen > 0){
+    kitchen -= 1;
+    changeProggress();
+  }
+}, 5000);
+
+function changeProggress(){
+  progress.innerHTML = kitchen;
+  document.documentElement.style.setProperty('--height', (kitchen * 0.6) + 'px')
+  coloringMainButton(kitchen,toKitchen);
+}
 
 export function kitchenStart() {
+let foods = collectionBonuses.foods;
 let progress = document.querySelector('#progress');
 
 wrapperKitchen.hoverCursor = 'pointer';
-
-const canvas = new fabric.Canvas('c', { 
-  width: 1000,
-  height: 700,
-  preserveObjectStacking: true,
-  hoverCursor: 'pointer'
-});
 
 let j = 400;
 let g = 520;
@@ -49,13 +68,32 @@ let width = 70;
 let height = 50;
 let spacing = 75;
 
-let hungryPoint = 0
+let hungryPoint = 0;
 
-let capacityEnergy = 0;
 changeProggress();
 
+let addFoods = () => {
+  let x = 460;
+  let y = 430;
+  if(foods.length>0){
+    if(foods.length < 3){
+      for (let i = 0; i < foods.length; i++) {
+        createFood(foods[i], x, y, i, foods);
+        x += spacing;
+      }
+    } else{
+      for (let i = 0; i < 3; i++) {
+        createFood(foods[i], x, y, i, foods);
+        x += spacing;
+      }
+    }
+  }
+}
+
+addFoods();
+
 setInterval (() => {
-  if(wrapperKitchen.style.display === "block" && capacityEnergy < 60){
+  if(wrapperKitchen.style.display === "block" && kitchen < 60){
     hungryPoint += 1;
     if (hungryPoint === 10) {
       allGame(renderingEatBurger);
@@ -65,50 +103,7 @@ setInterval (() => {
 },1000);
 
 
-setInterval(() => {
-  if(capacityEnergy > 0){
-    capacityEnergy -= 1;
-    changeProggress();
-  }
-}, 5000);
-
-// let tableImg  = document.createElement('img');
-// tableImg.src = '/img/eat/table3.jpg';
-// const table = new fabric.Image(tableImg, {
-//     left: -26.4,
-//     top: 453,
-//     selectable: false,
-//     hasControls: false,
-//     hasBorders: false,
-//     originX: 'left',
-//     originY: 'top',
-// });
-
-// addBob();
-  
-// Foods
-let addFoods = () => {
-  let x = 460;
-  let y = 430;
-  if(foods.length>0){
-    if(foods.length < 3){
-      for (let i = 0; i < foods.length; i++) {
-        createFood(foods[i], x, y, i);
-        x += spacing;
-      }
-    } else{
-      for (let i = 0; i < 3; i++) {
-        createFood(foods[i], x, y, i);
-        x += spacing;
-      }
-    }
-  }
-  
-}
-
-
-addFoods();
-
+//Foods
 function createFood(food, x, y, i){
   fabric.Image.fromURL(food.img, (img) => {
     img.left = x;
@@ -120,7 +115,7 @@ function createFood(food, x, y, i){
     let foodTop = img.top;
     img.on('mouseup', function() {
       // canvas.setActiveObject(img);
-      if((img.left >= 270 && img.left <= 540 && img.top >= 105 && img.top <= 435 && capacityEnergy < 100 && capacityEnergy+food.energy <= 100 ) || food.type === "elixir"){
+      if((img.left >= 270 && img.left <= 540 && img.top >= 105 && img.top <= 435 && kitchen < 100 && kitchen+food.energy <= 100 ) || food.type === "elixir"){
         console.log("I am eat this food")
         switch(food.type){
           case "hot":
@@ -133,7 +128,7 @@ function createFood(food, x, y, i){
             allGame(renderingEatSugar)
           break;
         }
-        capacityEnergy+food.energy > 100 ? capacityEnergy = 100 : capacityEnergy += food.energy;
+        kitchen+food.energy > 100 ? kitchen = 100 : kitchen += food.energy;
         changeProggress();
         canvas.remove(img);
         foods.splice(i, 1);
@@ -182,34 +177,26 @@ const leftArrow = new fabric.Image(imgLeftArrow, {
   hasBorders: false,
 });
 
-setTimeout(addArrow, 200);
-
-// Functions add
-// function addBob() {
-//   // canvas.add(sprite1);
-//   canvas.add(table);
-// }
+setTimeout(addArrow(), 200);
 
 function addArrow (){
   canvas.add(rightArrow);
   canvas.add(leftArrow);
 }
 
-function changeProggress(){
-  progress.innerHTML = capacityEnergy;
-  document.documentElement.style.setProperty('--height', (capacityEnergy * 0.6) + 'px')
-}
-
 //Events
  rightArrow.on('mousedown', function() {
-  foods.push(foods.shift());
-  renderFoods();
-  console.log(foods);
+  if(foods.length>0){
+    foods.push(foods.shift());
+    renderFoods();
+  }
 });
   
 leftArrow.on('mousedown', function() {
-  foods.unshift(foods.pop());
-  renderFoods();
+  if(foods.length>0){
+    foods.unshift(foods.pop());
+    renderFoods();
+  }
 });
 
 // Render
