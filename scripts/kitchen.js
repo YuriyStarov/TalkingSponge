@@ -152,7 +152,7 @@ function createFood(food, x, y, i){
 
 // Arrows
 let imgRightArrow  = document.createElement('img');
-imgRightArrow.src = '/img/eat/arrRight.png';
+imgRightArrow.src = './img/eat/arrRight.png';
 
 const rightArrow = new fabric.Image(imgRightArrow, {
   left: j,
@@ -165,7 +165,7 @@ const rightArrow = new fabric.Image(imgRightArrow, {
 });
 
 let imgLeftArrow  = document.createElement('img');
-imgLeftArrow.src = '/img/eat/arrLeft.png';
+imgLeftArrow.src = './img/eat/arrLeft.png';
 
 const leftArrow = new fabric.Image(imgLeftArrow, {
   left: j + 300,

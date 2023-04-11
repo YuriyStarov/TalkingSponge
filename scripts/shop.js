@@ -35,20 +35,20 @@ export function startCart(){
 }
 
 let ShopFoods = [
-  {img: "../img/eat/apple.png", price: 2, valute: "crystals", top: 78, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
-  {img: "../img/eat/burger.png", price: 5, valute: "coins", top: 88, left: 450, energyType: "food", energy: 20, type: "hot"}, 
-  {img: "../img/eat/cake_1.png", price: 4, valute: "crystals", top: 85, left: 600, energyType: "food", energy: 30, type: "sugar"}, 
-  {img: "../img/eat/cake_2.png", price: 3, valute: "crystals", top: 205, left: 320, energyType: "food", energy: 30, type: "sugar"}, 
-  {img: "../img/eat/choko.png", price: 0, valute: "coins", top: 205, left: 450, energyType: "food", energy: 10, type: "sugar"}, 
-  {img: "../img/eat/coffee.png", price: 2, valute: "crystals", top: 208, left: 600, energyType: "food", energy: 10, type: "hot"}, 
-  {img: "../img/eat/cola.png", price: 2, valute: "coins", top: 325, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
-  {img: "../img/eat/elixir_eat.png", price: 7, valute: "crystals", top: 330, left: 410, energyType: "food", energy: 100, type: "elixir"}, 
-  {img: "../img/eat/elixir_energy.png", price: 7, valute: "crystals", top: 330, left: 520, energyType: "energy", energy: 100, type: "elixir"}, 
-  {img: "../img/eat/elixir_funny.png", price: 7, valute: "crystals", top: 330, left: 620, energyType: "funny", energy: 100, type: "elixir"}, 
-  {img: "../img/eat/milk.png", price: 0, valute: "coins", top: 445, left: 320, energyType: "food", energy: 20, type: "sugar"}, 
-  {img: "../img/eat/pizza.png", price: 7, valute: "coins", top: 445, left: 410, energyType: "food", energy: 40, type: "hot"}, 
-  {img: "../img/eat/potatoes.png", price: 5, valute: "coins", top: 448, left: 520, energyType: "food", energy: 30, type: "hot"}, 
-  {img: "../img/eat/soup.png", price: 8, valute: "coins", top: 450, left: 620, energyType: "food", energy: 20, type: "hot"}
+  {img: "./img/eat/apple.png", price: 2, valute: "crystals", top: 78, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
+  {img: "./img/eat/burger.png", price: 5, valute: "coins", top: 88, left: 450, energyType: "food", energy: 20, type: "hot"}, 
+  {img: "./img/eat/cake_1.png", price: 4, valute: "crystals", top: 85, left: 600, energyType: "food", energy: 30, type: "sugar"}, 
+  {img: "./img/eat/cake_2.png", price: 3, valute: "crystals", top: 205, left: 320, energyType: "food", energy: 30, type: "sugar"}, 
+  {img: "./img/eat/choko.png", price: 0, valute: "coins", top: 205, left: 450, energyType: "food", energy: 10, type: "sugar"}, 
+  {img: "./img/eat/coffee.png", price: 2, valute: "crystals", top: 208, left: 600, energyType: "food", energy: 10, type: "hot"}, 
+  {img: "./img/eat/cola.png", price: 2, valute: "coins", top: 325, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
+  {img: "./img/eat/elixir_eat.png", price: 7, valute: "crystals", top: 330, left: 410, energyType: "food", energy: 100, type: "elixir"}, 
+  {img: "./img/eat/elixir_energy.png", price: 7, valute: "crystals", top: 330, left: 520, energyType: "energy", energy: 100, type: "elixir"}, 
+  {img: "./img/eat/elixir_funny.png", price: 7, valute: "crystals", top: 330, left: 620, energyType: "funny", energy: 100, type: "elixir"}, 
+  {img: "./img/eat/milk.png", price: 0, valute: "coins", top: 445, left: 320, energyType: "food", energy: 20, type: "sugar"}, 
+  {img: "./img/eat/pizza.png", price: 7, valute: "coins", top: 445, left: 410, energyType: "food", energy: 40, type: "hot"}, 
+  {img: "./img/eat/potatoes.png", price: 5, valute: "coins", top: 448, left: 520, energyType: "food", energy: 30, type: "hot"}, 
+  {img: "./img/eat/soup.png", price: 8, valute: "coins", top: 450, left: 620, energyType: "food", energy: 20, type: "hot"}
 ];
 
 // Створюємо об'єкт кошика
