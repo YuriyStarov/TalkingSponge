@@ -14,7 +14,7 @@ Create a room.
 @param {string} options.tagName - The tag name of the room element.
 */
   subElements;
-  constructor({ id, items = [], tagName = '' } = {}) {
+  constructor({ id, items = [], tagName = '', roomTypeItems = [] } = {}) {
     this.id = id;
     this.name = `Room_${id}`;
     this.items = items;
