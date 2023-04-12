@@ -1,0 +1,13 @@
+{
+    "source": {
+      "include": ["scripts/store"]
+    },
+    "tags": {
+      "allowUnknownTags": true,
+      "dictionaries": ["jsdoc"]
+    },
+    "opts": {
+      "destination": "docs/"
+    }
+  }
+  
