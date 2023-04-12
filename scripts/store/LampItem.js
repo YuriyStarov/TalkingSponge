@@ -21,21 +21,17 @@ export default class LampItem extends Item {
     }
 
     toggleLight = () => {
-        // Вместо заднего фона  .jpg необходимо использовать SVG и добавить анимации для затемнения
         if (this.itemLampTogle.classList.contains('on')) {
             this.itemLampTogle.classList.remove('on');
             this.maskForSleep.style.display = 'block';
             this.state = 0;
             goToSleep()
-            // document.body.classList.remove('light-on');
         } else {
             this.itemLampTogle.classList.add('on');
             this.maskForSleep.style.display = 'none';
-            // this.state = 1;
             if (!this.state) {
                 wakeUp();
             }
-            // document.body.classList.add('light-on');
         }
     }
     initEventListener() {

@@ -31,6 +31,8 @@ Create an item.
 /**
   Upgrades the item.
   @function
+  * // after acquiring an enhancement, 
+  * // updates the version and cost information
 */
 
   upgrade() {
@@ -44,7 +46,8 @@ Create an item.
 /**
   Gets the current item version.
   @function
-  @returns {Object} The current item version.
+  @returns {Object} returns an object with a description 
+  * // of all properties of version.
 */
 
   getCurrentVersion() {
@@ -53,7 +56,8 @@ Create an item.
 
 /**
   Renders the item upgrade.
-  @function
+  @function 
+  * // updates the appearance to the current version
 */
 
   renderUpgrade() {
@@ -61,7 +65,7 @@ Create an item.
   }
 
   /**
-  Renders the item.
+  Renders the item HTMLElement.
   @function
   @returns {HTMLElement} The rendered item.
 */
@@ -75,7 +79,6 @@ Create an item.
     this.itemDiv = wrapper.firstElementChild;
     this.itemDiv.append(this.itemLampTogle);
     return wrapper.firstElementChild;
-    return this.itemDiv;
   }
 
 /**
