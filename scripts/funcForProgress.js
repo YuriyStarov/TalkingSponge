@@ -31,7 +31,7 @@ for (let i = 0; i < mainButtonArray.length; i += 1) {
 
 };
 
-/*let goColoring = setInterval (() => {
+let goColoring = setInterval (() => {
 
     collectionBonuses.pleasureLevels.forEach ((el,index) => {
         if (el > 0) {
@@ -43,5 +43,5 @@ for (let i = 0; i < mainButtonArray.length; i += 1) {
         coloringMainButton (el,mainButtonArray[index]);
     });
 
-}, 100)*/
+}, 100)
 

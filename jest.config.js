@@ -1,7 +1,12 @@
+// jest.config.js
 module.exports = {
-    testEnvironment: "node",
-    testMatch: ["**/miniPlay/snake_mini_game/dist/**/*.test.js"],
-    collectCoverage: true,
-    coverageDirectory: "coverage",
-  };
-  
+  displayName: 'talkingspongebob',
+  testEnvironment: 'node',
+  roots: ['<rootDir>'],
+  testMatch: ['**/__tests__/**/*.test.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+  moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
+  moduleNameMapper: {
+    '\\.(css|less|scss|sss|styl)$': '<rootDir>/node_modules/jest-css-modules',
+  },
+  coveragePathIgnorePatterns: ['/node_modules/', '/build/'],
+};

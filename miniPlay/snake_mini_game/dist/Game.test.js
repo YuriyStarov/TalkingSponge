@@ -1,7 +1,10 @@
 // Import the necessary modules and classes
-const { Game } = require('./Game.js');
-const { Snake } = require('./Snake.js');
-const { Food } = require('./Food.js');
+// const { Game } = require('./Game.js');
+// const { Snake } = require('./Snake.js');
+// const { Food } = require('./Food.js');
+import { Game } from './Game.js';
+import { Snake } from './Snake.js';
+import { Food } from './Food.js';
 
 describe('Game', () => {
   describe('initEventListeners()', () => {
