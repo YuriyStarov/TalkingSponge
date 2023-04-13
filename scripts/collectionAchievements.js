@@ -1,4 +1,16 @@
-
+const setLocalStorage = () => {
+    const collectionBonuses = {
+        parsed: false,
+        coins: 20,
+        crystal: 10,
+        foods: [],
+        tickets: 5,
+        dirtBobs: 1,
+        pleasureLevels: [100, 100, 100, 100],
+        countries: []
+    };
+    localStorage.setItem('collectionBonuses', JSON.stringify(collectionBonuses));
+}
 let ipcRenderer;
 let remote;
 let collectionBonuses
@@ -8,6 +20,9 @@ if (typeof window !== 'undefined' && window.process && window.process.type === '
     console.log(collectionBonuses);
 
 } else {
+    setLocalStorage();
+    collectionBonuses = JSON.parse(localStorage.getItem('collectionBonuses'));
+    console.log(collectionBonuses);
     ipcRenderer = null;
     remote = null;
 }
