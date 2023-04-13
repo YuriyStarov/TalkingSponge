@@ -9,6 +9,11 @@ const wrapperKitchen = document.querySelector('#kitchen');
 const toKitchen = document.getElementById ('toKitchen');
 const toPlayRoom = document.getElementById ('toPlayroom');
 const toBedRoom = document.getElementById ('toBedroom');
+const noFoodMusic = document.getElementById ('noFoodMusic');
+const giveMeFoodMusic = document.getElementById ('giveMeFoodMusic');
+const sugarFoodMusic = document.getElementById ('sugarFoodMusic');
+const hotFoodMusic = document.getElementById ('hotFoodMusic');
+const elixirMusic = document.getElementById ('elixirMusic');
 const canvas = new fabric.Canvas('c', { 
   width: 1000,
   height: 700,
@@ -99,6 +104,7 @@ setInterval (() => {
   if(wrapperKitchen.style.display === "block" && kitchen < 60){
     hungryPoint += 1;
     if (hungryPoint === 10) {
+      giveMeFoodMusic.play();
       allGame(renderingEatBurger);
       hungryPoint = 0;
     }
@@ -122,12 +128,15 @@ function createFood(food, x, y, i){
         console.log("I am eat this food");
         switch(food.type){
           case "hot":
+            hotFoodMusic.play();
             allGame(renderingEatHot);
           break;
           case "elixir":
+            elixirMusic.play();
             allGame(renderingEatElixir);
           break;
           case "sugar":
+            sugarFoodMusic.play();
             allGame(renderingEatSugar);
           break;
         }
@@ -159,6 +168,7 @@ function createFood(food, x, y, i){
         renderFoods();
       } else{
         console.log("I am not eat this food");
+        noFoodMusic.play();
         allGame(renderingNoEat);
         img.animate('left', foodLeft, {
           duration: 500,
