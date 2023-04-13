@@ -58,20 +58,20 @@ const blanket = new Item(4, "blanket", 2, { x: 210, y: 330 }, [
 ]);
 
 // Items for kitchen
-const item1 = new Item(1, "item1", 2, { x: 0, y: 0 }, [
-    { name: "item1_1", image: "img/bedRoom/slippers/slippers_1.png" },
-    { name: "item1_2", image: "img/bedRoom/slippers/slippers_2.png" },
-    { name: "item1_3", image: "img/bedRoom/slippers/slippers_3.png" },
+const lamps = new Item(1, "lamps", 2, { x: 400, y: 25, }, [
+    { name: "lamps_1", image: "img/eat/lamps_1.png" },
+    { name: "lamps_2", image: "img/eat/lamps_2.png" },
+    { name: "lamps_3", image: "img/eat/lamps_3.png" },
 ]);
-const item2 = new Item(2, "item2", 2, { x: 0, y: 5 }, [
-    { name: "item2_1", image: "img/bedRoom/lamp/lamp_1.png" },
-    { name: "item2_2", image: "img/bedRoom/lamp/lamp_2.png" },
-    { name: "item2_3", image: "img/bedRoom/lamp/lamp_3.png" },
+const refrigerator = new Item(2, "refrigerator", 2, { x: -5, y: 190}, [
+    { name: "refrigerator_1.png", image: "img/eat/refrigerator_1.png" },
+    { name: "refrigerator_2", image: "img/eat/refrigerator_2.png" },
+    { name: "refrigerator_3", image: "img/eat/refrigerator_3.png" },
 ])
-const item3 = new Item(3, "item3", 2, { x: 0, y: 0 }, [
-    { name: "item3_1", image: "img/bedRoom/rug/rug_1.png" },
-    { name: "item3_2", image: "img/bedRoom/rug/rug_2.png" },
-    { name: "item3_3", image: "img/bedRoom/rug/rug_3.png" },
+const hood = new Item(3, "hood", 2, { x: 582, y: 145 }, [
+    { name: "hood_1", image: "img/eat/hood_1.png" },
+    { name: "hood_2", image: "img/eat/hood_2.png" },
+    { name: "hood_3", image: "img/eat/hood_3.png" },
 ]);
 
 // Items for playroom  NEED TO CHANGE ITEMS
@@ -116,7 +116,7 @@ export const bedRoom = new Room({
     tagName: 'bedRoom'
 });
 
-const itemsKitchen = [item1, item2, item3]
+const itemsKitchen = [lamps, refrigerator, hood]
 export const kitchen = new Room({
     id: 2,
     items: itemsKitchen,

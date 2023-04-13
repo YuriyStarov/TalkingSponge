@@ -1,0 +1,69 @@
+/* .instruction {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 999;
+    display: none;
+  }
+  
+  #preloader.done + .instruction {
+    display: block;
+  }
+   */
+
+   #instruction {
+    position: absolute;
+    display: block;
+    top: 50px;
+    left: 8%;
+    transform: translateX(-50%);
+    z-index: 999;
+    width: 900px;
+    height: 550px;
+    border: 5px solid white;
+    background-color:rgba(255, 255, 255, 0.5);
+    animation: float 2s infinite ease-in-out;
+
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  
+  
+
+  #startAudioModule{
+    position: absolute;
+    top: -7px;
+    right: 0px;
+    z-index: 100;
+    width: 70px;
+    height: 70px;
+    color:blueviolet;
+    background-color: transparent;
+    border: none;
+    font-size: 90px;
+    font-weight: bold;
+  }
+
+  #instruction .name{
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 70px;
+    text-align: center;
+    color: blueviolet;
+  }
+
+  

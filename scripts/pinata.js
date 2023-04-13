@@ -95,7 +95,8 @@ export function bigToLittlePrize (width,height,top,left,fontSize,opacity,endPoin
     pinataPrize.style.top = `${top}px`;
     pinataPrize.style.left = `${left}px`;
     pinataPrize.style.fontSize = `${fontSize}px`;
-    pinataPrize.style.opacity = `opacity`;
+    pinataPrize.style.opacity = `${opacity}`;
+    pinataPrize.style.zIndex = `1000`;
 
     const newWidth = width - 3;
     const newHeight = height -3;
@@ -105,7 +106,9 @@ export function bigToLittlePrize (width,height,top,left,fontSize,opacity,endPoin
     const newOpacity = opacity - 0.025;
     const newEndPoint = endPoint - 1;
 
-    requestAnimationFrame (() => {bigToLittlePrize (newWidth,newHeight,newTop,newLeft,newFontSize,newOpacity,newEndPoint)});
+    setTimeout(() => {
+      requestAnimationFrame (() => {bigToLittlePrize (newWidth,newHeight,newTop,newLeft,newFontSize,newOpacity,newEndPoint)});
+    }, 100);
   }
   else {
     pinataPrize.style.display = 'none';

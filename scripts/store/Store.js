@@ -62,7 +62,7 @@ export default class Store {
 
     this.currentRoom.items.forEach((item) => {
       const itemDiv = item.itemDiv;
-      if (item.currentVersionIndex < item.versions.length - 1) {
+      if (item.currentVersionIndex < item.versions.length) {
         const buyButton = document.createElement("button");
         buyButton.style.backgroundColor = 'transparent';
         buyButton.style.color = 'grey';

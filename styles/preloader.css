@@ -1,0 +1,66 @@
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 1000px;
+    height: 700px;
+    background-color:cornflowerblue;
+    z-index: 9999;
+  }
+  
+  #preloader .spinner {
+    position: absolute;
+    left: 65%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+}
+
+
+  #preloader .spinner .bounce1,
+  #preloader .spinner .bounce2 {
+    position: absolute;
+    top: 0;
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    background-color:#ff3366;
+    animation: sk-bounce 2s infinite ease-in-out;
+  }
+  
+  #preloader .spinner .bounce2 {
+    animation-delay: -1s;
+  }
+  
+  @keyframes sk-bounce {
+    0%,
+    100% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(2);
+    }
+  }
+  
+
+  #preloader .imgLoad{
+    position: absolute;
+    display: flex;
+    width: 600px;
+    height: 500px;
+    left: 10px;
+    top: 60px;
+  }
+
+  #preloader h1{
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 380px;
+    text-align: center;
+    color:gold;
+  }
+  

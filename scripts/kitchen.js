@@ -3,9 +3,12 @@
 import { allGame, RenderObject } from "./rendering.js";
 import { collectionBonuses } from "./collectionAchievements.js";
 import { coloringMainButton } from "./funcForProgress.js";
+import { paintPrize, bigToLittlePrize } from "./pinata.js";
 
 const wrapperKitchen = document.querySelector('#kitchen');
 const toKitchen = document.getElementById ('toKitchen');
+const toPlayRoom = document.getElementById ('toPlayroom');
+const toBedRoom = document.getElementById ('toBedroom');
 const canvas = new fabric.Canvas('c', { 
   width: 1000,
   height: 700,
@@ -128,7 +131,28 @@ function createFood(food, x, y, i){
             allGame(renderingEatSugar);
           break;
         }
-        kitchen+food.energy > 100 ? kitchen = 100 : kitchen += food.energy;
+        if(food.energyType === "food"){
+          kitchen+food.energy > 100 ? kitchen = 100 : kitchen += food.energy;
+          if(kitchen === 100){
+            paintPrize();
+            bigToLittlePrize(170,100,100,500,35,1,35);
+          }
+        } else if(food.energyType === "funny"){
+          playRoom+food.energy > 100 ? playRoom = 100 : playRoom += food.energy;
+          if(playRoom === 100){
+            paintPrize();
+            bigToLittlePrize(170,100,100,500,35,1,35);
+            coloringMainButton(playRoom,toPlayRoom);
+          }
+        }
+        else if(food.energyType === "energy"){
+          bedRoom+food.energy > 100 ? bedRoom = 100 : bedRoom += food.energy;
+          if(bedRoom === 100){
+            paintPrize();
+            bigToLittlePrize(170,100,100,500,35,1,35);
+            coloringMainButton(bedRoom,toBedRoom);
+          }
+        }
         changeProggress();
         canvas.remove(img);
         foods.splice(i, 1);

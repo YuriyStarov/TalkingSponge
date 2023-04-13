@@ -1,6 +1,6 @@
 .item {
     position: relative;
-    z-index: 1000;
+    z-index: 99;
 }
 .lamp {
     position: absolute;
