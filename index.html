@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles/preloader.css">
+        <link rel="stylesheet" href="./styles/instruction.css">
         <link rel="stylesheet" href="./styles/style1.css">
         <link rel="stylesheet" href="./styles/miniGamesMenu.css">
         <link rel="stylesheet" href="./miniPlay/starOff/styles/styles.css">
@@ -13,8 +15,11 @@
         <link rel="stylesheet" href="./scripts/store/store.css">
         <link rel="stylesheet" href="./styles/kitchen.css">
         <link rel="stylesheet" href="./styles/shop.css">
+        <link rel="stylesheet" href="./styles/interiorKitchen.css">
         <link rel="stylesheet" href="./styles/wardrobe.css">
         <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+        <script type="module" src="./scripts/preloader.js"></script>
+        <script type="module" src="./scripts/instruction.js"></script>
         <script type="module" src="./scripts/collectionAchievements.js"></script>
         <script type="module" src="./scripts/customElement.js"></script>
         <script type="module" src="./scripts/queueObject.js"></script>
@@ -35,6 +40,7 @@
         <script type="module" src="./scripts/funcForProgress.js"></script>
         <script type="module" src="./scripts/kitchen.js"></script>
         <script type="module" src="./scripts/shop.js"></script>
+        <script type="module" src="./scripts/interiorKitchen.js"></script>
         <script type="module" src="./scripts/bathroom.js"></script>
         <script type="module" src="./scripts/wardrobe.js"></script>
         <script type="module" src="./miniPlay/starOff/public/rendering.js"></script>
@@ -54,8 +60,23 @@
         <title>Bob`s playroom</title>
     </head>
 <body>
+    <div id="preloader">
+        <h1>TOLKING SPONGE</h1>
+        <div class="imgLoad" >
+            <img src="./img/spongebobLoad.png" alt="Bob">
+        </div>
+        <div class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+        </div>
+      </div>      
+      <div id="instruction" class="instruction">
+          <h1 class="name">INSTRUCTION FOR GAME</h1>
+        <button id="startAudioModule">×</button>
+      </div>
     <!-- <button id="toStore">Go to Store</button>
     <button id="outStore">Out of Store</button> -->
+
     <div id="bedRoom" data-room="bedRoom" class="bedRoom">
     </div>
     <div id="kitchenRoom" data-room="kitchenRoom" class="kitchenRoom">
@@ -64,7 +85,7 @@
     </div>
     <div id="bathroom" data-room="bathroom" class="bathroom">
     </div>
-    <button id="startAudioModule">Start</button>
+    
         <!-- <label>
         Volume: <span id="volumeValue">1</span>
         <input id="volume" type="range" min="0" max="1" value="0" step="0.01">
@@ -265,6 +286,12 @@
         <div id="canvas-container"></div>
         <canvas id="s"></canvas>
         <img id="cart" src="img/eat/cart.png" alt="Cart">
+    </div>
+    <div id="interiorKitchen">
+        <button id="backToKitchenNow" class="btn_backNow">×</button>
+        <div id="canvas-containerInterior"></div>
+        <canvas id="i"></canvas>
+        <img id="table" src="img/eat/greatTable.png" alt="Table">
     </div>
     <div id="airTravel">
         <audio src="./audio/wind_middle.mp3" id="globe_music" loop></audio>

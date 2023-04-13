@@ -37,6 +37,8 @@ const secondaryButton2 = document.getElementById('secondaryButton2');
 const secondaryButton3 = document.getElementById('secondaryButton3');
 const secondaryButton4 = document.getElementById('secondaryButton4');
 const backToKitchen = document.getElementById('backToKitchen');
+const secondaryButton1_2 = document.getElementById('secondaryButton1_2');
+const backToKitchenNow = document.getElementById('backToKitchenNow');
 const wardrobe = document.getElementById('wardrobe');
 const airTravel = document.getElementById('airTravel');
 const backToAllButtons = document.getElementById('backToAllButtons');
@@ -45,6 +47,7 @@ const allCollectionButtonInTravel1 = document.getElementsByClassName('allCollect
 const kitchenRoom = document.querySelector('#kitchen');
 const kitchenCanvas = kitchenRoom.querySelector('#c');
 const foodStore = document.querySelector('#shop');
+const interiorKitchen = document.querySelector('#interiorKitchen');
 const washcloth = document.getElementById('washcloth');
 const showerUp = document.getElementById('showerUp');
 const showerDown = document.getElementById('showerDown');
@@ -56,7 +59,7 @@ const showerCanvas = document.getElementById('showerCanvas');
 const toiletReaction = document.getElementById('toiletReaction');
 
 
-import { bedRoom, kitchenStore } from "./store/main.js";
+import { bedRoom } from "./store/main.js";
 import { kitchen } from "./store/main.js";
 
 const rooms = {
@@ -89,6 +92,7 @@ const rooms = {
         kitchenRoom.style.display = 'block';
         kitchenCanvas.style.display = 'block';
         interior[1].style.display = 'block';
+        interiorKitchen.style.display = 'block';
         textPosition[1].style.display = 'block';
         foodButton[0].style.display = 'block';
         foodButton[1].style.display = 'block';
@@ -101,6 +105,7 @@ const rooms = {
         kitchenRoom.style.display = 'none';
         kitchenCanvas.style.display = 'none'; // Uncaught TypeError: Cannot read properties of null (reading 'style')
         interior[1].style.display = 'none';
+        interiorKitchen.style.display = 'none';
         textPosition[1].style.display = 'none';
         foodButton[0].style.display = 'none';
         foodButton[1].style.display = 'none';
@@ -165,6 +170,7 @@ toMiniGame.addEventListener('click', () => {
     volume2.volume = 0;
     mainGrand.style.display = 'none';
     gameMenu.style.display = 'block';
+    interiorKitchen.style.display = 'none';
 });
 
 giftReaction.addEventListener('click', () => {
@@ -248,7 +254,9 @@ secondaryButton2.addEventListener('click', () => {
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
     wardrobe.style.display = 'block';
+    interiorKitchen.style.display = 'none';
 });
+
 
 secondaryButton3.addEventListener('click', () => {
     volume2.volume = 0;
@@ -264,12 +272,23 @@ secondaryButton4.addEventListener('click', () => {
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
     foodStore.style.display = 'block';
+    backToKitchen.style.display = 'block'
+});
+
+secondaryButton1_2.addEventListener('click', () => {
+    // rooms.kitchenOut();
+    volume2.volume = 1;
+    mainGrand.style.display = 'none';
+    toTravelAndMarket.style.display = 'none';
+    interiorKitchen.style.display = 'block';
+    backToKitchenNow.style.display = 'block'
 });
 
 backToKitchen.addEventListener('click', () => {
     volume2.volume = 1;
     foodStore.style.display = 'none';
     mainGrand.style.display = 'block';
+    backToKitchen.style.display = 'none'
     // toTravelAndMarket.style.display = 'block';
     rooms.bathroomOut();
     rooms.bedroomOut();
@@ -277,6 +296,21 @@ backToKitchen.addEventListener('click', () => {
     rooms.kitchenIn();
     discardInCart();
 });
+
+backToKitchenNow.addEventListener('click', () => {
+    backToKitchen.style.display = 'none'
+    volume2.volume = 1;
+    interiorKitchen.style.display = 'none';
+    gameMenu.style.display = 'none';
+    mainGrand.style.display = 'block';  
+    // gameMenu.style.display = 'block';
+    // toTravelAndMarket.style.display = 'none';
+    rooms.bathroomOut();
+    rooms.bedroomOut();
+    rooms.playroomOut();
+    rooms.kitchenIn();
+});
+
 
 backToAllButtons.addEventListener('click', () => {
     volume2.volume = 1;

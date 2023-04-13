@@ -1,6 +1,6 @@
 'use strict';
 
-import { collectionBonuses } from "./collectionAchievements.js";
+import { collectionBonuses, countCoins, countCrystal } from "./collectionAchievements.js";
 
 
 const wrapper = document.querySelector('#canvas-container');
@@ -22,7 +22,51 @@ let cartMoney = {
 
 let newFood = [];
 
+const cartImage = new fabric.Image(document.getElementById('cart'), {
+  left: 50,
+  top: 380,
+  selectable: false,
+  hoverCursor: 'default',
+  hasControls: false,
+  hasBorders: false,
+  lockMovementX: true,
+  lockMovementY: true,
+  lockRotation: true,
+  lockScalingX: true,
+  lockScalingY: true,
+  opacity: 1,
+  zIndex: 1,
+});
+
+const cartHeader = new fabric.Text('Cart: 0 coins, 0 crystals', {
+  left: 50,
+  top: 360,
+  fontFamily: 'Helvetica',
+  fontSize: 20,
+  fill: '#333',
+  selectable: false,
+  hasControls: false,
+  hasBorders: false,
+});
+
 export function startCart(){
+  const objects = canvas.getObjects();
+
+  objects.forEach(function(object) {
+    if (object.left >= 22 && object.top >= 355 && object.left <= 220 && object.top <= 505) {
+      canvas.remove(object);
+    }
+  });
+
+  // Створюємо об'єкт корзини
+  canvas.add(cartImage);  
+
+  canvas.bringToFront(cartImage);
+
+  // Додаємо текстовий елемент для відображення вартості кошика в заголовку
+  
+  canvas.add(cartHeader);
+
   cartMoney = {
     // totalPrice: 0,
     totalCrystals: 0,
@@ -63,16 +107,26 @@ ShopFoods.forEach(elem => {
     let foodLeft = img.left;
     let foodTop = img.top;
     img.on('mouseup', function(){
-      console.log(img.left)
       if(img.left >= 22 && img.left <= 220 && img.top >= 355 && img.top <= 505){
-        collectionBonuses.foods.push({img: elem.img, energyType: elem.energyType, energy: elem.energy, type: elem.type});
-        newFood.push({img: elem.img})
+        
         switch (elem.valute) {
           case 'coins':
-            cartMoney.totalCoins += elem.price;
+            if(collectionBonuses.coins - elem.price >=0){
+              collectionBonuses.coins -= elem.price;
+              cartMoney.totalCoins += elem.price;
+              countCoins.textContent = collectionBonuses.coins;
+              collectionBonuses.foods.push({img: elem.img, energyType: elem.energyType, energy: elem.energy, type: elem.type});
+              newFood.push({img: elem.img});
+            }
             break;
           case 'crystals':
-            cartMoney.totalCrystals += elem.price;
+            if(collectionBonuses.crystal - elem.price >=0){
+              collectionBonuses.crystal -= elem.price;
+              cartMoney.totalCrystals += elem.price;
+              countCrystal.textContent = collectionBonuses.crystal;
+              collectionBonuses.foods.push({img: elem.img, energyType: elem.energyType, energy: elem.energy, type: elem.type});
+              newFood.push({img: elem.img});
+            }
             break;
         }
         updateCartTotalPrice(cartMoney);
@@ -114,25 +168,6 @@ export function discardInCart(){
   
   });
 }
-
-// Створюємо об'єкт корзини
-const cartImage = new fabric.Image(document.getElementById('cart'), {
-  left: 50,
-  top: 380,
-  selectable: false,
-  hoverCursor: 'default',
-  hasControls: false,
-  hasBorders: false,
-  lockMovementX: true,
-  lockMovementY: true,
-  lockRotation: true,
-  lockScalingX: true,
-  lockScalingY: true,
-  opacity: 1,
-  zIndex: 1,
-});
-
-canvas.add(cartImage);  
 
   const applePriceText = new fabric.Text('2 crystals', {
     left: 320,
@@ -289,25 +324,6 @@ canvas.add(cartImage);
     hasBorders: false,
   });
   canvas.add(soupPriceText);
-
-  canvas.bringToFront(cartImage);
-
-// Додаємо текстовий елемент для відображення вартості кошика в заголовку
-const cartHeader = new fabric.Text('Cart: 0 coins, 0 crystals', {
-  left: 50,
-  top: 360,
-  fontFamily: 'Helvetica',
-  fontSize: 20,
-  fill: '#333',
-  selectable: false,
-  hasControls: false,
-  hasBorders: false,
-});
-canvas.add(cartHeader);
-
-
-
-
 
 function updateCartTotalPrice(cartMoney) {
   // Оновлюємо текстовий елемент з ціною у заголовку кошика

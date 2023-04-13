@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width: 1000px;
+    height: 700px;
+    margin: 0;
+    overflow: hidden;
+}
+
+#i{
+    background-image: url("../img/eat/greatKitchen.jpg");
+    background-size: 1000px 700px;
+    background-repeat: no-repeat;
+}
+
+#interiorKitchen{
+    position: relative;
+    display: none;
+}
+
+.btn_backNow{
+    position: absolute;
+    display: none;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 90px;
+    height: 90px;
+    color:darkred;
+    background-color: transparent;
+    border: none;
+    font-size: 90px;
+    font-weight: bold;
+}
+
+#table{
+    z-index: 98;
+}
+
+#lamps{
+    z-index: 98;
+}
