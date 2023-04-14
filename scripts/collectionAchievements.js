@@ -1,21 +1,34 @@
+const setLocalStorage = () => {
+    const collectionBonuses = {
+        parsed: false,
+        coins: 20,
+        crystal: 10,
+        foods: [],
+        tickets: 5,
+        dirtBobs: 1,
+        pleasureLevels: [100, 100, 100, 100],
+        countries: []
+    };
+    localStorage.setItem('collectionBonuses', JSON.stringify(collectionBonuses));
+}
+let ipcRenderer;
+let remote;
+let collectionBonuses
+if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
+    const { ipcRenderer } = require('electron');
+    collectionBonuses = ipcRenderer.sendSync('get-data');
+    console.log(collectionBonuses);
 
+} else {
+    setLocalStorage();
+    collectionBonuses = JSON.parse(localStorage.getItem('collectionBonuses'));
+    console.log(collectionBonuses);
+    ipcRenderer = null;
+    remote = null;
+}
 const countCoins = document.getElementById('countCoins');
 const countCrystal = document.getElementById('countCrystal');
 
-const collectionBonuses = {
-
-    coins: 20,
-    crystal: 10,
-    foods: [],
-    tickets: 5,
-
-    dirtBobs: 1,
-
-    pleasureLevels: [100, 50, 50, 50],
-
-    countries: []
-
-};
 
 document.addEventListener('moneyUpdate', moneyUpdateEvent);
 

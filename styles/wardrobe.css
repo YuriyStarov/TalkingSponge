@@ -20,3 +20,13 @@
     border: none;
     font-size: 80px;
 }
+
+#mole {
+    position: absolute;
+    top: 270px;
+    left: 300px;
+    width: 375px;
+    height: 225px;
+    background-image: url(../img/wardrobe/mole.png);
+    background-size: 100% 100%;
+}
