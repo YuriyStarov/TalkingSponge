@@ -265,6 +265,8 @@ secondaryButton3.addEventListener('click', () => {
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
     airTravel.style.display = 'block';
+    interiorKitchen.style.display = 'none';
+    giveMeFoodMusic.pause();
 });
 
 secondaryButton4.addEventListener('click', () => {
