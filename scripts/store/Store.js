@@ -64,9 +64,16 @@ export default class Store {
       const itemDiv = item.itemDiv;
       if (item.currentVersionIndex < item.versions.length) {
         const buyButton = document.createElement("button");
+        buyButton.style.position = 'absolute';
+        buyButton.style.left = '70%';
+        buyButton.style.top = '85%';
+        buyButton.style.transform = 'translate(-80%, -50%)';
         buyButton.style.backgroundColor = 'transparent';
-        buyButton.style.color = 'grey';
-        buyButton.style.border = 'solid white 1px';
+        buyButton.style.width = '85px';
+        buyButton.style.color = 'white';
+        buyButton.style.fontSize = '15px';
+        buyButton.style.fontWeight = '900';
+        buyButton.style.border = 'solid white 5px';
         buyButton.textContent = `${item.basePrice} 🪙`;
         buyButton.addEventListener("click", () => {
           this.buyItem(item);

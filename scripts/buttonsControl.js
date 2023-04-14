@@ -103,7 +103,7 @@ const rooms = {
 
     kitchenOut() {
         kitchenRoom.style.display = 'none';
-        kitchenCanvas.style.display = 'none'; // Uncaught TypeError: Cannot read properties of null (reading 'style')
+        kitchenCanvas.style.display = 'none'; 
         interior[1].style.display = 'none';
         interiorKitchen.style.display = 'none';
         textPosition[1].style.display = 'none';

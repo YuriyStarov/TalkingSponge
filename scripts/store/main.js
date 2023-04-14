@@ -63,12 +63,12 @@ const lamps = new Item(1, "lamps", 2, { x: 400, y: 25, }, [
     { name: "lamps_2", image: "img/eat/lamps_2.png" },
     { name: "lamps_3", image: "img/eat/lamps_3.png" },
 ]);
-const refrigerator = new Item(2, "refrigerator", 2, { x: -5, y: 190}, [
+const refrigerator = new Item(2, "refrigerator", 2, { x: 0, y: 190}, [
     { name: "refrigerator_1.png", image: "img/eat/refrigerator_1.png" },
     { name: "refrigerator_2", image: "img/eat/refrigerator_2.png" },
     { name: "refrigerator_3", image: "img/eat/refrigerator_3.png" },
 ])
-const hood = new Item(3, "hood", 2, { x: 582, y: 145 }, [
+const hood = new Item(3, "hood", 2, { x: 576, y: 145 }, [
     { name: "hood_1", image: "img/eat/hood_1.png" },
     { name: "hood_2", image: "img/eat/hood_2.png" },
     { name: "hood_3", image: "img/eat/hood_3.png" },

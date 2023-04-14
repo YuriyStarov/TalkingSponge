@@ -80,12 +80,12 @@ let addFoods = () => {
   let y = 430;
   if(foods.length>0){
     if(foods.length < 3){
-      for (let i = 0; i < foods.length; i++) {
+      for (let i = 0; i < foods.length; i+=1) {
         createFood(foods[i], x, y, i, foods);
         x += spacing;
       }
     } else{
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 3; i+=1) {
         createFood(foods[i], x, y, i, foods);
         x += spacing;
       }

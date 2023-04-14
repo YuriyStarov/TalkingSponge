@@ -7,7 +7,7 @@ const wrapper = document.querySelector('#canvas-container');
 
 wrapper.hoverCursor = 'pointer';
 
-// Створюємо канвас для магазину
+
 const canvas = new fabric.Canvas('s', { 
     width: 1000,
     height: 700,
@@ -15,7 +15,6 @@ const canvas = new fabric.Canvas('s', {
 });
 
 let cartMoney = {
-  // totalPrice: 0,
   totalCrystals: 0,
   totalCoins: 0,
 };
@@ -58,17 +57,15 @@ export function startCart(){
     }
   });
 
-  // Створюємо об'єкт корзини
+
   canvas.add(cartImage);  
 
   canvas.bringToFront(cartImage);
-
-  // Додаємо текстовий елемент для відображення вартості кошика в заголовку
   
   canvas.add(cartHeader);
 
+
   cartMoney = {
-    // totalPrice: 0,
     totalCrystals: 0,
     totalCoins: 0,
   };
@@ -95,7 +92,7 @@ let ShopFoods = [
   {img: "./img/eat/soup.png", price: 8, valute: "coins", top: 450, left: 620, energyType: "food", energy: 20, type: "hot"}
 ];
 
-// Створюємо об'єкт кошика
+// Створення об'єкт кошика
 
 ShopFoods.forEach(elem => {
   fabric.Image.fromURL(elem.img, (img) => {
@@ -325,8 +322,8 @@ export function discardInCart(){
   });
   canvas.add(soupPriceText);
 
+
 function updateCartTotalPrice(cartMoney) {
-  // Оновлюємо текстовий елемент з ціною у заголовку кошика
   cartHeader.set({
     text: `Cart: ${cartMoney.totalCoins} coins, ${cartMoney.totalCrystals} crystals`
   });
@@ -335,51 +332,5 @@ function updateCartTotalPrice(cartMoney) {
 
 
 
-
-
-// function updateCartTotalPrice() {
-//   cartMoney.totalPrice = 0;
-//   cartMoney.totalCrystals = 0;
-//   cartMoney.totalCoins = 0;
-
-//   // Перебираємо всі продукти на канвасі і додаємо ціну продуктів, які знаходяться в корзині, до загальної суми у кошику
-//   canvas.getObjects().forEach(function(img) {
-//     if (img.inCart) {
-//       if (img.priceText.includes('crystals')) {
-//         cartMoney.totalCrystals += parseInt(img.priceText);
-//       } else if (img.priceText.includes('coins')) {
-//         cartMoney.totalCoins += parseInt(img.priceText);
-//       }
-//     }
-//   });
-
-//   // Оновлюємо текстовий елемент з ціною у заголовку кошика
-//   cartHeader.set({
-//     text: `Cart: ${cart.totalCoins} coins, ${cart.totalCrystals} crystals`
-//   });
-//   canvas.renderAll();
-// }
-
-
-// foods.forEach((food) => {
-//   const img = new fabric.Image(food.img, {
-//     left: food.left,
-//     top: food.top,
-//     inCart: false,
-//     price: food.priceText
-//   });
-
-//   img.on('moved', () => {
-//     if (canvas.getActiveObject() === cartImage) {
-//       cartMoney.totalPrice += parseInt(food.priceText);
-//             updateCartTotalPrice();
-//       cartHeader.set({
-//         text: `Cart: ${cartMoney.totalCoins} coins, ${cartMoney.totalCrystals} crystals ($${cartMoney.totalPrice})`,
-//       });
-//       canvas.renderAll();
-//     }
-//   });
-//   canvas.add(img);
-// });
 
 

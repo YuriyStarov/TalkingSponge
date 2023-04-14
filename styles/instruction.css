@@ -26,7 +26,6 @@
     border: 5px solid white;
     background-color:rgba(255, 255, 255, 0.5);
     animation: float 2s infinite ease-in-out;
-
   }
 
   @keyframes float {
@@ -64,6 +63,16 @@
     margin-top: 70px;
     text-align: center;
     color: blueviolet;
+  }
+
+  #instruction .discription{
+    font-size: 32px;
+    font-weight: bold;
+    color:blueviolet;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-align: justify;
   }
 
   
