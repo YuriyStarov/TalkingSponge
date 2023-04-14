@@ -4,6 +4,7 @@ import { allGame, RenderObject } from "./rendering.js";
 import { collectionBonuses } from "./collectionAchievements.js";
 import { coloringMainButton } from "./funcForProgress.js";
 import { paintPrize, bigToLittlePrize } from "./pinata.js";
+// import { gameState } from "./BobTalk.js";
 
 const wrapperKitchen = document.querySelector('#kitchen');
 const toKitchen = document.getElementById ('toKitchen');
@@ -104,6 +105,7 @@ setInterval (() => {
   if(wrapperKitchen.style.display === "block" && kitchen < 60){
     hungryPoint += 1;
     if (hungryPoint === 10) {
+      // gameState.bobBusy = true;
       giveMeFoodMusic.play();
       allGame(renderingEatBurger);
       hungryPoint = 0;
@@ -128,14 +130,17 @@ function createFood(food, x, y, i){
         console.log("I am eat this food");
         switch(food.type){
           case "hot":
+            // gameState.bobBusy = true;
             hotFoodMusic.play();
             allGame(renderingEatHot);
           break;
           case "elixir":
+            // gameState.bobBusy = true;
             elixirMusic.play();
             allGame(renderingEatElixir);
           break;
           case "sugar":
+            // gameState.bobBusy = true;
             sugarFoodMusic.play();
             allGame(renderingEatSugar);
           break;

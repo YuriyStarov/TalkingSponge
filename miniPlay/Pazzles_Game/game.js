@@ -1,13 +1,16 @@
 import { canvasPuzzles, ctx } from "./canvas.js";
 import { moveImg } from "./dragImg.js";
 import { pieces, draw, setupPices, image } from "./pices.js";
+// import { paintPrize, bigToLittlePrize } from "../../scripts/pinata.js";
 const desc = document.querySelector('.discription');
 const btn = document.querySelector('.btn');
 const bg = document.querySelector('.bgImg');
 const wrapper = document.querySelector('.game');
 let btnBack = document.querySelector('#game3');
+let win = false;
 // moveImg();
 function start() {
+    win = true;
     desc === null || desc === void 0 ? void 0 : desc.remove();
     btn === null || btn === void 0 ? void 0 : btn.remove();
     bg === null || bg === void 0 ? void 0 : bg.remove();
@@ -61,6 +64,10 @@ function loop() {
         btnRestart.textContent = 'Restart';
         btnRestart.setAttribute('class', 'btn_restart');
         btnBack.style.display = 'block';
+        if (win) {
+            window.paintPrize();
+            win = false;
+        }
     }
 }
 window.loop = loop;

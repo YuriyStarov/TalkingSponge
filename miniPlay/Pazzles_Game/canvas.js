@@ -4,3 +4,4 @@ ctx.globalCompositeOperation = "destination-over";
 ctx.fillStyle = 'red';
 canvasPuzzles.width = 1000;
 canvasPuzzles.height = 650;
+canvasPuzzles.style.background = 'cornflowerblue';

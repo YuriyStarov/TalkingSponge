@@ -23,7 +23,9 @@ let gameState;
 export default gameState  = {
     bobOnScreen: true,
     bobSleep: false,
-    bobBusy: false
+    bobBusy: false,
+    // bobHungry: false,
+    // bobEat: false,
 };
 
 if (navigator.onLine) {

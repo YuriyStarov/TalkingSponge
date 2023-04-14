@@ -4,17 +4,20 @@ import { moveImg } from "./dragImg.js";
 
 import { pieces,  draw, setupPices, image } from "./pices.js";
 
+// import { paintPrize, bigToLittlePrize } from "../../scripts/pinata.js";
+
 const desc = document.querySelector('.discription') as HTMLDivElement | null;
 const btn = document.querySelector('.btn') as HTMLButtonElement | null;
 const bg = document.querySelector('.bgImg') as HTMLImageElement | null;
 const wrapper = document.querySelector('.game') as HTMLDivElement;
 
 let btnBack = document.querySelector('#game3') as HTMLButtonElement;
-
+let win: boolean = false;
 
 // moveImg();
 
 function start(): void {
+  win = true;
     desc?.remove();
     btn?.remove();
     bg?.remove();
@@ -69,7 +72,10 @@ function loop(): void{
           btnRestart.textContent = 'Restart';
           btnRestart.setAttribute('class', 'btn_restart');
           btnBack.style.display = 'block';
-
+          if (win) {
+            (window as any).paintPrize();
+            win = false;
+          }
       
   }
 }

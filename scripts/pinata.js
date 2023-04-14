@@ -143,3 +143,6 @@ function draw (newSprite) {
 };
 
 reaction.addEventListener ('click', beforeAllGame);
+
+window.paintPrize = paintPrize;
+window.bigToLittlePrize = bigToLittlePrize;

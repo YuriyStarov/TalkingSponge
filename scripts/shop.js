@@ -143,18 +143,32 @@ ShopFoods.forEach(elem => {
 
 });
 
+
+
 function renderInCart(){
+  let newFoodLeft = 0;
+  let newFoodCheker = 0;
   newFood.forEach(elem => {
+    newFoodCheker++;
+    if (newFoodCheker % 6 === 0) {
+      newFoodLeft = 0;
+    }else {
+      newFoodLeft += 20;
+    }
     fabric.Image.fromURL(elem.img, (img) => {
       img.top = 450;
-      img.left = 60;
+      img.left = 60 + newFoodLeft;
       img.selectable = false;
       img.hasControls = false;
       img.hasBorders = false;
       canvas.add(img);
+  
     });
   
   });
+  setTimeout (() => {
+    canvas.bringToFront(cartImage);
+  }, 100); 
 }
 
 export function discardInCart(){
