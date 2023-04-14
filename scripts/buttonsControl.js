@@ -57,6 +57,7 @@ const foodButton = document.getElementsByClassName('foodButton');
 const maskForSleep = document.getElementById('maskForSleep');
 const showerCanvas = document.getElementById('showerCanvas');
 const toiletReaction = document.getElementById('toiletReaction');
+const giveMeFoodMusic = document.getElementById ('giveMeFoodMusic');
 
 
 import { bedRoom } from "./store/main.js";
@@ -226,6 +227,7 @@ backToPlayroom.addEventListener('click', () => {
     volume2.volume = 1;
     gameMenu.style.display = 'none';
     mainGrand.style.display = 'block';
+    setTimeout (() => {bigToLittlePrize(170,100,300,115,35,1,30)},500);
 });
 
 backToPlay.addEventListener('click', () => {
@@ -272,7 +274,8 @@ secondaryButton4.addEventListener('click', () => {
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
     foodStore.style.display = 'block';
-    backToKitchen.style.display = 'block'
+    backToKitchen.style.display = 'block';
+    giveMeFoodMusic.pause();
 });
 
 secondaryButton1_2.addEventListener('click', () => {
@@ -281,7 +284,8 @@ secondaryButton1_2.addEventListener('click', () => {
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
     interiorKitchen.style.display = 'block';
-    backToKitchenNow.style.display = 'block'
+    backToKitchenNow.style.display = 'block';
+    giveMeFoodMusic.pause();
 });
 
 backToKitchen.addEventListener('click', () => {

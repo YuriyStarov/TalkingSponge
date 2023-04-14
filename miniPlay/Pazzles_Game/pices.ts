@@ -9,8 +9,8 @@ interface Piece {
     flag: boolean;
 }
 
-const rows = 3;
-const columns = 3;
+const rows = 1;
+const columns = 2;
 
 const pieceWidth = canvasPuzzles.width / columns;
 const pieceHeight = canvasPuzzles.height / rows;

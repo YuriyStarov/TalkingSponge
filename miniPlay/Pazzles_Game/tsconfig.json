@@ -5,10 +5,11 @@
     "moduleResolution": "node",
     "sourceMap": false,
     "strict": true,
-    "watch": true
+    "watch": true,
+    // "typeRoots": ["./types"],
 },
 // "include": [
-//     "src/**/*"
+//     "../../scripts/pinata.js"
 // ],
 // "exclude": [
 //     "node_modules"
