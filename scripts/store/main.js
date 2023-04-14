@@ -6,8 +6,8 @@ import { collectionBonuses } from "../collectionAchievements.js";
 import { coloringMainButton } from '../funcForProgress.js'
 const toBedRoomStore = document.getElementById('secondaryButton1_4');
 const tokitchenStore = document.getElementById('secondaryButton1_2');
-const toplayroomStore = document.getElementById('secondaryButton1_1');
-const tobathroomStore = document.getElementById('secondaryButton1_3');
+const toPlayroomStore = document.getElementById('secondaryButton1');
+const toBathroomStore = document.getElementById('secondaryButton1_3');
 
 /**
  * Itens for bedRoom 
@@ -75,37 +75,37 @@ const hood = new Item(3, "hood", 2, { x: 576, y: 145 }, [
 ]);
 
 // Items for playroom  NEED TO CHANGE ITEMS
-const item4 = new Item(1, "item1", 2, { x: 500, y: 400 }, [
-    { name: "item1_1", image: "img/bedRoom/slippers/slippers_1.png" },
-    { name: "item1_2", image: "img/bedRoom/slippers/slippers_2.png" },
-    { name: "item1_3", image: "img/bedRoom/slippers/slippers_3.png" },
+const clockWall = new Item(1, "clockWall", 2, { x: 500, y: 400 }, [
+    { name: "clockWall_1", image: "img/playroomItem/clockWall_1.png" },
+    { name: "clockWall_2", image: "img/playroomItem/clockWall_2.png" },
+    { name: "clockWall_3", image: "img/playroomItem/clockWall_3.png" },
 ]);
-const item5 = new Item(2, "item2", 2, { x: 180, y: 155 }, [
-    { name: "item2_1", image: "img/bedRoom/lamp/lamp_1.png" },
-    { name: "item2_2", image: "img/bedRoom/lamp/lamp_2.png" },
-    { name: "item2_3", image: "img/bedRoom/lamp/lamp_3.png" },
+const pictureWall = new Item(2, "pictureWall", 2, { x: 180, y: 155 }, [
+    { name: "pictureWall_1", image: "img/playroomItem/pictureWall_1.png" },
+    { name: "pictureWall_2", image: "img/playroomItem/pictureWall_2.png" },
+    { name: "pictureWall_3", image: "img/playroomItem/pictureWall_3.png" },
 ])
-const item6 = new Item(3, "item3", 2, { x: 390, y: 390 }, [
-    { name: "item3_1", image: "img/bedRoom/rug/rug_1.png" },
-    { name: "item3_2", image: "img/bedRoom/rug/rug_2.png" },
-    { name: "item3_3", image: "img/bedRoom/rug/rug_3.png" },
+const softToy = new Item(3, "softToy", 2, { x: 390, y: 390 }, [
+    { name: "softToy_1", image: "img/playroomItem/softToy_1.png" },
+    { name: "softToy_2", image: "img/playroomItem/softToy_2.png" },
+    { name: "softToy_3", image: "img/playroomItem/softToy_3.png" },
 ]);
 
 // Items for bathroom  NEED TO CHANGE ITEMS
-const item7 = new Item(1, "item1", 2, { x: 500, y: 400 }, [
-    { name: "item1_1", image: "img/bedRoom/slippers/slippers_1.png" },
-    { name: "item1_2", image: "img/bedRoom/slippers/slippers_2.png" },
-    { name: "item1_3", image: "img/bedRoom/slippers/slippers_3.png" },
+const bathMat = new Item(1, "bathMat", 2, { x: 500, y: 400 }, [
+    { name: "bathMat_1", image: "img/playroomItem/bathMat_1.png" },
+    { name: "bathMat_2", image: "img/playroomItem/bathMat_2.png" },
+    { name: "bathMat_3", image: "img/playroomItem/bathMat_3.png" },
 ]);
-const item8 = new Item(2, "item2", 2, { x: 180, y: 155 }, [
-    { name: "item2_1", image: "img/bedRoom/lamp/lamp_1.png" },
-    { name: "item2_2", image: "img/bedRoom/lamp/lamp_2.png" },
-    { name: "item2_3", image: "img/bedRoom/lamp/lamp_3.png" },
+const pictureFriend = new Item(2, "pictureFriend", 2, { x: 180, y: 155 }, [
+    { name: "pictureFriend_1", image: "img/playroomItem/pictureFriend_1.png" },
+    { name: "pictureFriend_2", image: "img/playroomItem/pictureFriend_2.png" },
+    { name: "pictureFriend_3", image: "img/playroomItem/pictureFriend_3.png" },
 ])
-const item9 = new Item(3, "item3", 2, { x: 390, y: 390 }, [
-    { name: "item3_1", image: "img/bedRoom/rug/rug_1.png" },
-    { name: "item3_2", image: "img/bedRoom/rug/rug_2.png" },
-    { name: "item3_3", image: "img/bedRoom/rug/rug_3.png" },
+const hook = new Item(3, "hook", 2, { x: 390, y: 390 }, [
+    { name: "hook_1", image: "img/playroomItem/hook_1.png" },
+    { name: "hook_2", image: "img/playroomItem/hook_2.png" },
+    { name: "hook_3", image: "img/playroomItem/hook_3.png" },
 ]);
 
 
@@ -123,14 +123,14 @@ export const kitchen = new Room({
     tagName: 'kitchenRoom'
 });
 
-const itemsPlayroom = [] // ADD ITEMS
+const itemsPlayroom = [clockWall, pictureWall, softToy]
 export const playRoom = new Room({
     id: 3,
     items: itemsPlayroom,
     tagName: 'playroom'
 });
 
-const itemsBathroom = [] // ADD ITEMS
+const itemsBathroom = [bathMat, pictureFriend, hook] // ADD ITEMS
 export const bathRoom = new Room({
     id: 4,
     items: itemsBathroom,
@@ -179,21 +179,22 @@ tokitchenStore.addEventListener('click', (event) => {
     kitchenStore.open(kitchen);
 });
 
-// toplayroomStore.addEventListener('click', (event) => {
-//     if (toBedRoomStore.classList.contains('open')) {
-//         bedRoomStore.close();
-//         toBedRoomStore.classList.remove("open");
-//         return;
-//     }
-//     toBedRoomStore.classList.add("open");
-//     bedRoomStore.open(bedRoom);
-// });
-// toBedRoomStore.addEventListener('click', (event) => {
-//     if (toBedRoomStore.classList.contains('open')) {
-//         bedRoomStore.close();
-//         toBedRoomStore.classList.remove("open");
-//         return;
-//     }
-//     toBedRoomStore.classList.add("open");
-//     bedRoomStore.open(bedRoom);
-// });
+ toPlayroomStore.addEventListener('click', (event) => {
+     if (toPlayroomStore.classList.contains('open')) {
+         playRoomStore.close();
+         toPlayroomStore.classList.remove("open");
+         return;
+     }
+     toPlayroomStore.classList.add("open");
+     playRoomStore.open(playRoom);
+ });
+
+ toBathroomStore.addEventListener('click', (event) => {
+     if (toBathroomStore.classList.contains('open')) {
+         bathRoomStore.close();
+         toBathroomStore.classList.remove("open");
+         return;
+     }
+     toBathroomStore.classList.add("open");
+     bathRoomStore.open(bathRoom);
+ });
