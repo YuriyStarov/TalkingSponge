@@ -56,6 +56,7 @@ export class BobTalk {
     triggerDuration = 0.1;
     noiseTriggered = false;
     timerStarted = false;
+    isPlaying = false;
     constructor(data = {
         button: '', // в конструктор необходимо передать кнопку после взаимодействия с которой будет запущен модуль
 
@@ -105,7 +106,7 @@ export class BobTalk {
 
 
     checkNoiseLevel = async () => {
-        if (!gameState.bobOnScreen || gameState.bobBusy) {
+        if (!gameState.bobOnScreen || gameState.bobBusy || this.isPlaying) { 
             return;
         }
 
@@ -193,11 +194,14 @@ export class BobTalk {
         toneBufferSourse.start()
         this.audioBufferSourceNode.start(0);
 
+        this.isPlaying = true; 
+
         this.audioBufferSourceNode.addEventListener('ended', () => {
             setTimeout(() => {
                 this.audioBufferSourceNode.disconnect();
                 this.audioContext.close();
                 this.audioContext = null;
+                this.isPlaying = false; 
             }, 1000);
         });
     }
