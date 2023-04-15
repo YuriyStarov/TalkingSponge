@@ -3,6 +3,7 @@ import { kitchenStart } from "./kitchen.js";
 import { toilet, foamCollection, exitFoam, moveWC } from "./bathroom.js";
 import { snakeGameObj } from "../miniPlay/snake_mini_game/dist/index.js";
 import { startCart, discardInCart } from "./shop.js";
+import  gameState  from "../BobTalk.js"
 
 const toPlayroom = document.getElementById('toPlayroom');
 const toKitchen = document.getElementById('toKitchen');
@@ -59,12 +60,26 @@ const showerCanvas = document.getElementById('showerCanvas');
 const toiletReaction = document.getElementById('toiletReaction');
 const giveMeFoodMusic = document.getElementById ('giveMeFoodMusic');
 const playRoomMain = document.getElementById ('playRoom');
-
+const buttonsBackToInteriorShop = document.getElementsByClassName('buttonsBackToInteriorShop');
 
 import { bedRoom } from "./store/main.js";
 import { kitchen } from "./store/main.js";
 import { bathRoom } from "./store/main.js";
 import { playRoom } from "./store/main.js";
+
+volume2.volume = 0.5;
+
+function gameStateIn () {
+    gameState.bobOnScreen = true;
+    gameState.bobSleep = false;
+    volume2.volume = 0.5;
+};
+
+function gameStateOut () {
+    gameState.bobOnScreen = false;
+    gameState.bobSleep = true;
+    volume2.volume = 0;
+};
 
 const rooms = {
 
@@ -175,7 +190,7 @@ const rooms = {
 };
 
 toMiniGame.addEventListener('click', () => {
-    volume2.volume = 0;
+    gameStateOut();
     playRoomMain.style.display = 'none';
     mainGrand.style.display = 'none';
     gameMenu.style.display = 'block';
@@ -183,8 +198,8 @@ toMiniGame.addEventListener('click', () => {
 });
 
 giftReaction.addEventListener('click', () => {
+    gameStateOut();
     playRoomMain.style.display = 'none';
-    volume2.volume = 0;
     mainGrand.style.display = 'none';
     pageOfFortune.style.display = 'block';
 });
@@ -233,7 +248,7 @@ puzzlesGame.addEventListener('click', () => {
 });
 
 backToPlayroom.addEventListener('click', () => {
-    volume2.volume = 1;
+    gameStateIn();
     playRoomMain.style.display = 'block';
     gameMenu.style.display = 'none';
     mainGrand.style.display = 'block';
@@ -241,8 +256,8 @@ backToPlayroom.addEventListener('click', () => {
 });
 
 backToPlay.addEventListener('click', () => {
+    gameStateIn();
     playRoomMain.style.display = 'block';
-    volume2.volume = 1;
     pageOfFortune.style.display = 'none';
     mainGrand.style.display = 'block';
 });
@@ -256,9 +271,11 @@ backToMiniGameMenu.forEach(btn => btn.addEventListener('click', () => {
 
 toMarket.addEventListener('click', () => {
     toTravelAndMarket.style.display = 'block';
+    gameStateOut();
 });
 
 marketBackToPlayroom.addEventListener('click', () => {
+    gameStateIn();
     toTravelAndMarket.style.display = 'none';
 });
 
@@ -293,7 +310,7 @@ secondaryButton4.addEventListener('click', () => {
 
 secondaryButton1_2.addEventListener('click', () => {
     // rooms.kitchenOut();
-    volume2.volume = 1;
+    volume2.volume = 0.5;
     mainGrand.style.display = 'none';
     toTravelAndMarket.style.display = 'none';
     interiorKitchen.style.display = 'block';
@@ -302,7 +319,7 @@ secondaryButton1_2.addEventListener('click', () => {
 });
 
 backToKitchen.addEventListener('click', () => {
-    volume2.volume = 1;
+    volume2.volume = 0.5;
     foodStore.style.display = 'none';
     mainGrand.style.display = 'block';
     backToKitchen.style.display = 'none'
@@ -316,7 +333,7 @@ backToKitchen.addEventListener('click', () => {
 
 backToKitchenNow.addEventListener('click', () => {
     backToKitchen.style.display = 'none'
-    volume2.volume = 1;
+    volume2.volume = 0.5;
     interiorKitchen.style.display = 'none';
     gameMenu.style.display = 'none';
     mainGrand.style.display = 'block';  
@@ -330,13 +347,13 @@ backToKitchenNow.addEventListener('click', () => {
 
 
 backToAllButtons.addEventListener('click', () => {
-    volume2.volume = 1;
+    gameStateIn();
     wardrobe.style.display = 'none';
     mainGrand.style.display = 'block';
 });
 
 backToTravelMenu.addEventListener('click', () => {
-    volume2.volume = 1;
+    gameStateIn();
     airTravel.style.display = 'none';
     mainGrand.style.display = 'block';
 });
@@ -370,3 +387,9 @@ toBedroom.addEventListener('click', () => {
     rooms.kitchenOut();
     rooms.bedroomIn();
 });
+
+for (let i = 0; i < buttonsBackToInteriorShop.length; i += 1) {
+    buttonsBackToInteriorShop[i].addEventListener ('click',() => {
+        gameStateIn();
+    });
+};
