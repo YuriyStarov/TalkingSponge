@@ -1,28 +1,39 @@
-const setLocalStorage = () => {
-    const collectionBonuses = {
-        parsed: false,
-        coins: 20,
-        crystal: 10,
-        foods: [],
-        tickets: 5,
-        dirtBobs: 1,
-        pleasureLevels: [100, 100, 100, 100],
-        countries: []
-    };
-    localStorage.setItem('collectionBonuses', JSON.stringify(collectionBonuses));
-}
+let collectionBonuses = {
+    localStorage: true,
+    coins: 20,
+    crystal: 10,
+    foods: [],
+    tickets: 5,
+    dirtBobs: 1,
+    pleasureLevels: [100, 100, 100, 100],
+    countries: []
+};
 let ipcRenderer;
 let remote;
-let collectionBonuses
+
+const setLocalStorage = (collection) => {
+    localStorage.setItem('collectionBonuses', JSON.stringify(collection));
+}
+
+window.addEventListener('beforeunload', function (e) {
+    // Cancel the event
+    collectionBonuses.savetoLS = true;
+    // e.preventDefault();
+    setLocalStorage(collectionBonuses);
+    // Prompt the user to confirm
+    // e.returnValue = 'jbkbkb';
+  });
+
 if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
     const { ipcRenderer } = require('electron');
     collectionBonuses = ipcRenderer.sendSync('get-data');
-    console.log(collectionBonuses);
 
 } else {
-    setLocalStorage();
+    const firstStart = localStorage.getItem('collectionBonuses');
+    if (!firstStart) {
+        setLocalStorage(collectionBonuses);
+    }
     collectionBonuses = JSON.parse(localStorage.getItem('collectionBonuses'));
-    console.log(collectionBonuses);
     ipcRenderer = null;
     remote = null;
 }

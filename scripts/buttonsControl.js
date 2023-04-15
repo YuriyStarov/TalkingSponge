@@ -62,6 +62,8 @@ const giveMeFoodMusic = document.getElementById ('giveMeFoodMusic');
 
 import { bedRoom } from "./store/main.js";
 import { kitchen } from "./store/main.js";
+import { bathRoom } from "./store/main.js";
+import { playRoom } from "./store/main.js";
 
 const rooms = {
 
@@ -75,6 +77,7 @@ const rooms = {
         lineWithList.style.display = 'block';
         interior[0].style.display = 'block';
         textPosition[0].style.display = 'block';
+        playRoom.render()
     },
 
     playroomOut() {
@@ -86,6 +89,7 @@ const rooms = {
         lineWithList.style.display = 'none';
         interior[0].style.display = 'none';
         textPosition[0].style.display = 'none';
+        playRoom.close();
     },
 
     kitchenIn() {
@@ -124,6 +128,7 @@ const rooms = {
         showerCanvas.style.display = 'block';
         toiletReaction.style.display = 'block';
         toilet();
+        bathRoom.render();
     },
 
     bathroomOut() {
@@ -135,6 +140,7 @@ const rooms = {
         showerCanvas.style.display = 'none';
         toiletReaction.style.display = 'none';
         exitFoam();
+        bathRoom.close();
     },
 
     bedroomIn() {

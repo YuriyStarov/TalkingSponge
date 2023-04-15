@@ -127,14 +127,14 @@ const itemsPlayroom = [clockWall, pictureWall, softToy]
 export const playRoom = new Room({
     id: 3,
     items: itemsPlayroom,
-    tagName: 'playroom'
+    tagName: 'playRoom'
 });
 
 const itemsBathroom = [bathMat, pictureFriend, hook] // ADD ITEMS
 export const bathRoom = new Room({
     id: 4,
     items: itemsBathroom,
-    tagName: 'bathroom'
+    tagName: 'bathRoom'
 });
 
 export const bedRoomStore = new Store({
@@ -148,15 +148,14 @@ export const kitchenStore = new Store({
 });
 
 export const playRoomStore = new Store({
-    room: itemsPlayroom,
+    room: playRoom,
     bonuses: collectionBonuses
 });
 
 export const bathRoomStore = new Store({
-    room: itemsPlayroom,
+    room: bathRoom,
     bonuses: collectionBonuses
 });
-
 
 
 toBedRoomStore.addEventListener('click', (event) => {

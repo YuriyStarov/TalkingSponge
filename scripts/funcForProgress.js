@@ -43,5 +43,5 @@ let goColoring = setInterval (() => {
         coloringMainButton (el,mainButtonArray[index]);
     });
 
-}, 100)
+}, 1500)
 

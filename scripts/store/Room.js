@@ -40,7 +40,7 @@ Create a room.
  * //  <div></div>
  * // </div>
  * //</div>
-  */2
+*/
   render() {
     this.items.forEach((item) => {
       item.itemDiv.remove()
