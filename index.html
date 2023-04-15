@@ -91,7 +91,7 @@
       </label> -->
     <main id="mainGrand">
         <audio src="./audio/voiceBob.m4a" id="main_music"></audio>
-        <audio src="./audio/yawn.mp3" id="yawn_music"></audio>
+        <audio src="./audio/yawn.mp3" id="yawn_music" class="invisible"></audio>
         <audio src="./audio/voiceBobInEye.m4a" id="eyes_music"></audio>
         <audio src="./audio/hand_audio.mp3" id="hand_music"></audio>
         <audio src="./audio/belly_audio.mp3" id="belly_music"></audio>
@@ -108,56 +108,56 @@
         <audio src="./audio/sugarFood.mp3" id="sugarFoodMusic"></audio>
         <audio src="./audio/hotFood.mp3" id="hotFoodMusic"></audio>
         <audio src="./audio/elixir.mp3" id="elixirMusic"></audio>
-        <canvas height="700" id="canvas2" width="1000"></canvas>
-        <canvas height="300" id="canvas3" width="200"></canvas>
-        <canvas height="700" id="canvas" width="1000"></canvas>
+        <canvas height="700" id="canvas2" width="1000" class="invisiblePlay"></canvas>
+        <canvas height="300" id="canvas3" width="200" class="invisiblePlay"></canvas>
+        <canvas height="700" id="canvas" width="1000" class="invisible"></canvas>
         <div id="countCoins" class="countAchievements"></div>
         <img src="./img/eat/one_coin.png" alt="no" class="coinsAndCrystal">
         <div id="countCrystal" class="countAchievements"></div>
         <img src="./img/eat/crystal.png" alt="no" class="coinsAndCrystal" id="crystalTable">
-        <div id="maskForSleep"></div>
-        <div id="dirt"></div>
-        <div id="toiletReaction"></div>
-        <canvas id="showerCanvas"></canvas>
-        <div id="left_leg"></div>
-        <div id="right_leg"></div>
-        <div id="left_hand"></div>
-        <div id="right_hand"></div>
-        <div id="left_eyes"></div>
-        <div id="right_eyes"></div>
-        <div id="jaw"></div>
-        <div id="belly"></div>
-        <div id="pinataReaction"></div>
+        <div id="maskForSleep"></div> <!--jhjhj-->
+        <div id="dirt" class="invisible"></div>
+        <div id="toiletReaction" class="invisibleBath"></div>
+        <canvas id="showerCanvas" class="invisibleBath"></canvas>
+        <div id="left_leg" class="invisible"></div>
+        <div id="right_leg" class="invisible"></div>
+        <div id="left_hand" class="invisible"></div>
+        <div id="right_hand" class="invisible"></div>
+        <div id="left_eyes" class="invisible"></div>
+        <div id="right_eyes" class="invisible"></div>
+        <div id="jaw" class="invisible"></div>
+        <div id="belly" class="invisible"></div>
+        <div id="pinataReaction" class="invisiblePlay"></div>
         <div id="pinataPrize">Your prize<br>2 </div>
-        <div id="giftReaction"></div>
-        <market-button id="toMarket" class="toMarket"></market-button>
-        <button id="toPlayroom" class="buttonMenu">
+        <div id="giftReaction" class="invisiblePlay"></div>
+        <market-button id="toMarket" class="toMarket invisible"></market-button>
+        <button id="toPlayroom" class="buttonMenu invisible">
             <img src="./img/playroomIcon.png" alt="no" id="playroomIcon">
         </button>
-        <svg id="lineWithList" width="30px" height="30px" stroke="beige" stroke-width="3px">
+        <svg id="lineWithList" class="invisiblePlay" width="30px" height="30px" stroke="beige" stroke-width="3px">
             <path d="
             M 0,0
             l 30,19"></path>
         </svg>
-        <button id="toMiniGame" class="secondaryButtons">
+        <button id="toMiniGame" class="secondaryButtons invisiblePlay">
             <img src="./img/consoleIcon.png" alt="no" id="consoleIcon">
         </button>
-        <button id="toKitchen" class="buttonMenu">
+        <button id="toKitchen" class="buttonMenu invisible">
             <img src="./img/kitchenIcon.png" alt="no" id="kitchenIcon">
         </button>
-        <button id="toBathroom" class="buttonMenu">
+        <button id="toBathroom" class="buttonMenu invisible">
             <img src="./img/bathroomIcon.png" alt="no">
         </button>
-        <button id="toBedroom" class="buttonMenu">
+        <button id="toBedroom" class="buttonMenu invisible">
             <img src="./img/bedroomIcon.png" alt="no" id="bedroomIcon">
         </button>
         <div id="kitchen">
             <span class="energy" id="progress"></span>
             <canvas id="c"></canvas>
         </div>
-        <div id="washcloth"></div>
-        <div id="showerUp"></div>
-        <div id="showerDown"></div>
+        <div id="washcloth" class="invisibleBath"></div>
+        <div id="showerUp" class="invisibleBath"></div>
+        <div id="showerDown" class="invisibleBath"></div>
     </main>
     <div id="gameMenu">
         <button id="backToPlayroom">
@@ -356,5 +356,8 @@
         <button id="backToAllButtons">×</button>
         <div id="mole"></div>
     </div>
+    <button id="buttonBackInToPlayroom1" class="buttonsBackToInteriorShop">×</button>
+    <button id="buttonBackInToBathroom1" class="buttonsBackToInteriorShop">×</button>
+    <button id="buttonBackInToBedroom1" class="buttonsBackToInteriorShop">×</button>
 </body>
 </html>

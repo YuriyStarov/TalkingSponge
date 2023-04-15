@@ -9,6 +9,35 @@ const tokitchenStore = document.getElementById('secondaryButton1_2');
 const toPlayroomStore = document.getElementById('secondaryButton1');
 const toBathroomStore = document.getElementById('secondaryButton1_3');
 
+const toTravelAndMarket = document.getElementById('toTravelAndMarket');
+const buttonBackInToPlayroom1 = document.getElementById('buttonBackInToPlayroom1');
+const buttonBackInToBathroom1 = document.getElementById('buttonBackInToBathroom1');
+const buttonBackInToBedroom1 = document.getElementById('buttonBackInToBedroom1');
+const maskForSleep = document.getElementById('maskForSleep');
+const invisible = document.getElementsByClassName ('invisible');
+const invisiblePlay = document.getElementsByClassName ('invisiblePlay');
+const invisibleBath = document.getElementsByClassName ('invisibleBath');
+
+function invisibleInterior (status, collection, collectionPersonal) {
+
+    for (let i = 0; i < collection.length; i += 1) {
+
+        collection[i].style.display = status;
+
+    };
+
+    if (collectionPersonal) {
+
+        for (let i = 0; i < collectionPersonal.length; i += 1) {
+
+            collectionPersonal[i].style.display = status;
+    
+        };
+
+    };
+
+};
+
 /**
  * Itens for bedRoom 
  * variables are created for each room
@@ -159,6 +188,10 @@ export const bathRoomStore = new Store({
 
 
 toBedRoomStore.addEventListener('click', (event) => {
+     toTravelAndMarket.style.display = 'none';
+     buttonBackInToBedroom1.style.display = 'block';
+     maskForSleep.style.opacity = 0;
+     invisibleInterior ('none',invisible);
     if (toBedRoomStore.classList.contains('open')) {
         bedRoomStore.close();
         toBedRoomStore.classList.remove("open");
@@ -179,6 +212,9 @@ tokitchenStore.addEventListener('click', (event) => {
 });
 
  toPlayroomStore.addEventListener('click', (event) => {
+     toTravelAndMarket.style.display = 'none';
+     buttonBackInToPlayroom1.style.display = 'block';
+     invisibleInterior ('none',invisible,invisiblePlay);
      if (toPlayroomStore.classList.contains('open')) {
          playRoomStore.close();
          toPlayroomStore.classList.remove("open");
@@ -189,6 +225,9 @@ tokitchenStore.addEventListener('click', (event) => {
  });
 
  toBathroomStore.addEventListener('click', (event) => {
+     toTravelAndMarket.style.display = 'none';
+     buttonBackInToBathroom1.style.display = 'block';
+     invisibleInterior ('none',invisible,invisibleBath);
      if (toBathroomStore.classList.contains('open')) {
          bathRoomStore.close();
          toBathroomStore.classList.remove("open");
@@ -197,3 +236,40 @@ tokitchenStore.addEventListener('click', (event) => {
      toBathroomStore.classList.add("open");
      bathRoomStore.open(bathRoom);
  });
+
+ buttonBackInToPlayroom1.addEventListener('click', (event) => {
+    buttonBackInToPlayroom1.style.display = 'none';
+    invisibleInterior ('block',invisible,invisiblePlay);
+    if (toPlayroomStore.classList.contains('open')) {
+        playRoomStore.close();
+        toPlayroomStore.classList.remove("open");
+        return;
+    }
+    toPlayroomStore.classList.add("open");
+    playRoomStore.open(playRoom);
+});
+
+buttonBackInToBathroom1.addEventListener('click', (event) => {
+    buttonBackInToBathroom1.style.display = 'none';
+    invisibleInterior ('block',invisible,invisibleBath);
+    if (toBathroomStore.classList.contains('open')) {
+        bathRoomStore.close();
+        toBathroomStore.classList.remove("open");
+        return;
+    }
+    toBathroomStore.classList.add("open");
+    bathRoomStore.open(bathRoom);
+});
+
+buttonBackInToBedroom1.addEventListener('click', (event) => {
+    buttonBackInToBedroom1.style.display = 'none';
+    maskForSleep.style.opacity = 1;
+    invisibleInterior ('block',invisible);
+    if (toBedRoomStore.classList.contains('open')) {
+        bedRoomStore.close();
+        toBedRoomStore.classList.remove("open");
+        return;
+    }
+    toBedRoomStore.classList.add("open");
+    bedRoomStore.open(bedRoom);
+});
