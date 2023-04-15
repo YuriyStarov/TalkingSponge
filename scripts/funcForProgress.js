@@ -5,6 +5,10 @@ const toKitchen = document.getElementById ('toKitchen');
 const toBathroom = document.getElementById ('toBathroom');
 const toBedroom = document.getElementById ('toBedroom');
 
+const buttonsGame = document.getElementsByClassName ('buttonsGame');
+const backToMiniGameMenu = document.getElementsByClassName ('backToMiniGameMenu');
+
+let goIntervalsPlayProgress;
 const mainButtonArray = [];
 
 mainButtonArray.push(toPlayroom);
@@ -45,3 +49,21 @@ let goColoring = setInterval (() => {
 
 }, 1500)
 
+
+for (let i = 0; i < 3; i += 1) {
+
+    buttonsGame[i].addEventListener ('click', () => {
+        goIntervalsPlayProgress = setInterval (() => {
+            collectionBonuses.pleasureLevels[0] += 1;
+            if (collectionBonuses.pleasureLevels[0] > 100) {
+                collectionBonuses.pleasureLevels[0] = 100;
+            };
+            coloringMainButton (collectionBonuses.pleasureLevels[0],toPlayroom);
+        }, 5000);
+    });
+
+    backToMiniGameMenu[i].addEventListener ('click', () => {
+        clearInterval (goIntervalsPlayProgress);
+    });
+
+};
