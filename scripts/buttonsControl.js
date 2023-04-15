@@ -58,6 +58,7 @@ const maskForSleep = document.getElementById('maskForSleep');
 const showerCanvas = document.getElementById('showerCanvas');
 const toiletReaction = document.getElementById('toiletReaction');
 const giveMeFoodMusic = document.getElementById ('giveMeFoodMusic');
+const playRoomMain = document.getElementById ('playRoom');
 
 
 import { bedRoom } from "./store/main.js";
@@ -175,12 +176,14 @@ const rooms = {
 
 toMiniGame.addEventListener('click', () => {
     volume2.volume = 0;
+    playRoomMain.style.display = 'none';
     mainGrand.style.display = 'none';
     gameMenu.style.display = 'block';
     interiorKitchen.style.display = 'none';
 });
 
 giftReaction.addEventListener('click', () => {
+    playRoomMain.style.display = 'none';
     volume2.volume = 0;
     mainGrand.style.display = 'none';
     pageOfFortune.style.display = 'block';
@@ -231,12 +234,14 @@ puzzlesGame.addEventListener('click', () => {
 
 backToPlayroom.addEventListener('click', () => {
     volume2.volume = 1;
+    playRoomMain.style.display = 'block';
     gameMenu.style.display = 'none';
     mainGrand.style.display = 'block';
     setTimeout (() => {bigToLittlePrize(170,100,300,115,35,1,30)},500);
 });
 
 backToPlay.addEventListener('click', () => {
+    playRoomMain.style.display = 'block';
     volume2.volume = 1;
     pageOfFortune.style.display = 'none';
     mainGrand.style.display = 'block';
