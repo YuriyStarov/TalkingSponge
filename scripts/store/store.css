@@ -32,3 +32,8 @@
 body{
     user-select: none;
 }
+
+#bathRoom {
+    position: absolute;
+    z-index: 0;
+}
