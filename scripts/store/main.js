@@ -92,10 +92,10 @@ const softToy = new Item(3, "softToy", 2, { x: 600, y: 180 }, [
 ]);
 
 // Items for bathroom  NEED TO CHANGE ITEMS
-const bathMat = new Item(1, "bathMat", 2, { x: 470, y: 520 }, [
-    { name: "bathMat_1", image: "img/playroomItem/bathMat_1.png" },
-    { name: "bathMat_2", image: "img/playroomItem/bathMat_2.png" },
-    { name: "bathMat_3", image: "img/playroomItem/bathMat_3.png" },
+const flower = new Item(1, "flower", 2, { x: 610, y: 102 }, [
+    { name: "flower_1", image: "img/playroomItem/flower_1.png" },
+    { name: "flower_2", image: "img/playroomItem/flower_2.png" },
+    { name: "flower_3", image: "img/playroomItem/flower_3.png" },
 ]);
 const pictureFriend = new Item(2, "pictureFriend", 2, { x: 710, y: 20 }, [
     { name: "pictureFriend_1", image: "img/playroomItem/pictureFriend_1.png" },
@@ -130,7 +130,7 @@ export const playRoom = new Room({
     tagName: 'playRoom'
 });
 
-const itemsBathroom = [bathMat, pictureFriend, hook] // ADD ITEMS
+const itemsBathroom = [flower, pictureFriend, hook] // ADD ITEMS
 export const bathRoom = new Room({
     id: 4,
     items: itemsBathroom,
