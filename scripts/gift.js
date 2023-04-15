@@ -15,7 +15,7 @@ const counters = {
   gift.src = "./img/gift_box_sprite.png";
   gift.addEventListener(
     "load",
-    ctx.drawImage(gift, 0, 0, 200, 200, 600, 400, 200, 200),
+    ctx.drawImage(gift, 0, 0, 200, 200, 100, 500, 200, 200),
     false
   );
   
@@ -28,7 +28,7 @@ const counters = {
       } else {
         cancelAnimationFrame(allPaint);
         ctx.clearRect(0, 0, widthCtx, heightCtx);
-        ctx.drawImage(gift, 0, 0, 200, 200, 600, 400, 200, 200);
+        ctx.drawImage(gift, 0, 0, 200, 200, 100, 500, 200, 200);
         counters.countTime = 0;
       }
   };
@@ -36,7 +36,7 @@ const counters = {
   let allPaint = requestAnimationFrame(allGame);
   
   function draw () {
-    ctx.drawImage(gift, counters.countSprite, 0, 200, 200, 600, 400, 200, 200),
+    ctx.drawImage(gift, counters.countSprite, 0, 200, 200, 100, 500, 200, 200),
     counters.countSprite += 200;
     if (counters.countSprite > 1900) {
         counters.countSprite = 0;

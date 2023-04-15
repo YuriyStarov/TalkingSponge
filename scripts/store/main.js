@@ -75,34 +75,34 @@ const hood = new Item(3, "hood", 2, { x: 576, y: 145 }, [
 ]);
 
 // Items for playroom  NEED TO CHANGE ITEMS
-const clockWall = new Item(1, "clockWall", 2, { x: 500, y: 400 }, [
+const clockWall = new Item(1, "clockWall", 2, { x: 680, y: 45 }, [
     { name: "clockWall_1", image: "img/playroomItem/clockWall_1.png" },
     { name: "clockWall_2", image: "img/playroomItem/clockWall_2.png" },
     { name: "clockWall_3", image: "img/playroomItem/clockWall_3.png" },
 ]);
-const pictureWall = new Item(2, "pictureWall", 2, { x: 180, y: 155 }, [
+const pictureWall = new Item(2, "pictureWall", 2, { x: 50, y: 30 }, [
     { name: "pictureWall_1", image: "img/playroomItem/pictureWall_1.png" },
     { name: "pictureWall_2", image: "img/playroomItem/pictureWall_2.png" },
     { name: "pictureWall_3", image: "img/playroomItem/pictureWall_3.png" },
 ])
-const softToy = new Item(3, "softToy", 2, { x: 390, y: 390 }, [
+const softToy = new Item(3, "softToy", 2, { x: 600, y: 180 }, [
     { name: "softToy_1", image: "img/playroomItem/softToy_1.png" },
     { name: "softToy_2", image: "img/playroomItem/softToy_2.png" },
     { name: "softToy_3", image: "img/playroomItem/softToy_3.png" },
 ]);
 
 // Items for bathroom  NEED TO CHANGE ITEMS
-const bathMat = new Item(1, "bathMat", 2, { x: 500, y: 400 }, [
+const bathMat = new Item(1, "bathMat", 2, { x: 470, y: 520 }, [
     { name: "bathMat_1", image: "img/playroomItem/bathMat_1.png" },
     { name: "bathMat_2", image: "img/playroomItem/bathMat_2.png" },
     { name: "bathMat_3", image: "img/playroomItem/bathMat_3.png" },
 ]);
-const pictureFriend = new Item(2, "pictureFriend", 2, { x: 180, y: 155 }, [
+const pictureFriend = new Item(2, "pictureFriend", 2, { x: 710, y: 20 }, [
     { name: "pictureFriend_1", image: "img/playroomItem/pictureFriend_1.png" },
     { name: "pictureFriend_2", image: "img/playroomItem/pictureFriend_2.png" },
     { name: "pictureFriend_3", image: "img/playroomItem/pictureFriend_3.png" },
 ])
-const hook = new Item(3, "hook", 2, { x: 390, y: 390 }, [
+const hook = new Item(3, "hook", 2, { x: 60, y: 200 }, [
     { name: "hook_1", image: "img/playroomItem/hook_1.png" },
     { name: "hook_2", image: "img/playroomItem/hook_2.png" },
     { name: "hook_3", image: "img/playroomItem/hook_3.png" },
