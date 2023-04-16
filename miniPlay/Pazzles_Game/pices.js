@@ -1,6 +1,6 @@
 import { canvasPuzzles, ctx } from "./canvas.js";
-const rows = 1;
-const columns = 2;
+const rows = 3;
+const columns = 3;
 const pieceWidth = canvasPuzzles.width / columns;
 const pieceHeight = canvasPuzzles.height / rows;
 const pazzleImg = ["SP_pazzle_1.jpg", "SP_pazzle_2.jpg", "SP_pazzle_3.jpg", "SP_pazzle_4.jpg"];
