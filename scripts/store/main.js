@@ -167,12 +167,12 @@ export const bathRoom = new Room({
 });
 
 export const bedRoomStore = new Store({
-    room: itemsBedroom,
+    room: bedRoom,
     bonuses: collectionBonuses
 });
 
 export const kitchenStore = new Store({
-    room: itemsKitchen,
+    room: kitchen,
     bonuses: collectionBonuses
 });
 

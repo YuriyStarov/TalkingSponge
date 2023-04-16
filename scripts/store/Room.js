@@ -58,8 +58,16 @@ Create a room.
   * // iterates over an array of Item objects, adds each field to the Room, and assigns the corresponding values to it
   */
   addToRoom() {
+    const savedState = JSON.parse(localStorage.getItem(this.tagName));
+
     this.items.forEach(item => {
       item.room = this;
+      if (savedState) {
+        const savedItem = savedState.find(state => state.id === item.id);
+        if (savedItem) {
+          item.currentVersionIndex = savedItem.currentVersionIndex;
+        }
+      }
     })
   }
 

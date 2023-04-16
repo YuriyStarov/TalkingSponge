@@ -19,24 +19,48 @@ export default class Store {
     this.crystal = bonuses.crystal;
     this.room = room;
   }
+  saveState() {
+    const currentState = this.currentRoom.items.map(item => {
+      return {
+        id: item.id,
+        currentVersionIndex: item.currentVersionIndex
+      };
+    });
+    localStorage.setItem(this.room.tagName, JSON.stringify(currentState));
+  }
 
-/**
-  Opens the store.
-  @function
-  @param {Room} room - The associated room.
-*/
+  loadState() {
+    const savedState = JSON.parse(localStorage.getItem(this.room.tagName));
+    if (savedState) {
+      this.currentRoom.items.forEach(item => {
+        // console.log(item);
+        const savedItem = savedState.find(state => state.id === item.id);
+        if (savedItem) {
+          item.currentVersionIndex = savedItem.currentVersionIndex;
+        }
+        item.render();
+      });
+    }
+  }
+
+  /**
+    Opens the store.
+    @function
+    @param {Room} room - The associated room.
+  */
 
   open(room) {
     this.items = room.subElements;
     this.currentRoom = room;
+    this.loadState();
     this.render();
   }
 
-/**
-  Buys an item from the store.  
-  @function
-  @param {Item} item - The item to buy.
-*/
+  /**
+    Buys an item from the store.  
+    @function
+    @param {Item} item - The item to buy.
+  */
 
   buyItem(item) {
     const itemPrice = item.basePrice;
@@ -48,12 +72,14 @@ export default class Store {
 
       const moneyUpdateEvent = new CustomEvent('moneyUpdate', { detail: { coins: this.coins, crystal: this.crystal } });
       document.dispatchEvent(moneyUpdateEvent);
+
+      this.saveState();
     }
   }
-/**
-  Renders the store.
-  @function
-*/
+  /**
+    Renders the store.
+    @function
+  */
   render() {
     if (!this.currentRoom) {
       console.error("No room is associated with the store.");
@@ -83,19 +109,19 @@ export default class Store {
     });
   }
 
-/**
-  Updates the store render.
-  @function
-*/
+  /**
+    Updates the store render.
+    @function
+  */
 
   updateRender() {
     this.currentRoom.render()
   }
 
-/**
-  Closes the store.
-  @function
-*/
+  /**
+    Closes the store.
+    @function
+  */
 
   close() {
     this.currentRoom.items.forEach(item => {
