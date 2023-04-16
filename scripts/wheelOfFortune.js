@@ -1,4 +1,5 @@
 import { collectionBonuses, countCoins, countCrystal } from "./collectionAchievements.js";
+import { ShopFoods } from "./shop.js";
 
 let audioSpin = document.getElementById ('spin_music');
 let spinWheel = document.getElementById ('spinWheel');
@@ -50,38 +51,39 @@ if (counters.countSprite > 10500) {
 function bonusAccount (bonusPosition) {
 
     let imagePath;
+    let indexFoodArray;
+
     const remainder = bonusPosition % 18;
 
     switch (remainder) {
         
         case 0: {
             imagePath = "url(./img/eat/cake_1.png)";
-            collectionBonuses.cakeChocolate += 1;
+            indexFoodArray = 2;
             break
         };
         case 1: {
             imagePath = "url(./img/eat/cake_2.png)";
-            collectionBonuses.cakeVanilla += 1;
+            indexFoodArray = 3;
             break
         };
         case 2: {
             imagePath = "url(./img/eat/cola.png)";
-            collectionBonuses.cola += 1;
+            indexFoodArray = 6;
             break
         };
         case 3: {
             imagePath = "url(./img/eat/milk.png)";
-            collectionBonuses.milk += 1;
+            indexFoodArray = 10;
             break
         };
         case 4: {
             imagePath = "url(./img/eat/pizza.png)";
-            collectionBonuses.pizza += 1;
-            break
+            indexFoodArray = 11;            break
         };
         case 5: {
             imagePath = "url(./img/eat/soup.png)";
-            collectionBonuses.soup += 1;
+            indexFoodArray = 13;
             break
         };
         case 6: {
@@ -92,12 +94,12 @@ function bonusAccount (bonusPosition) {
         };
         case 7: {
             imagePath = "url(./img/eat/elixir_energy.png)";
-            collectionBonuses.elixirWakefulness += 1;
+            indexFoodArray = 8;
             break
         };
         case 8: {
             imagePath = "url(./img/eat/choko.png)";
-            collectionBonuses.chocolate += 1;
+            indexFoodArray = 4;
             break
         };
         case 9: {
@@ -108,17 +110,17 @@ function bonusAccount (bonusPosition) {
         };
         case 10: {
             imagePath = "url(./img/eat/potatoes.png)";
-            collectionBonuses.potatoes += 1;
+            indexFoodArray = 12;
             break
         };
         case 11: {
             imagePath = "url(./img/eat/elixir_funny.png)";
-            collectionBonuses.elixirJoy += 1;
+            indexFoodArray = 9;
             break
         };
         case 12: {
             imagePath = "url(./img/eat/apple.png)";
-            collectionBonuses.apple += 1;
+            indexFoodArray = 0;
             break
         };
         case 13: {
@@ -129,7 +131,7 @@ function bonusAccount (bonusPosition) {
         };
         case 14: {
             imagePath = "url(./img/eat/coffee.png)";
-            collectionBonuses.coffee += 1;
+            indexFoodArray = 5;
             break
         };
         case 15: {
@@ -140,15 +142,18 @@ function bonusAccount (bonusPosition) {
         };
         case 16: {
             imagePath = "url(./img/eat/burger.png)";
-            collectionBonuses.burgers += 1;
+            indexFoodArray = 1;
             break
         };
         case 17: {
             imagePath = "url(./img/eat/elixir_eat.png)";
-            collectionBonuses.elixirSatiety += 1;
+            indexFoodArray = 7;
         };
     };
 
+    if (indexFoodArray + 1) {
+        collectionBonuses.foods.push({img: ShopFoods[indexFoodArray].img, energyType: ShopFoods[indexFoodArray].energyType, energy: ShopFoods[indexFoodArray].energy, type: ShopFoods[indexFoodArray].type});
+    };
     imageBonus.style.backgroundImage = imagePath;
     textWithBonus.style.display = 'block';
     imageBonus.style.display = 'block';

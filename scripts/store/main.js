@@ -4,6 +4,8 @@ import Item from "./Item.js";
 import LampItem from "./lampItem.js";
 import { collectionBonuses } from "../collectionAchievements.js";
 import { coloringMainButton } from '../funcForProgress.js'
+import { backToKitchenNow } from "../buttonsControl.js";
+
 const toBedRoomStore = document.getElementById('secondaryButton1_4');
 const tokitchenStore = document.getElementById('secondaryButton1_2');
 const toPlayroomStore = document.getElementById('secondaryButton1');
@@ -192,21 +194,20 @@ toBedRoomStore.addEventListener('click', (event) => {
      buttonBackInToBedroom1.style.display = 'block';
      maskForSleep.style.opacity = 0;
      invisibleInterior ('none',invisible);
-    if (toBedRoomStore.classList.contains('open')) {
-        bedRoomStore.close();
-        toBedRoomStore.classList.remove("open");
-        return;
-    }
-    toBedRoomStore.classList.add("open");
+    // if (toBedRoomStore.classList.contains('open')) {
+    //     bedRoomStore.close();
+    //     toBedRoomStore.classList.remove("open");
+    //     return;
+    // }
     bedRoomStore.open(bedRoom);
 });
 
 tokitchenStore.addEventListener('click', (event) => {
-    if (tokitchenStore.classList.contains('open')) {
-        kitchenStore.close();
-        tokitchenStore.classList.remove("open");
-        return;
-    }
+    // if (tokitchenStore.classList.contains('open')) {
+    //     // kitchenStore.close();
+    //     tokitchenStore.classList.remove("open");
+    //     return;
+    // }
     tokitchenStore.classList.add("open");
     kitchenStore.open(kitchen);
 });
@@ -215,12 +216,12 @@ tokitchenStore.addEventListener('click', (event) => {
      toTravelAndMarket.style.display = 'none';
      buttonBackInToPlayroom1.style.display = 'block';
      invisibleInterior ('none',invisible,invisiblePlay);
-     if (toPlayroomStore.classList.contains('open')) {
-         playRoomStore.close();
-         toPlayroomStore.classList.remove("open");
-         return;
-     }
-     toPlayroomStore.classList.add("open");
+    //  if (toPlayroomStore.classList.contains('open')) {
+    //      playRoomStore.close();
+    //      toPlayroomStore.classList.remove("open");
+    //      return;
+    //  }
+    //  toPlayroomStore.classList.add("open");
      playRoomStore.open(playRoom);
  });
 
@@ -228,48 +229,56 @@ tokitchenStore.addEventListener('click', (event) => {
      toTravelAndMarket.style.display = 'none';
      buttonBackInToBathroom1.style.display = 'block';
      invisibleInterior ('none',invisible,invisibleBath);
-     if (toBathroomStore.classList.contains('open')) {
-         bathRoomStore.close();
-         toBathroomStore.classList.remove("open");
-         return;
-     }
-     toBathroomStore.classList.add("open");
+    //  if (toBathroomStore.classList.contains('open')) {
+    //      bathRoomStore.close();
+    //      toBathroomStore.classList.remove("open");
+    //      return;
+    //  }
+    //  toBathroomStore.classList.add("open");
      bathRoomStore.open(bathRoom);
  });
 
  buttonBackInToPlayroom1.addEventListener('click', (event) => {
     buttonBackInToPlayroom1.style.display = 'none';
     invisibleInterior ('block',invisible,invisiblePlay);
-    if (toPlayroomStore.classList.contains('open')) {
+    // if (toPlayroomStore.classList.contains('open')) {
         playRoomStore.close();
-        toPlayroomStore.classList.remove("open");
-        return;
-    }
-    toPlayroomStore.classList.add("open");
-    playRoomStore.open(playRoom);
+    //     toPlayroomStore.classList.remove("open");
+    //     return;
+    // }
+    // toPlayroomStore.classList.add("open");
+    // playRoomStore.open(playRoom);
 });
 
 buttonBackInToBathroom1.addEventListener('click', (event) => {
     buttonBackInToBathroom1.style.display = 'none';
     invisibleInterior ('block',invisible,invisibleBath);
-    if (toBathroomStore.classList.contains('open')) {
+    // if (toBathroomStore.classList.contains('open')) {
         bathRoomStore.close();
-        toBathroomStore.classList.remove("open");
-        return;
-    }
-    toBathroomStore.classList.add("open");
-    bathRoomStore.open(bathRoom);
+    //     toBathroomStore.classList.remove("open");
+    //     return;
+    // }
+    // toBathroomStore.classList.add("open");
+    // bathRoomStore.open(bathRoom);
 });
 
 buttonBackInToBedroom1.addEventListener('click', (event) => {
     buttonBackInToBedroom1.style.display = 'none';
     maskForSleep.style.opacity = 1;
     invisibleInterior ('block',invisible);
-    if (toBedRoomStore.classList.contains('open')) {
+    // if (toBedRoomStore.classList.contains('open')) {
         bedRoomStore.close();
-        toBedRoomStore.classList.remove("open");
+    //     toBedRoomStore.classList.remove("open");
+    //     return;
+    // }
+    // toBedRoomStore.classList.add("open");
+    // bedRoomStore.open(bedRoom);
+});
+
+backToKitchenNow.addEventListener('click', (event) => {
+    if (tokitchenStore.classList.contains('open')) {
+        kitchenStore.close();
+        tokitchenStore.classList.remove("open");
         return;
     }
-    toBedRoomStore.classList.add("open");
-    bedRoomStore.open(bedRoom);
 });

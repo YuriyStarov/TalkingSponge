@@ -75,7 +75,7 @@ export function startCart(){
   updateCartTotalPrice(cartMoney);
 }
 
-let ShopFoods = [
+export let ShopFoods = [
   {img: "./img/eat/apple.png", price: 2, valute: "crystals", top: 78, left: 320, energyType: "food", energy: 10, type: "sugar"}, 
   {img: "./img/eat/burger.png", price: 5, valute: "coins", top: 88, left: 450, energyType: "food", energy: 20, type: "hot"}, 
   {img: "./img/eat/cake_1.png", price: 4, valute: "crystals", top: 85, left: 600, energyType: "food", energy: 30, type: "sugar"}, 

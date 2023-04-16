@@ -38,7 +38,7 @@ export default class Store {
         if (savedItem) {
           item.currentVersionIndex = savedItem.currentVersionIndex;
         }
-        item.render();
+        // item.render();
       });
     }
   }
