@@ -1,6 +1,6 @@
 import { collectionBonuses } from "./collectionAchievements.js";
 import { kitchenStart } from "./kitchen.js";
-import { toilet, foamCollection, exitFoam, moveWC } from "./bathroom.js";
+import { toilet, foamCollection, exitFoam, moveWC, toiletAudio, toiletBobsObject } from "./bathroom.js";
 import { snakeGameObj } from "../miniPlay/snake_mini_game/dist/index.js";
 import { startCart, discardInCart } from "./shop.js";
 import  gameState  from "../BobTalk.js"
@@ -135,6 +135,7 @@ const rooms = {
     },
 
     bathroomIn() {
+        toiletAudio.volume = 1;
         mainGrand.style.backgroundImage = 'url(./img/bathroom/bathroomBack.jpg)';
         washcloth.style.display = 'block';
         showerUp.style.display = 'block';
@@ -148,6 +149,8 @@ const rooms = {
     },
 
     bathroomOut() {
+        toiletBobsObject.countEnd = 238;
+        toiletAudio.volume = 0;
         washcloth.style.display = 'none';
         showerUp.style.display = 'none';
         showerDown.style.display = 'none';
