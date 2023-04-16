@@ -1,4 +1,4 @@
-import { RenderObject,  allGame} from "./scripts/rendering.js"; //
+import { RenderObject,  allGame } from "./scripts/rendering.js"; //
 
 let talkImage = new Image(14000,600);  //
 talkImage.src = "./img/talk.png";  //

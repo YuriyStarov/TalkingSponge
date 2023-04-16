@@ -64,6 +64,9 @@ export default class Store {
 
   buyItem(item) {
     const itemPrice = item.basePrice;
+    if (item.currentVersionIndex === 2) {
+      item.currentVersionIndex = -1;
+    }
     if (item.currentVersionIndex < item.versions.length - 1 && this.coins >= itemPrice) {
       item.upgrade();
       this.coins -= itemPrice;
