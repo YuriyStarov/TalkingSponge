@@ -1,3 +1,12 @@
+import { RenderObject,  allGame} from "./scripts/rendering.js"; //
+
+let talkImage = new Image(14000,600);  //
+talkImage.src = "./img/talk.png";  //
+const talkRenderObject = new RenderObject (talkImage, 4, 20, 700, 600, 200, 130, 500, 500); //
+async function talkingCoolBob () {//
+    await allGame (talkRenderObject);//
+    allGame (talkRenderObject);//
+};//
 
 const lowpass = {
     frequency: 110,
@@ -198,6 +207,7 @@ export class BobTalk {
 
         this.audioBufferSourceNode.addEventListener('ended', () => {
             setTimeout(() => {
+                talkingCoolBob();
                 this.audioBufferSourceNode.disconnect();
                 this.audioContext.close();
                 this.audioContext = null;
