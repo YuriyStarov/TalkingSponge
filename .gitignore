@@ -1,3 +1,4 @@
 /.vscode
 /scripts/serializer.js
 /node_modules
+/dist

@@ -72,11 +72,16 @@ const slipper = new Item(1, "slippers", 2, { x: 700, y: 400 }, [
     { name: "slippers_2", image: "img/bedRoom/slippers/slippers_2.png" },
     { name: "slippers_3", image: "img/bedRoom/slippers/slippers_3.png" },
 ]);
-export const lamp = new LampItem(2, "lamp", 2, { x: 80, y: 155 }, [
+import { hack } from "../bobSleep.js";
+
+const lamp = new LampItem(2, "lamp", 2, { x: 80, y: 155 }, [
     { name: "lamp_1", image: "img/bedRoom/lamp/lamp_1.png" },
     { name: "lamp_2", image: "img/bedRoom/lamp/lamp_2.png" },
     { name: "lamp_3", image: "img/bedRoom/lamp/lamp_3.png" },
 ], true)
+
+hack.push(lamp);
+
 const rug = new Item(3, "rug", 2, { x: 90, y: 390 }, [
     { name: "rug_1", image: "img/bedRoom/rug/rug_1.png" },
     { name: "rug_2", image: "img/bedRoom/rug/rug_2.png" },

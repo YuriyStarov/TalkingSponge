@@ -16,9 +16,6 @@ app.on('ready', () => {
         }
     });
 
-    winPlus.setAlwaysOnTop(false);
-    winPlus.webContents.openDevTools();
-
     winPlus.loadFile(join(__dirname, "./index.html"));
 
     winPlus.on("ready-to-show", () => {

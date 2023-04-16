@@ -1,7 +1,7 @@
 import gameState from '../BobTalk.js';
 import { collectionBonuses } from './collectionAchievements.js';
-import { lamp } from './store/main.js';
-
+// import { lamp } from './store/main.js';
+export const hack = [];
 export let sleepTimer;
 
 export const goToSleep = () => {
@@ -24,6 +24,6 @@ export const goToSleep = () => {
 
 export const wakeUp = () => {
     clearInterval(sleepTimer);
-    lamp.state = 1
+    hack[0].state = 1
     gameState.bobSleep = false;
 };
