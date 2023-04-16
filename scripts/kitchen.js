@@ -1,10 +1,9 @@
 'use srtict';
-
 import { allGame, RenderObject } from "./rendering.js";
 import { collectionBonuses } from "./collectionAchievements.js";
 import { coloringMainButton } from "./funcForProgress.js";
 import { paintPrize, bigToLittlePrize } from "./pinata.js";
-// import { gameState } from "./BobTalk.js";
+import gameState from "../BobTalk.js";
 
 const wrapperKitchen = document.querySelector('#kitchen');
 const toKitchen = document.getElementById ('toKitchen');
@@ -47,12 +46,12 @@ const renderingEatSugar = new RenderObject (eatSugar, 8, 20, 700, 600, 200, 130,
 const renderingEatBurger = new RenderObject (eatBurger, 8, 20, 700, 600, 200, 130, 500, 500);
 const renderingNoEat = new RenderObject (noEat, 8, 20, 700, 600, 200, 130, 500, 500);
 
-setInterval(() => {
-  if(kitchen > 0){
-    kitchen -= 1;
-    changeProggress();
-  }
-}, 5000);
+// setInterval(() => {
+//   if(kitchen > 0){
+//     kitchen -= 1;
+//     changeProggress();
+//   }
+// }, 5000);
 
 function changeProggress(){
   progress.innerHTML = kitchen;
@@ -105,13 +104,13 @@ setInterval (() => {
   if(wrapperKitchen.style.display === "block" && kitchen < 60){
     hungryPoint += 1;
     if (hungryPoint === 10) {
-      // gameState.bobBusy = true;
+      gameState.bobBusy = true;
       giveMeFoodMusic.play();
       allGame(renderingEatBurger);
       hungryPoint = 0;
     }
   }
-},1000);
+},5000);
 
 
 //Foods
@@ -130,19 +129,22 @@ function createFood(food, x, y, i){
         console.log("I am eat this food");
         switch(food.type){
           case "hot":
-            // gameState.bobBusy = true;
+            gameState.bobBusy = true;
             hotFoodMusic.play();
             allGame(renderingEatHot);
+            gameState.bobBusy = false;
           break;
           case "elixir":
-            // gameState.bobBusy = true;
+            gameState.bobBusy = true;
             elixirMusic.play();
             allGame(renderingEatElixir);
+            gameState.bobBusy = false;
           break;
           case "sugar":
-            // gameState.bobBusy = true;
+            gameState.bobBusy = true;
             sugarFoodMusic.play();
             allGame(renderingEatSugar);
+            gameState.bobBusy = false;
           break;
         }
         if(food.energyType === "food"){

@@ -3,7 +3,7 @@ import { kitchenStart } from "./kitchen.js";
 import { toilet, foamCollection, exitFoam, moveWC, toiletAudio, toiletBobsObject } from "./bathroom.js";
 import { snakeGameObj } from "../miniPlay/snake_mini_game/dist/index.js";
 import { startCart, discardInCart } from "./shop.js";
-import  gameState  from "../BobTalk.js"
+import  gameState  from "../BobTalk.js";
 
 const toPlayroom = document.getElementById('toPlayroom');
 const toKitchen = document.getElementById('toKitchen');
@@ -118,6 +118,7 @@ const rooms = {
         foodButton[0].style.display = 'block';
         foodButton[1].style.display = 'block';
         foodButton[2].style.display = 'block';
+        giveMeFoodMusic.volume = 1;
         kitchenStart();
         kitchen.render();
     },
@@ -275,6 +276,7 @@ backToMiniGameMenu.forEach(btn => btn.addEventListener('click', () => {
 toMarket.addEventListener('click', () => {
     toTravelAndMarket.style.display = 'block';
     gameStateOut();
+    giveMeFoodMusic.volume = 0;
 });
 
 marketBackToPlayroom.addEventListener('click', () => {
@@ -288,6 +290,7 @@ secondaryButton2.addEventListener('click', () => {
     toTravelAndMarket.style.display = 'none';
     wardrobe.style.display = 'block';
     interiorKitchen.style.display = 'none';
+    giveMeFoodMusic.volume = 0;
 });
 
 
@@ -297,7 +300,7 @@ secondaryButton3.addEventListener('click', () => {
     toTravelAndMarket.style.display = 'none';
     airTravel.style.display = 'block';
     interiorKitchen.style.display = 'none';
-    giveMeFoodMusic.pause();
+    giveMeFoodMusic.volume = 0;
 });
 
 secondaryButton4.addEventListener('click', () => {
@@ -308,7 +311,7 @@ secondaryButton4.addEventListener('click', () => {
     toTravelAndMarket.style.display = 'none';
     foodStore.style.display = 'block';
     backToKitchen.style.display = 'block';
-    giveMeFoodMusic.pause();
+    giveMeFoodMusic.volume = 0;
 });
 
 secondaryButton1_2.addEventListener('click', () => {
@@ -318,7 +321,7 @@ secondaryButton1_2.addEventListener('click', () => {
     toTravelAndMarket.style.display = 'none';
     interiorKitchen.style.display = 'block';
     backToKitchenNow.style.display = 'block';
-    giveMeFoodMusic.pause();
+    giveMeFoodMusic.volume = 0;
 });
 
 backToKitchen.addEventListener('click', () => {
