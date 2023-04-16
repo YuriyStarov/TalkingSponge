@@ -41,6 +41,9 @@ Create an item.
       this.changeAppearance = true;
       this.basePrice *= 2;
     }
+    if (this.currentVersionIndex === 2) {
+      this.currentVersionIndex = 0;
+    }
   }
 
 /**
