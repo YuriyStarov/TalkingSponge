@@ -16,19 +16,11 @@ const setLocalStorage = (collection) => {
 }
 
 window.addEventListener('beforeunload', function (e) {
-    // Cancel the event
     collectionBonuses.savetoLS = true;
-    // e.preventDefault();
+    e.preventDefault();
     setLocalStorage(collectionBonuses);
-    // Prompt the user to confirm
-    // e.returnValue = 'jbkbkb';
   });
 
-if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
-    const { ipcRenderer } = require('electron');
-    collectionBonuses = ipcRenderer.sendSync('get-data');
-
-} else {
     const firstStart = localStorage.getItem('collectionBonuses');
     if (!firstStart) {
         setLocalStorage(collectionBonuses);
@@ -36,7 +28,6 @@ if (typeof window !== 'undefined' && window.process && window.process.type === '
     collectionBonuses = JSON.parse(localStorage.getItem('collectionBonuses'));
     ipcRenderer = null;
     remote = null;
-}
 const countCoins = document.getElementById('countCoins');
 const countCrystal = document.getElementById('countCrystal');
 
